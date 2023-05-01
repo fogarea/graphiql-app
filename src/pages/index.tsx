@@ -7,8 +7,8 @@ const EditorPage = lazy(async () => ({
   default: (await import('./editor')).EditorPage,
 }));
 
-const RegPage = lazy(async () => ({
-  default: (await import('./reg')).RegPage,
+const RegisterPage = lazy(async () => ({
+  default: (await import('./register')).RegisterPage,
 }));
 
 const LoginPage = lazy(async () => ({
@@ -32,7 +32,7 @@ export const Routing = (): JSX.Element => (
     <Route path={routes.welcome} element={<Layout />}>
       <Route index element={<WelcomePage />} />
       <Route path={routes.login} element={<LoginPage />} />
-      <Route path={routes.register} element={<RegPage />} />
+      <Route path={routes.register} element={<RegisterPage />} />
       <Route path={routes.editor} element={<EditorPage />} />
       <Route path="/*" element={<NotFoundPage />} />
     </Route>

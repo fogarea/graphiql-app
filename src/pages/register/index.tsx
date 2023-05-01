@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import { routes } from '../routes';
 
-export const RegPage = (): JSX.Element => {
+export const RegisterPage = (): JSX.Element => {
   return (
     <>
       <h1>Register Page</h1>
