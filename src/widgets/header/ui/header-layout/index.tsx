@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const HeaderLayout = (): JSX.Element => {
   return (
-    <AppBar position="static">
+    <AppBar position="sticky" sx={{ mb: 2 }}>
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           GraphiQL
