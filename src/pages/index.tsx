@@ -1,12 +1,31 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { routes } from './routes';
-import { EditorPage } from './editor';
-import { RegPage } from './reg';
-import { LoginPage } from './login';
-import { WelcomePage } from './welcome';
-import { NotFoundPage } from './not-found';
-import { Layout } from '@/shared/ui';
+
+const EditorPage = lazy(async () => ({
+  default: (await import('./editor')).EditorPage,
+}));
+
+const RegPage = lazy(async () => ({
+  default: (await import('./reg')).RegPage,
+}));
+
+const LoginPage = lazy(async () => ({
+  default: (await import('./login')).LoginPage,
+}));
+
+const WelcomePage = lazy(async () => ({
+  default: (await import('./welcome')).WelcomePage,
+}));
+
+const NotFoundPage = lazy(async () => ({
+  default: (await import('./not-found')).NotFoundPage,
+}));
+
+const Layout = lazy(async () => ({
+  default: (await import('@/shared/ui')).Layout,
+}));
 
 export const Routing = (): JSX.Element => (
   <Routes>
