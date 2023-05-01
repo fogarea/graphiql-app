@@ -24,7 +24,7 @@ const NotFoundPage = lazy(async () => ({
 }));
 
 const Layout = lazy(async () => ({
-  default: (await import('@/shared/ui')).Layout,
+  default: (await import('@/widgets/layout')).Layout,
 }));
 
 export const Routing = (): JSX.Element => (
