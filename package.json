@@ -26,6 +26,11 @@
     ]
   },
   "dependencies": {
+    "@emotion/react": "^11.10.8",
+    "@emotion/styled": "^11.10.8",
+    "@fontsource/roboto": "^4.5.8",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.2",
     "@types/compose-function": "^0.0.30",
     "compose-function": "^3.0.3",
     "react": "^18.2.0",

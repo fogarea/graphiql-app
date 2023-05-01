@@ -1,13 +1,40 @@
-import { TestPage } from '@/pages/test';
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-export const Routing = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<TestPage />}>
-        <Route path="test" element={<TestPage />} />
-        <Route path="*" element={<TestPage />} />
-      </Route>
-    </Routes>
-  );
-};
+import { routes } from './routes';
+
+const EditorPage = lazy(async () => ({
+  default: (await import('./editor')).EditorPage,
+}));
+
+const RegisterPage = lazy(async () => ({
+  default: (await import('./register')).RegisterPage,
+}));
+
+const LoginPage = lazy(async () => ({
+  default: (await import('./login')).LoginPage,
+}));
+
+const WelcomePage = lazy(async () => ({
+  default: (await import('./welcome')).WelcomePage,
+}));
+
+const NotFoundPage = lazy(async () => ({
+  default: (await import('./not-found')).NotFoundPage,
+}));
+
+const Layout = lazy(async () => ({
+  default: (await import('@/widgets/layout')).Layout,
+}));
+
+export const Routing = (): JSX.Element => (
+  <Routes>
+    <Route path={routes.welcome} element={<Layout />}>
+      <Route index element={<WelcomePage />} />
+      <Route path={routes.login} element={<LoginPage />} />
+      <Route path={routes.register} element={<RegisterPage />} />
+      <Route path={routes.editor} element={<EditorPage />} />
+      <Route path="/*" element={<NotFoundPage />} />
+    </Route>
+  </Routes>
+);
