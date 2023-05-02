@@ -1,3 +1,4 @@
+import { LanguageNames, Languages } from '@/shared/config';
 import { Button, ButtonProps, styled } from '@mui/material';
 import { purple } from '@mui/material/colors';
 
@@ -14,18 +15,18 @@ export const LanguageForm = ({ onToggleLanguage }: IChangeLanguageProps): JSX.El
     <>
       <ColorButton
         onClick={() => {
-          onToggleLanguage('en');
+          onToggleLanguage(Languages.English);
         }}
       >
-        English
+        {LanguageNames[Languages.English]}
       </ColorButton>{' '}
       <ColorButton
         variant="outlined"
         onClick={() => {
-          onToggleLanguage('ru');
+          onToggleLanguage(Languages.Russian);
         }}
       >
-        Russian
+        {LanguageNames[Languages.Russian]}
       </ColorButton>
     </>
   );
