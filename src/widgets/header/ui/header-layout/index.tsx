@@ -1,3 +1,4 @@
+import { ChangeLanguage } from '@/features';
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ export const HeaderLayout = (): JSX.Element => {
           </ul>
         </nav>
         <Button color="inherit">Login</Button>
+        <ChangeLanguage />
       </Toolbar>
     </AppBar>
   );
