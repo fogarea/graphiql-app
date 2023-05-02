@@ -1,3 +1,4 @@
+import { LS_LANGUAGE_KEY } from '@/shared/config';
 import { LanguageForm } from './ui';
 import { useTranslation } from 'react-i18next';
 
@@ -8,7 +9,7 @@ export const ChangeLanguage = (): JSX.Element => {
     i18n
       .changeLanguage(lang)
       .then(() => {
-        localStorage.setItem('language', lang);
+        localStorage.setItem(LS_LANGUAGE_KEY, lang);
       })
       .catch(() => {
         // Some error here
