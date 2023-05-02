@@ -16,15 +16,14 @@ export const HeaderLayout = (): JSX.Element => {
             <li>
               <NavLink to="/editor">Editor page</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">Login page</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register page</NavLink>
-            </li>
           </ul>
         </nav>
-        <Button color="inherit">Login</Button>
+        <Button color="inherit">
+          <NavLink to="/login">Sign In</NavLink>
+        </Button>
+        <Button color="inherit">
+          <NavLink to="/register">Sign Up</NavLink>
+        </Button>
       </Toolbar>
     </AppBar>
   );
