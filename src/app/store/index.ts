@@ -1,6 +1,10 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 
-export const rootReducer = combineReducers({});
+import { userReducer } from '@/entities/user';
+
+export const rootReducer = combineReducers({
+  user: userReducer,
+});
 
 export const setupStore = () => {
   return configureStore({
