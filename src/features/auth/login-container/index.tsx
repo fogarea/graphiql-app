@@ -1,31 +1,18 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthForm } from '../ui';
 import { useAuth } from '@/entities/user';
-import { auth } from '@/shared/config';
-
-//TODO: wrap signInWithEmailAndPassword into hook
 
 export const LoginContainer = (): JSX.Element => {
-  const login = useAuth((store) => store.setUser);
+  const loginUser = useAuth((store) => store.loginUser);
 
   const navigate = useNavigate();
 
-  const loginUser = (email: string, password: string) => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) =>
-        login({
-          id: user.uid,
-          email: user.email,
-          token: user.refreshToken,
-        })
-      )
-      .then(() => navigate('/editor'))
-      .catch((e) => {
-        console.log(e);
-      });
+  const loginUserHandler = async (email: string, password: string) => {
+    await loginUser(email, password);
+
+    navigate('/editor');
   };
 
-  return <AuthForm authUser={loginUser} label={'Sign In'} />;
+  return <AuthForm authUser={loginUserHandler} label={'Sign In'} />;
 };

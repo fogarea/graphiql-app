@@ -3,15 +3,18 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '@/entities/user';
 
+//TODO: put buttons inside features
+
 export const HeaderLayout = (): JSX.Element => {
   const isAuth = useAuth((state) => state.isAuth);
 
-  const logout = useAuth((store) => store.removeUser);
+  const logout = useAuth((store) => store.logoutUser);
 
   const navigate = useNavigate();
 
-  const onLogout = () => {
-    logout();
+  const onLogout = async () => {
+    await logout();
+
     navigate('/');
   };
 
@@ -23,7 +26,7 @@ export const HeaderLayout = (): JSX.Element => {
         </Typography>
         {isAuth ? (
           <>
-            <Button color="inherit" onClick={() => onLogout()}>
+            <Button color="inherit" onClick={onLogout}>
               Log out
             </Button>
           </>

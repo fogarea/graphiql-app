@@ -1,31 +1,18 @@
-import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthForm } from '../ui';
 import { useAuth } from '@/entities/user';
-import { auth } from '@/shared/config';
-
-//TODO: wrap createUserWithEmailAndPassword into hook
 
 export const RegisterContainer = (): JSX.Element => {
-  const login = useAuth((store) => store.setUser);
+  const registerUser = useAuth((store) => store.registerUser);
 
   const navigate = useNavigate();
 
-  const registerUser = (email: string, password: string) => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(({ user }) =>
-        login({
-          id: user.uid,
-          email: user.email,
-          token: user.refreshToken,
-        })
-      )
-      .then(() => navigate('/editor'))
-      .catch((e) => {
-        console.log(e);
-      });
+  const registerUserHandler = async (email: string, password: string) => {
+    await registerUser(email, password);
+
+    navigate('/editor');
   };
 
-  return <AuthForm authUser={registerUser} label={'Sign Up'} />;
+  return <AuthForm authUser={registerUserHandler} label={'Sign Up'} />;
 };

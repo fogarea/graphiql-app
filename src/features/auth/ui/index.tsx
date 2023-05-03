@@ -74,6 +74,6 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
 };
 
 interface IAuthForm {
-  authUser: (email: string, password: string) => void;
+  authUser: (email: string, password: string) => Promise<void>;
   label: string;
 }
