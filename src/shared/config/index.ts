@@ -1,3 +1,6 @@
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
+
 const getEnvVar = (key: string): string => {
   if (import.meta.env[key] === undefined) {
     throw new Error(`Env variable ${key} is required`);
@@ -14,3 +17,6 @@ export const firebaseConfig = {
   messagingSenderId: getEnvVar('VITE_FIREBASE_MESSAGING_SENDER_ID'),
   appId: getEnvVar('VITE_FIREBASE_APP_ID'),
 };
+
+export const firebase = initializeApp(firebaseConfig);
+export const auth = getAuth(firebase);
