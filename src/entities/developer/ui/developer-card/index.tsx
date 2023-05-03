@@ -1,10 +1,16 @@
 import { Avatar, Grid, Link, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { IDeveloperData } from '@/entities/developer/types';
 import { useTranslation } from 'react-i18next';
 
-export const DeveloperCard = (props: IDeveloperData): JSX.Element => {
-  const { name, role, avatarSrc, githubName, githubLink } = props;
+import { IDeveloperData } from '@/entities/developer/';
+
+export const DeveloperCard = ({
+  name,
+  role,
+  avatarSrc,
+  githubName,
+  githubLink,
+}: IDeveloperData): JSX.Element => {
   const { t } = useTranslation();
   return (
     <Grid
@@ -29,9 +35,9 @@ export const DeveloperCard = (props: IDeveloperData): JSX.Element => {
         }}
       />
       <Typography variant="h4" textAlign="center">
-        {t(`welcome.${name}`)}
+        {t`welcome.${name}`}
       </Typography>
-      <Typography paragraph>{t(`welcome.${role}`)}</Typography>
+      <Typography paragraph>{t`welcome.${role}`}</Typography>
       <Link color="inherit" href={githubLink}>
         <GitHubIcon />
       </Link>

@@ -1,15 +1,13 @@
-import { Container, Grid, Link, Typography } from '@mui/material';
-import Button from '@mui/material/Button';
-import { DeveloperCardList } from '@/entities/developer/ui';
-import developers from '@/entities/developer/model';
-import { TypeJsonDevelopers } from '@/entities/developer/types';
+import { Button, Container, Grid, Link, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+
+import data, { DeveloperCardList } from '@/entities/developer/';
 import styles from './styles.module.scss';
 
 export const WelcomePage = (): JSX.Element => {
   const { t } = useTranslation();
+  const { developers } = data;
 
-  const authorsJsonData: TypeJsonDevelopers = developers as unknown as TypeJsonDevelopers;
   return (
     <Container className={styles.welcomeContainer}>
       <Grid container spacing={2} flexDirection="row" justifyContent="flex-end">
@@ -26,7 +24,7 @@ export const WelcomePage = (): JSX.Element => {
         </Typography>
       </Grid>
 
-      <DeveloperCardList {...authorsJsonData} />
+      <DeveloperCardList developers={developers} />
 
       <Grid container gap={1} justifyContent="center" mt={2}>
         <Typography paragraph>{t('welcome.course-info1')}</Typography>

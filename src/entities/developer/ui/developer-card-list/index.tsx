@@ -1,10 +1,9 @@
 import { Grid, Typography } from '@mui/material';
-import { DeveloperCard } from '@/entities/developer/ui';
-import { TypeJsonDevelopers } from '@/entities/developer/types';
 import { useTranslation } from 'react-i18next';
 
-export const DeveloperCardList = (props: TypeJsonDevelopers): JSX.Element => {
-  const { developers } = props;
+import { DeveloperCard, TypeJsonDevelopers } from '@/entities/developer/';
+
+export const DeveloperCardList = ({ developers }: TypeJsonDevelopers): JSX.Element => {
   const { t } = useTranslation();
   return (
     <Grid container flexDirection="column" mt={2}>
