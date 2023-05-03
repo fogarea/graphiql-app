@@ -21,7 +21,7 @@ export const resources = { ru, en };
 
 const preferredLanguage = navigator.language === 'ru-RU' ? 'ru' : 'en';
 
-await i18next.use(initReactI18next).init({
+void i18next.use(initReactI18next).init({
   lng: localStorage.getItem(LS_LANGUAGE_KEY) || preferredLanguage,
   debug: true,
   resources,
