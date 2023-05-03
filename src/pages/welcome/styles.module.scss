@@ -5,8 +5,14 @@
   justify-content: space-between;
 }
 
-.paragraphDeveloper {
-  font-size: 2.125rem;
-  margin: 0;
-  font-weight: 500;
+@media screen and (max-width: 768px) {
+  .welcomeContainer {
+    h2 {
+      font-size: 2.75rem;
+      text-align: center;
+    }
+    h3 {
+      font-size: 2.5rem;
+    }
+  }
 }

@@ -17,15 +17,15 @@ export const WelcomePage = (): JSX.Element => {
           <Button variant="contained">Sign Up</Button>
         </Grid>
       </Grid>
-      <Grid container alignItems="flex-start">
-        <Typography variant="h2" className={styles.header2} bgcolor="#fff" padding={2}>
-          GraphiQL is a playground/IDE for graphQL requests.
+      <Grid container alignItems="flex-start" mt={2}>
+        <Typography variant="h2" bgcolor="#fff" padding={2}>
+          GraphiQL is a IDE for graphQL requests.
         </Typography>
       </Grid>
 
       <ListDevelopersCards {...authorsJsonData} />
 
-      <Grid container gap={1} justifyContent="center">
+      <Grid container gap={1} justifyContent="center" mt={2}>
         <Typography paragraph>The application is made in</Typography>
         <Link href="https://rs.school/react/">React Course</Link>
         <Typography paragraph>of the</Typography>
