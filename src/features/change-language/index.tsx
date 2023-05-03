@@ -6,14 +6,11 @@ export const ChangeLanguage = (): JSX.Element => {
   const { i18n } = useTranslation();
 
   const onToggleLanguage = (lang: string) => {
-    i18n
-      .changeLanguage(lang)
-      .then(() => {
+    void i18n.changeLanguage(lang, (err: string) => {
+      if (!err) {
         localStorage.setItem(LS_LANGUAGE_KEY, lang);
-      })
-      .catch(() => {
-        // Some error here
-      });
+      }
+    });
   };
 
   return <LanguageForm onToggleLanguage={onToggleLanguage} />;
