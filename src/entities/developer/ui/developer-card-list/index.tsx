@@ -3,7 +3,7 @@ import { DeveloperCard } from '@/entities/developer/ui';
 import { TypeJsonDevelopers } from '@/entities/developer/types';
 import { useTranslation } from 'react-i18next';
 
-export const ListDevelopersCards = (props: TypeJsonDevelopers): JSX.Element => {
+export const DeveloperCardList = (props: TypeJsonDevelopers): JSX.Element => {
   const { developers } = props;
   const { t } = useTranslation();
   return (

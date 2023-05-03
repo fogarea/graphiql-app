@@ -1,2 +1,2 @@
-export * from './card';
-export * from './card-list';
+export * from './developer-card';
+export * from './developer-card-list';
