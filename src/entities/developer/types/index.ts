@@ -1,4 +1,4 @@
-export interface IAuthorData {
+export interface IDeveloperData {
   name: string;
   role: string;
   avatarSrc: string;
@@ -7,5 +7,5 @@ export interface IAuthorData {
 }
 
 export type TypeJsonDevelopers = {
-  developers: Array<IAuthorData>;
+  developers: Array<IDeveloperData>;
 };

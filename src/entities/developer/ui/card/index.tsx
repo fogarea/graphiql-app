@@ -1,8 +1,8 @@
 import { Avatar, Grid, Link, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import { IAuthorData } from '../../types';
+import { IDeveloperData } from '@/entities/developer/types';
 
-export const AuthorCard = (props: IAuthorData): JSX.Element => {
+export const DeveloperCard = (props: IDeveloperData): JSX.Element => {
   const { name, role, avatarSrc, githubName, githubLink } = props;
   return (
     <Grid

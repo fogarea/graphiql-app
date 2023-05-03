@@ -1,9 +1,12 @@
 import { Container, Grid, Link, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
+import { ListDevelopersCards } from '@/entities/developer/ui';
+import developers from '@/entities/developer/model';
+import { TypeJsonDevelopers } from '@/entities/developer/types';
 import styles from './styles.module.scss';
-import { ListAuthorsCards } from '@/entities/developer/ui';
 
 export const WelcomePage = (): JSX.Element => {
+  const authorsJsonData: TypeJsonDevelopers = developers as unknown as TypeJsonDevelopers;
   return (
     <Container className={styles.welcomeContainer}>
       <Grid container spacing={2} flexDirection="row" justifyContent="flex-end">
@@ -20,7 +23,7 @@ export const WelcomePage = (): JSX.Element => {
         </Typography>
       </Grid>
 
-      <ListAuthorsCards />
+      <ListDevelopersCards {...authorsJsonData} />
 
       <Grid container gap={1} justifyContent="center">
         <Typography paragraph>The application is made in</Typography>
