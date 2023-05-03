@@ -2,6 +2,7 @@ import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { routes } from './routes';
+import { PrivateRoute } from '@/features/private-route';
 
 const EditorPage = lazy(async () => ({
   default: (await import('./editor')).EditorPage,
@@ -33,7 +34,14 @@ export const Routing = (): JSX.Element => (
       <Route index element={<WelcomePage />} />
       <Route path={routes.login} element={<LoginPage />} />
       <Route path={routes.register} element={<RegisterPage />} />
-      <Route path={routes.editor} element={<EditorPage />} />
+      <Route
+        path={routes.editor}
+        element={
+          <PrivateRoute>
+            <EditorPage />
+          </PrivateRoute>
+        }
+      />
       <Route path="/*" element={<NotFoundPage />} />
     </Route>
   </Routes>

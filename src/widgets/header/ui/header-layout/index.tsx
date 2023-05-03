@@ -21,16 +21,6 @@ export const HeaderLayout = (): JSX.Element => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           GraphiQL
         </Typography>
-        <nav>
-          <ul style={{ display: 'flex', gap: '10px', listStyle: 'none' }}>
-            <li>
-              <NavLink to="/">Welcome page</NavLink>
-            </li>
-            <li>
-              <NavLink to="/editor">Editor page</NavLink>
-            </li>
-          </ul>
-        </nav>
         {isAuth ? (
           <>
             <Button color="inherit" onClick={() => onLogout()}>
