@@ -1,1 +1,1 @@
-export { reducer as userReducer, useAuth } from './model';
+export { useAuth } from './model';
