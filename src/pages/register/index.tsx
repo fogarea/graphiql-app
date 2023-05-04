@@ -1,10 +1,17 @@
 import { Grid, Typography } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink } from 'react-router-dom';
 
 import { routes } from '../routes';
 import { RegisterContainer } from '@/features/auth';
+import { useAuth } from '@/entities/user';
 
 export const RegisterPage = (): JSX.Element => {
+  const isAuth = useAuth((state) => state.isAuth);
+
+  if (isAuth) {
+    return <Navigate to={'/editor'} replace />;
+  }
+
   return (
     <>
       <h1>Register Page</h1>
