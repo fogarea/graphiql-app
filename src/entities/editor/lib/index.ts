@@ -16,9 +16,13 @@ export const prettifiedQueryContent = (
   content: string,
   setValue: (value: string) => void
 ): void => {
-  const prettifiedContent = print(parse(content));
+  try {
+    const prettifiedContent = print(parse(content));
 
-  if (prettifiedContent !== content) {
-    setValue(prettifiedContent);
+    if (prettifiedContent !== content) {
+      setValue(prettifiedContent);
+    }
+  } catch {
+    /* Parsing Query failed, skip prettification */
   }
 };
