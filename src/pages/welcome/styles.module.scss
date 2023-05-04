@@ -1,0 +1,18 @@
+.welcomeContainer {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 768px) {
+  .welcomeContainer {
+    h2 {
+      font-size: 2.75rem;
+      text-align: center;
+    }
+    h3 {
+      font-size: 2.5rem;
+    }
+  }
+}

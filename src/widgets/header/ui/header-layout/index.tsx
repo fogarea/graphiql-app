@@ -5,6 +5,7 @@ import { LogoutButton } from '@/features/logout-button';
 import { LoginButton } from '@/features/login-button';
 import { RegisterButton } from '@/features/register-button';
 import { EditorPageButton } from '@/features/editor-page-button';
+import { ChangeLanguage } from '@/features';
 
 export const HeaderLayout = (): JSX.Element => {
   const isAuth = useAuth((state) => state.isAuth);
@@ -26,6 +27,7 @@ export const HeaderLayout = (): JSX.Element => {
             <RegisterButton />
           </>
         )}
+        <ChangeLanguage />
       </Toolbar>
     </AppBar>
   );

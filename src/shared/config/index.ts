@@ -20,3 +20,4 @@ export const firebaseConfig = {
 
 export const firebase = initializeApp(firebaseConfig);
 export const auth = getAuth(firebase);
+export * from './i18n';
