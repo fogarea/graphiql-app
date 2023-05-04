@@ -19,5 +19,25 @@
     "course-info2": "of the"
 
   },
+  "login": {
+    "sign-in": "Sign In",
+    "dont-have-an-account": "Don't have an account?",
+    "sign-up": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "login-action": "Sign In"
+  },
+  "register": {
+    "sign-up": "Sign Up",
+    "already-have-an-account": "Already have an account?",
+    "sign-in": "Sign In",
+    "email": "Email",
+    "password": "Password",
+    "register-action": "Sign Up"
+  },
+  "editor": {
+    "welcome-page": "Go to Main Page",
+    "log-out": "Log out"
+  },
   "demo": "The module provides multiple components eg. to assert that needed translations get loaded or that your content gets rendered when the language changes."
 }
