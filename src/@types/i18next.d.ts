@@ -1,8 +1,13 @@
-import { resources } from '@/shared/config/i18n';
+import 'i18next';
 
 declare module 'i18next' {
   interface CustomTypeOptions {
-    resources: (typeof resources)['en'];
-    defaultNS: string;
+    // custom namespace type, if you changed it
+    defaultNS: 'translation';
+    // custom resources type
+    resources: {
+      en: Record<string, string>;
+      ru: Record<string, string>;
+    };
   }
 }

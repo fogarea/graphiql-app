@@ -1,0 +1,23 @@
+[
+  {
+  "name": "Konstantin Sapronov",
+  "avatarSrc": "./assets/images/shopot.png",
+  "githubName": "shopot",
+  "githubLink": "https://github.com/shopot",
+  "role": "Developer"
+  },
+  {
+  "name": "Konstantin Smirnov",
+  "avatarSrc": "./assets/images/fogarea.png",
+  "githubName": "fogarea",
+  "githubLink": "https://github.com/fogarea",
+  "role": "Team Lead / Developer"
+  },
+  {
+  "name": "Danil Podgorniy",
+  "avatarSrc": "./assets/images/kostili.jpg",
+  "githubName": "kostili-tec",
+  "githubLink": "https://github.com/kostili-tec",
+  "role": "Developer"
+  }
+]

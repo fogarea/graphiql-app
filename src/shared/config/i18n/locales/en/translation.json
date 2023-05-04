@@ -6,7 +6,18 @@
     "clean-query": "Clean query"
   },
   "welcome": {
-    "header": "Welcome page"
+    "sign-in": "Sign in",
+    "sign-up": "Sign up",
+    "description": "GraphiQL is a IDE for graphQL requests.",
+    "our-team": "Our Team:",
+    "Developer": "Developer",
+    "Team Lead / Developer": "Team Lead / Developer",
+    "Konstantin Sapronov": "Konstantin Sapronov",
+    "Konstantin Smirnov": "Konstantin Smirnov",
+    "Danil Podgorniy": "Danil Podgorniy",
+    "course-info1": "The application is made in",
+    "course-info2": "of the"
+
   },
   "demo": "The module provides multiple components eg. to assert that needed translations get loaded or that your content gets rendered when the language changes."
 }
