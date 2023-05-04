@@ -5,7 +5,7 @@ export const EditorPage = (): JSX.Element => {
   return (
     <>
       <h1>Editor page</h1>
-      <Grid spacing={1}>
+      <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <EditorContainer />
         </Grid>
