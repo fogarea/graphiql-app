@@ -13,8 +13,10 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit: SubmitHandler<TypeLoginSchema> = ({ email, password }) =>
-    authUser(email, password);
+  const onSubmit: SubmitHandler<TypeLoginSchema> = async ({ email, password }) => {
+    console.log(111);
+    await authUser(email, password);
+  };
 
   return (
     <>
@@ -30,7 +32,7 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
         <Typography component="h1" variant="h5">
           {label}
         </Typography>
-        <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <form noValidate onSubmit={() => handleSubmit(onSubmit)}>
           <Controller
             name="email"
             control={control}

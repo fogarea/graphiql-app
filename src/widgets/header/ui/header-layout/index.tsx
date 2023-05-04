@@ -1,22 +1,13 @@
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
 import { useAuth } from '@/entities/user';
-
-//TODO: put buttons inside features
+import { LogoutButton } from '@/features/logout-button';
+import { LoginButton } from '@/features/login-button';
+import { RegisterButton } from '@/features/register-button';
+import { EditorPageButton } from '@/features/editor-page-button';
 
 export const HeaderLayout = (): JSX.Element => {
   const isAuth = useAuth((state) => state.isAuth);
-
-  const logout = useAuth((store) => store.logoutUser);
-
-  const navigate = useNavigate();
-
-  const onLogout = async () => {
-    await logout();
-
-    navigate('/');
-  };
 
   return (
     <AppBar position="static">
@@ -26,18 +17,13 @@ export const HeaderLayout = (): JSX.Element => {
         </Typography>
         {isAuth ? (
           <>
-            <Button color="inherit" onClick={onLogout}>
-              Log out
-            </Button>
+            <EditorPageButton />
+            <LogoutButton />
           </>
         ) : (
           <>
-            <Button color="inherit">
-              <NavLink to="/login">Sign In</NavLink>
-            </Button>
-            <Button color="inherit">
-              <NavLink to="/register">Sign Up</NavLink>
-            </Button>
+            <LoginButton />
+            <RegisterButton />
           </>
         )}
       </Toolbar>
