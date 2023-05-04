@@ -1,9 +1,12 @@
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { AuthForm } from '../ui';
 import { useAuth } from '@/entities/user';
 
 export const LoginContainer = (): JSX.Element => {
+  const { t } = useTranslation();
+
   const loginUser = useAuth((store) => store.loginUser);
 
   const navigate = useNavigate();
@@ -14,5 +17,5 @@ export const LoginContainer = (): JSX.Element => {
     navigate('/editor');
   };
 
-  return <AuthForm authUser={loginUserHandler} label={'Sign In'} />;
+  return <AuthForm authUser={loginUserHandler} label={t('login.sign-in')} />;
 };

@@ -1,8 +1,15 @@
-import { Button } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-export const RegisterButton = (): JSX.Element => (
-  <Button color="inherit">
-    <NavLink to="/register">Sign Up</NavLink>
-  </Button>
-);
+export const RegisterButton = (): JSX.Element => {
+  const { t } = useTranslation();
+
+  return (
+    <Grid item>
+      <Button variant="contained">
+        <NavLink to="/register">{t('welcome.sign-up')}</NavLink>
+      </Button>
+    </Grid>
+  );
+};

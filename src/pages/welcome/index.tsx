@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Link, Typography } from '@mui/material';
+import { Container, Grid, Link, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 import data, { DeveloperCardList } from '@/entities/developer/';
@@ -10,14 +10,6 @@ export const WelcomePage = (): JSX.Element => {
 
   return (
     <Container className={styles.welcomeContainer}>
-      <Grid container spacing={2} flexDirection="row" justifyContent="flex-end">
-        <Grid item>
-          <Button variant="contained">{t('welcome.sign-in')}</Button>
-        </Grid>
-        <Grid item>
-          <Button variant="contained">{t('welcome.sign-up')}</Button>
-        </Grid>
-      </Grid>
       <Grid container alignItems="flex-start" mt={2}>
         <Typography variant="h2" bgcolor="#fff" padding={2}>
           {t('welcome.description')}

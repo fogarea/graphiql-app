@@ -1,6 +1,6 @@
-import { withRouter } from './with-router';
 import compose from 'compose-function';
-import './with-firebase';
 import { withI18Next } from './with-i18next';
+import { withRouter } from './with-router';
+import './with-firebase';
 
-export const withProviders = compose(withRouter);
+export const withProviders = compose(withRouter, withI18Next);

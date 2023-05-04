@@ -1,11 +1,14 @@
 import { Button, Box, Typography, TextField, CssBaseline } from '@mui/material';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useTranslation } from 'react-i18next';
 
 import { loginSchema, type TypeLoginSchema } from '../lib';
 import { onPromise } from '@/shared/lib';
 
 export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
+  const { t } = useTranslation();
+
   const {
     handleSubmit,
     formState: { errors },
@@ -40,7 +43,7 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
             render={({ field }) => (
               <TextField
                 {...field}
-                label="Email"
+                label={t('login.email')}
                 variant="outlined"
                 error={!!errors.email}
                 helperText={errors.email ? errors.email?.message : ''}
@@ -57,7 +60,7 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
               <TextField
                 {...field}
                 type="password"
-                label="Password"
+                label={t('login.password')}
                 variant="outlined"
                 error={!!errors.password}
                 helperText={errors.password ? errors.password?.message : ''}
