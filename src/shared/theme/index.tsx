@@ -5,7 +5,6 @@ import {
   StyledEngineProvider,
   ThemeOptions,
   Shadows,
-  Components,
 } from '@mui/material/styles';
 import { ReactNode, useMemo } from 'react';
 
