@@ -5,8 +5,8 @@ const getEnvVar = (key: string): string => {
   if (import.meta.env[key] === undefined) {
     throw new Error(`Env variable ${key} is required`);
   }
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return import.meta.env[key] || '';
+
+  return (import.meta.env[key] as string) || '';
 };
 
 export const firebaseConfig = {

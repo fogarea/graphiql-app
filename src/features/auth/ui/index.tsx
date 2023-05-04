@@ -39,12 +39,13 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
           <Controller
             name="email"
             control={control}
-            defaultValue="example@dev.com"
+            defaultValue=""
             render={({ field }) => (
               <TextField
                 {...field}
                 label={t('login.email')}
                 variant="outlined"
+                placeholder="example@dev.com"
                 error={!!errors.email}
                 helperText={errors.email ? errors.email?.message : ''}
                 fullWidth

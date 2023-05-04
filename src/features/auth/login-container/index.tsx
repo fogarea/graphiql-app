@@ -7,14 +7,19 @@ import { useAuth } from '@/entities/user';
 export const LoginContainer = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const loginUser = useAuth((store) => store.loginUser);
+  const { loginUser, isAuth } = useAuth((store) => ({
+    loginUser: store.loginUser,
+    isAuth: store.isAuth,
+  }));
 
   const navigate = useNavigate();
 
   const loginUserHandler = async (email: string, password: string) => {
     await loginUser(email, password);
 
-    navigate('/editor');
+    if (isAuth) {
+      navigate('/editor');
+    }
   };
 
   return <AuthForm authUser={loginUserHandler} label={t('login.sign-in')} />;

@@ -7,14 +7,19 @@ import { useAuth } from '@/entities/user';
 export const RegisterContainer = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const registerUser = useAuth((store) => store.registerUser);
+  const { registerUser, isAuth } = useAuth((store) => ({
+    registerUser: store.registerUser,
+    isAuth: store.isAuth,
+  }));
 
   const navigate = useNavigate();
 
   const registerUserHandler = async (email: string, password: string) => {
     await registerUser(email, password);
 
-    navigate('/editor');
+    if (isAuth) {
+      navigate('/editor');
+    }
   };
 
   return <AuthForm authUser={registerUserHandler} label={t('register.sign-up')} />;
