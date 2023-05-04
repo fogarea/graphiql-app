@@ -7,7 +7,7 @@ export const EditorPageButton = (): JSX.Element => {
 
   return (
     <Grid item>
-      <Button color="inherit">
+      <Button variant="contained">
         <NavLink to="/editor">{t('editor.welcome-page')}</NavLink>
       </Button>
     </Grid>

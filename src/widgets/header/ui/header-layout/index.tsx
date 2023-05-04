@@ -1,10 +1,7 @@
-import { AppBar, Toolbar, Typography, Grid } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 
 import { useAuth } from '@/entities/user';
 import { LogoutButton } from '@/features/logout-button';
-import { LoginButton } from '@/features/login-button';
-import { RegisterButton } from '@/features/register-button';
-import { EditorPageButton } from '@/features/editor-page-button';
 import { ChangeLanguage } from '@/features';
 
 export const HeaderLayout = (): JSX.Element => {
@@ -16,20 +13,7 @@ export const HeaderLayout = (): JSX.Element => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           GraphiQL
         </Typography>
-        <Grid container spacing={2} flexDirection="row" justifyContent="flex-end">
-          {isAuth ? (
-            <>
-              <EditorPageButton />
-              <LogoutButton />
-            </>
-          ) : (
-            <>
-              <LoginButton />
-              <RegisterButton />
-            </>
-          )}
-        </Grid>
-
+        {isAuth && <LogoutButton />}
         <ChangeLanguage />
       </Toolbar>
     </AppBar>
