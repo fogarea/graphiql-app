@@ -35,9 +35,9 @@ export const DeveloperCard = ({
         }}
       />
       <Typography variant="h4" textAlign="center">
-        {t`welcome.${name}`}
+        {t(`welcome.${name}`)}
       </Typography>
-      <Typography paragraph>{t`welcome.${role}`}</Typography>
+      <Typography paragraph>{t(`welcome.${role}`)}</Typography>
       <Link color="inherit" href={githubLink}>
         <GitHubIcon />
       </Link>
