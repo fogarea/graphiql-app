@@ -5,11 +5,13 @@ import {
   StyledEngineProvider,
   ThemeOptions,
   Shadows,
+  Components,
 } from '@mui/material/styles';
 import { ReactNode, useMemo } from 'react';
 
 import { typography, palette, shadows, customShadows } from './base';
 import { GlobalStyles } from './global-styles';
+import { componentsOverrides } from './overrides';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const themeOptions = useMemo<ThemeOptions>(
@@ -27,6 +29,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   );
 
   const theme = createTheme(themeOptions);
+
+  theme.components = componentsOverrides(theme) as typeof theme.components;
 
   return (
     <StyledEngineProvider injectFirst>
