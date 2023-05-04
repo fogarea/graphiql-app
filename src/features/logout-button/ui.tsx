@@ -1,19 +1,13 @@
 import { Button } from '@mui/material';
 
 import { useLogout } from './model';
-
-//TODO: fix promise
+import { onPromise } from '@/shared/lib';
 
 export const LogoutButton = (): JSX.Element => {
   const { onLogout } = useLogout();
 
   return (
-    <Button
-      color="inherit"
-      onClick={async () => {
-        await onLogout();
-      }}
-    >
+    <Button color="inherit" onClick={onPromise(onLogout)}>
       Log out
     </Button>
   );

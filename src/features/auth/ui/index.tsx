@@ -1,8 +1,9 @@
 import { Button, Box, Typography, TextField, CssBaseline } from '@mui/material';
-import { SubmitHandler, useForm, Controller } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import { loginSchema, type TypeLoginSchema } from '../lib';
+import { onPromise } from '@/shared/lib';
 
 export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
   const {
@@ -13,10 +14,9 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit: SubmitHandler<TypeLoginSchema> = async ({ email, password }) => {
-    console.log(111);
+  const onSubmit = handleSubmit(async ({ email, password }) => {
     await authUser(email, password);
-  };
+  });
 
   return (
     <>
@@ -32,7 +32,7 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
         <Typography component="h1" variant="h5">
           {label}
         </Typography>
-        <form noValidate onSubmit={() => handleSubmit(onSubmit)}>
+        <form noValidate onSubmit={onPromise(onSubmit)}>
           <Controller
             name="email"
             control={control}
