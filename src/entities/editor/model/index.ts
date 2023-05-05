@@ -5,7 +5,10 @@ export const useEditorStore = create<IEditorState>()((set) => ({
   headerCode: '',
   variableCode: '',
   responseCode: '',
-  setQueryCode: (code: string) => set(() => ({ queryCode: code })),
+  setQueryCode: (value: string) => set(() => ({ queryCode: value })),
+  setHeaderCode: (value: string) => set(() => ({ headerCode: value })),
+  setVariableCode: (value: string) => set(() => ({ variableCode: value })),
+  setResponseCode: (value: string) => set(() => ({ responseCode: value })),
 }));
 
 interface IEditorState {
@@ -13,5 +16,8 @@ interface IEditorState {
   headerCode: string;
   variableCode: string;
   responseCode: string;
-  setQueryCode: (code: string) => void;
+  setQueryCode: (value: string) => void;
+  setHeaderCode: (value: string) => void;
+  setVariableCode: (value: string) => void;
+  setResponseCode: (value: string) => void;
 }
