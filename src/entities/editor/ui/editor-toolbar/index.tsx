@@ -2,7 +2,6 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ClearAllIcon from '@mui/icons-material/ClearAll';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import TextFormatIcon from '@mui/icons-material/TextFormat';
-import Grid from '@mui/material/Grid/Grid';
 import { TooltipButton } from '@/shared/ui';
 
 export const EditorToolbar = ({
@@ -12,13 +11,7 @@ export const EditorToolbar = ({
   cleanQuery,
 }: IEditorToolbarProps): JSX.Element => {
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="flex-start"
-      alignItems="center"
-      sx={{ width: '100%' }}
-    >
+    <>
       <TooltipButton title="Execute query" onClick={execQuery}>
         <PlayArrowIcon />
       </TooltipButton>
@@ -31,7 +24,7 @@ export const EditorToolbar = ({
       <TooltipButton title="Clean query" onClick={cleanQuery}>
         <ClearAllIcon />
       </TooltipButton>
-    </Grid>
+    </>
   );
 };
 
