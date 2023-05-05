@@ -12,7 +12,7 @@ import { typography, palette, shadows, customShadows } from './base';
 import { GlobalStyles } from './global-styles';
 import { componentsOverrides } from './overrides';
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+export const ThemeProvider = ({ children }: IThemeProviderProps) => {
   const themeOptions = useMemo<ThemeOptions>(
     () => ({
       palette: {
@@ -41,3 +41,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     </StyledEngineProvider>
   );
 };
+
+interface IThemeProviderProps {
+  children: ReactNode;
+}
