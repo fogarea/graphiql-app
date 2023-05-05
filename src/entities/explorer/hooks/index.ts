@@ -1,13 +1,17 @@
-import { useState } from 'react';
+import { useExplorerStore } from '../model';
 
 export const useExplorer = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, content, toggleExplorer] = useExplorerStore((state) => [
+    state.isOpen,
+    state.content,
+    state.toggleExplorer,
+  ]);
 
   const handleToggleDocumentation = () => {
-    setIsOpen(!isOpen);
+    toggleExplorer();
 
     console.log('handleToggleDocumentation');
   };
 
-  return { isOpen, handleToggleDocumentation };
+  return { isOpen, content, handleToggleDocumentation };
 };

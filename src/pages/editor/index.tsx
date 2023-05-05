@@ -1,4 +1,6 @@
 import { EditorContainer, ResponseContainer } from '@/features/editor';
+import { ExplorerContainer } from '@/features/explorer-container';
+
 import Grid from '@mui/material/Grid';
 
 export const EditorPage = (): JSX.Element => {
@@ -13,6 +15,7 @@ export const EditorPage = (): JSX.Element => {
           <ResponseContainer />
         </Grid>
       </Grid>
+      <ExplorerContainer />
     </>
   );
 };
