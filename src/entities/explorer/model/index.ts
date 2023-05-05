@@ -1,6 +1,6 @@
-import { StateCreator, create } from 'zustand';
+import { create } from 'zustand';
 
-export const useExplorerStore: TypeUserStore = create<IExplorerState>()((set) => ({
+export const useExplorerStore = create<IExplorerState>()((set) => ({
   isOpen: false,
   content: '',
   isLoading: false,
@@ -15,5 +15,3 @@ interface IExplorerState {
   error: string | null;
   toggleExplorer: () => void;
 }
-
-type TypeUserStore = StateCreator<IExplorerState>;
