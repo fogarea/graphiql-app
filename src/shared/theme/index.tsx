@@ -10,8 +10,9 @@ import { ReactNode, useMemo } from 'react';
 
 import { typography, palette, shadows, customShadows } from './base';
 import { GlobalStyles } from './global-styles';
+import { componentsOverrides } from './overrides';
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+export const ThemeProvider = ({ children }: IThemeProviderProps) => {
   const themeOptions = useMemo<ThemeOptions>(
     () => ({
       palette: {
@@ -28,6 +29,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const theme = createTheme(themeOptions);
 
+  theme.components = componentsOverrides(theme) as typeof theme.components;
+
   return (
     <StyledEngineProvider injectFirst>
       <MUIThemeProvider theme={theme}>
@@ -38,3 +41,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     </StyledEngineProvider>
   );
 };
+
+interface IThemeProviderProps {
+  children: ReactNode;
+}
