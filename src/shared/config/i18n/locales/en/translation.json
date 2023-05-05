@@ -37,7 +37,8 @@
   },
   "editor": {
     "welcome-page": "Go to Main Page",
-    "log-out": "Log out"
+    "log-out": "Log out",
+    "placeholder": "Please enter GraphQL query."
   },
   "explorer": {
     "documentation": "Documentation"

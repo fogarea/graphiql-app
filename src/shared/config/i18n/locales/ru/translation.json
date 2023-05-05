@@ -35,7 +35,8 @@
   },
   "editor": {
     "welcome-page": "На главную",
-    "log-out": "Выйти"
+    "log-out": "Выйти",
+    "placeholder": "Введите запрос GraphQL."
   },
   "explorer": {
     "documentation": "Документация"
