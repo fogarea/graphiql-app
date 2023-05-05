@@ -1,7 +1,7 @@
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
-import ClearAllIcon from '@mui/icons-material/ClearAll';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import TextFormatIcon from '@mui/icons-material/TextFormat';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { TooltipButton } from '@/shared/ui';
 
 export const EditorToolbar = ({
@@ -22,7 +22,7 @@ export const EditorToolbar = ({
         <ContentCopyIcon />
       </TooltipButton>
       <TooltipButton title="Clean query" onClick={cleanQuery}>
-        <ClearAllIcon />
+        <DeleteOutlinedIcon />
       </TooltipButton>
     </>
   );
