@@ -1,8 +1,8 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 
 import { useAuth } from '@/entities/user';
-import { LogoutButton } from '@/features/logout-button';
-import { ChangeLanguage } from '@/features';
+import { LogoutButton } from '@/features/auth';
+import { ChangeLanguage } from '@/features/change-language';
 
 export const HeaderLayout = (): JSX.Element => {
   const isAuth = useAuth((state) => state.isAuth);

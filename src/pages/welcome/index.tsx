@@ -4,9 +4,8 @@ import { useTranslation } from 'react-i18next';
 import styles from './styles.module.scss';
 import data, { DeveloperCardList } from '@/entities/developer/';
 import { useAuth } from '@/entities/user';
-import { EditorPageButton } from '@/features/editor-page-button';
-import { LoginButton } from '@/features/login-button';
-import { RegisterButton } from '@/features/register-button';
+import { EditorPageButton } from '@/features/editor';
+import { LoginButton, RegisterButton } from '@/features/auth';
 
 export const WelcomePage = (): JSX.Element => {
   const { t } = useTranslation();
