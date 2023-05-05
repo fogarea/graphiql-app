@@ -1,7 +1,6 @@
 import { Button, Grid } from '@mui/material';
 
 import { useLogout } from './model';
-import { onPromise } from '@/shared/lib';
 import { useTranslation } from 'react-i18next';
 
 export const LogoutButton = (): JSX.Element => {
@@ -11,7 +10,7 @@ export const LogoutButton = (): JSX.Element => {
 
   return (
     <Grid item>
-      <Button color="inherit" onClick={onPromise(onLogout)}>
+      <Button color="inherit" onClick={() => void onLogout()}>
         {t('editor.log-out')}
       </Button>
     </Grid>

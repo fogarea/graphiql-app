@@ -4,7 +4,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 
 import { loginSchema, type TypeLoginSchema } from '../lib';
-import { onPromise } from '@/shared/lib';
 
 export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
   const { t } = useTranslation();
@@ -35,7 +34,7 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
         <Typography component="h1" variant="h5">
           {label}
         </Typography>
-        <form noValidate onSubmit={onPromise(onSubmit)}>
+        <form noValidate onSubmit={() => void onSubmit()}>
           <Controller
             name="email"
             control={control}
