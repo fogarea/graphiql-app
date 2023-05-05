@@ -3,15 +3,18 @@ import IconButton from '@mui/material/IconButton/IconButton';
 import { ReactNode } from 'react';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import Divider from '@mui/material/Divider/Divider';
+import Container from '@mui/material/Container/Container';
+import { useTranslation } from 'react-i18next';
 
 import { DrawerHeader } from './drawer-header';
-import Container from '@mui/material/Container/Container';
 
 export const ExplorerDrawer = ({
   open,
   children,
   toggleDrawer,
 }: IExplorerDrawerProps): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <Drawer
       PaperProps={{
@@ -23,6 +26,7 @@ export const ExplorerDrawer = ({
       hideBackdrop={false}
     >
       <DrawerHeader>
+        <h2>{t('explorer.documentation')}</h2>
         <IconButton onClick={toggleDrawer}>
           <ChevronRightIcon />
         </IconButton>

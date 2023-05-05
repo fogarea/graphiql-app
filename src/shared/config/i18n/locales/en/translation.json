@@ -1,9 +1,10 @@
 {
-  "buttons": {
+  "button": {
     "execute-query": "Execute query",
     "prettify-query": "Prettify query",
     "copy-query": "Copy query",
-    "clean-query": "Clean query"
+    "clean-query": "Clean query",
+    "documentation": "Documentation"
   },
   "welcome": {
     "sign-in": "Sign in",
@@ -17,7 +18,6 @@
     "Danil Podgorniy": "Danil Podgorniy",
     "course-info1": "The application is made in",
     "course-info2": "of the"
-
   },
   "login": {
     "sign-in": "Sign In",
@@ -39,5 +39,7 @@
     "welcome-page": "Go to Main Page",
     "log-out": "Log out"
   },
-  "demo": "The module provides multiple components eg. to assert that needed translations get loaded or that your content gets rendered when the language changes."
+  "explorer": {
+    "documentation": "Documentation"
+  }
 }
