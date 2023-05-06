@@ -65,7 +65,7 @@ const userStore: TypeUserStore = (set) => ({
   },
 });
 
-export const useAuth = create<IUserStore>()(
+export const useUserStore = create<IUserStore>()(
   devtools(
     persist(userStore, {
       name: '@user',

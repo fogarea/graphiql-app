@@ -8,10 +8,7 @@ import { TypeAppRoute } from '@/shared/config';
 export const RegisterContainer = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const { registerUser, isAuth } = useAuth((store) => ({
-    registerUser: store.registerUser,
-    isAuth: store.isAuth,
-  }));
+  const { isAuth, register } = useAuth();
 
   const navigate = useNavigate();
 
@@ -20,7 +17,7 @@ export const RegisterContainer = (): JSX.Element => {
   }
 
   const handleRegisterUser = (email: string, password: string) => {
-    registerUser(email, password).catch(() => Promise.reject());
+    void register(email, password);
   };
 
   return <AuthForm authUser={handleRegisterUser} label={t('register.sign-up')} />;

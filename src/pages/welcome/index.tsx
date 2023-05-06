@@ -12,7 +12,7 @@ export const WelcomePage = (): JSX.Element => {
 
   const { developers } = data;
 
-  const isAuth = useAuth((state) => state.isAuth);
+  const { isAuth } = useAuth();
 
   return (
     <Container className={styles.welcomeContainer}>

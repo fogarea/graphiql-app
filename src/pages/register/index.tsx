@@ -9,7 +9,7 @@ import { TypeAppRoute } from '@/shared/config';
 export const RegisterPage = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const isAuth = useAuth((state) => state.isAuth);
+  const { isAuth } = useAuth();
 
   if (isAuth) {
     return <Navigate to={TypeAppRoute.Editor} replace />;

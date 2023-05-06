@@ -5,7 +5,7 @@ import { LogoutButton } from '@/features/auth';
 import { ChangeLanguage } from '@/features/change-language';
 
 export const HeaderLayout = (): JSX.Element => {
-  const isAuth = useAuth((state) => state.isAuth);
+  const { isAuth } = useAuth();
 
   return (
     <AppBar position="static">

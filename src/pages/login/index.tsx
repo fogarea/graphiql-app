@@ -9,10 +9,10 @@ import { TypeAppRoute } from '@/shared/config';
 export const LoginPage = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const isAuth = useAuth((state) => state.isAuth);
+  const { isAuth } = useAuth();
 
   if (isAuth) {
-    return <Navigate to={TypeAppRoute.Register} replace />;
+    return <Navigate to={TypeAppRoute.Editor} replace />;
   }
 
   return (
@@ -22,7 +22,7 @@ export const LoginPage = (): JSX.Element => {
         <Grid item>
           <Typography>
             {t('login.dont-have-an-account')}
-            <NavLink to={routes.register}>{t('login.sign-up')}</NavLink>
+            <NavLink to={TypeAppRoute.Register}>{t('login.sign-up')}</NavLink>
           </Typography>
         </Grid>
       </Grid>

@@ -8,10 +8,7 @@ import { TypeAppRoute } from '@/shared/config';
 export const LoginContainer = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const { loginUser, isAuth } = useAuth((store) => ({
-    loginUser: store.loginUser,
-    isAuth: store.isAuth,
-  }));
+  const { isAuth, login } = useAuth();
 
   const navigate = useNavigate();
 
@@ -20,7 +17,7 @@ export const LoginContainer = (): JSX.Element => {
   }
 
   const handleLoginUser = (email: string, password: string) => {
-    loginUser(email, password).catch(() => Promise.reject());
+    void login(email, password);
   };
 
   return <AuthForm authUser={handleLoginUser} label={t('login.sign-in')} />;
