@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AuthForm } from '../ui';
 import { useAuth } from '@/entities/user';
+import { TypeAppRoute } from '@/shared/config';
 
 export const RegisterContainer = (): JSX.Element => {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ export const RegisterContainer = (): JSX.Element => {
   const navigate = useNavigate();
 
   if (isAuth) {
-    navigate('/editor');
+    navigate(TypeAppRoute.Editor);
   }
 
   const handleRegisterUser = (email: string, password: string) => {

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AuthForm } from '../ui';
 import { useAuth } from '@/entities/user';
+import { TypeAppRoute } from '@/shared/config';
 
 export const LoginContainer = (): JSX.Element => {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ export const LoginContainer = (): JSX.Element => {
   const navigate = useNavigate();
 
   if (isAuth) {
-    navigate('/editor');
+    navigate(TypeAppRoute.Editor);
   }
 
   const handleLoginUser = (email: string, password: string) => {

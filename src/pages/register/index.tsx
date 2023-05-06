@@ -2,9 +2,9 @@ import { Grid, Typography } from '@mui/material';
 import { Navigate, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { routes } from '../routes';
 import { RegisterContainer } from '@/features/auth';
 import { useAuth } from '@/entities/user';
+import { TypeAppRoute } from '@/shared/config';
 
 export const RegisterPage = (): JSX.Element => {
   const { t } = useTranslation();
@@ -12,7 +12,7 @@ export const RegisterPage = (): JSX.Element => {
   const isAuth = useAuth((state) => state.isAuth);
 
   if (isAuth) {
-    return <Navigate to={'/editor'} replace />;
+    return <Navigate to={TypeAppRoute.Editor} replace />;
   }
 
   return (
@@ -22,7 +22,7 @@ export const RegisterPage = (): JSX.Element => {
         <Grid item>
           <Typography>
             {t('register.already-have-an-account')}
-            <NavLink to={routes.login}>{t('register.sign-in')}</NavLink>
+            <NavLink to={TypeAppRoute.Login}>{t('register.sign-in')}</NavLink>
           </Typography>
         </Grid>
       </Grid>
