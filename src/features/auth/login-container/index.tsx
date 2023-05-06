@@ -14,13 +14,13 @@ export const LoginContainer = (): JSX.Element => {
 
   const navigate = useNavigate();
 
-  const loginUserHandler = async (email: string, password: string) => {
-    await loginUser(email, password);
+  if (isAuth) {
+    navigate('/editor');
+  }
 
-    if (isAuth) {
-      navigate('/editor');
-    }
+  const handleLoginUser = (email: string, password: string) => {
+    loginUser(email, password).catch(() => Promise.reject());
   };
 
-  return <AuthForm authUser={loginUserHandler} label={t('login.sign-in')} />;
+  return <AuthForm authUser={handleLoginUser} label={t('login.sign-in')} />;
 };

@@ -2,7 +2,7 @@ import { Container, Grid, Link, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 import styles from './styles.module.scss';
-import data, { DeveloperCardList } from '@/entities/developer/';
+import data, { DeveloperCardList } from '@/entities/developer';
 import { useAuth } from '@/entities/user';
 import { EditorPageButton } from '@/features/editor';
 import { LoginButton, RegisterButton } from '@/features/auth';

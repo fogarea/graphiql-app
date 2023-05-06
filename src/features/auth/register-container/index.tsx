@@ -14,13 +14,13 @@ export const RegisterContainer = (): JSX.Element => {
 
   const navigate = useNavigate();
 
-  const registerUserHandler = async (email: string, password: string) => {
-    await registerUser(email, password);
+  if (isAuth) {
+    navigate('/editor');
+  }
 
-    if (isAuth) {
-      navigate('/editor');
-    }
+  const handleRegisterUser = (email: string, password: string) => {
+    registerUser(email, password).catch(() => Promise.reject());
   };
 
-  return <AuthForm authUser={registerUserHandler} label={t('register.sign-up')} />;
+  return <AuthForm authUser={handleRegisterUser} label={t('register.sign-up')} />;
 };

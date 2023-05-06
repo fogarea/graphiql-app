@@ -1,11 +1,11 @@
 import { Button, Box, Typography, TextField, CssBaseline } from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 
 import { loginSchema, type TypeLoginSchema } from '../lib';
 
-export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
+export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
   const { t } = useTranslation();
 
   const {
@@ -16,9 +16,9 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = handleSubmit(async ({ email, password }) => {
-    await authUser(email, password);
-  });
+  const onSubmit: SubmitHandler<TypeLoginSchema> = ({ email, password }) => {
+    authUser(email, password);
+  };
 
   return (
     <>
@@ -34,7 +34,7 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
         <Typography component="h1" variant="h5">
           {label}
         </Typography>
-        <form noValidate onSubmit={() => void onSubmit()}>
+        <form noValidate onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
           <Controller
             name="email"
             control={control}
@@ -78,7 +78,7 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
   );
 };
 
-interface IAuthForm {
-  authUser: (email: string, password: string) => Promise<void>;
+interface IAuthFormProps {
+  authUser: (email: string, password: string) => void;
   label: string;
 }

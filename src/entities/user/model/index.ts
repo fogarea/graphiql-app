@@ -5,14 +5,12 @@ import { auth } from '@/shared/config';
 
 const initialUserState: TypeUser = { email: null, token: null, id: null };
 
-//TODO: handle error and show popup
-
 const userStore: TypeUserStore = (set) => ({
   user: initialUserState,
   isAuth: false,
   isLoading: false,
   error: null,
-  loginUser: async (email: string, password: string) => {
+  loginUser: async (email, password) => {
     set({ isLoading: true, error: null });
 
     try {
@@ -32,7 +30,7 @@ const userStore: TypeUserStore = (set) => ({
       set({ isLoading: false });
     }
   },
-  registerUser: async (email: string, password: string) => {
+  registerUser: async (email, password) => {
     set({ isLoading: true, error: null });
 
     try {
@@ -52,7 +50,7 @@ const userStore: TypeUserStore = (set) => ({
       set({ isLoading: false });
     }
   },
-  logoutUser: async () => {
+  logoutUser: async (navigate) => {
     await auth.signOut();
 
     set((state) => ({
@@ -62,6 +60,8 @@ const userStore: TypeUserStore = (set) => ({
       },
       isAuth: false,
     }));
+
+    navigate();
   },
 });
 
@@ -86,7 +86,7 @@ interface IUserStore {
   error: string | null;
   loginUser: (email: string, password: string) => Promise<void>;
   registerUser: (email: string, password: string) => Promise<void>;
-  logoutUser: () => Promise<void>;
+  logoutUser: (navigate: () => void) => Promise<void>;
 }
 
 type TypeUserStore = StateCreator<IUserStore>;
