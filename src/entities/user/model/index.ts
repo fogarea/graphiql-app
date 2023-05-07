@@ -1,7 +1,10 @@
 import { create, StateCreator } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { FirebaseError } from 'firebase/app';
+
 import { auth } from '@/shared/config';
+import { mapFirebaseAuthCodeToMessage } from '@/shared/lib';
 
 const initialUserState: TypeUser = { email: null, token: null, id: null };
 
@@ -25,7 +28,13 @@ const userStore: TypeUserStore = (set) => ({
         isAuth: true,
       });
     } catch (e) {
-      if (e instanceof Error) set({ error: e.message });
+      if (e instanceof FirebaseError) {
+        const errorMessage = mapFirebaseAuthCodeToMessage(e.code);
+
+        set({ error: errorMessage });
+
+        throw new Error(errorMessage);
+      }
     } finally {
       set({ isLoading: false });
     }
@@ -45,12 +54,18 @@ const userStore: TypeUserStore = (set) => ({
         isAuth: true,
       });
     } catch (e) {
-      if (e instanceof Error) set({ error: e.message });
+      if (e instanceof FirebaseError) {
+        const errorMessage = mapFirebaseAuthCodeToMessage(e.code);
+
+        set({ error: errorMessage });
+
+        throw new Error(errorMessage);
+      }
     } finally {
       set({ isLoading: false });
     }
   },
-  logoutUser: async (navigate) => {
+  logoutUser: async (cb) => {
     await auth.signOut();
 
     set((state) => ({
@@ -61,7 +76,7 @@ const userStore: TypeUserStore = (set) => ({
       isAuth: false,
     }));
 
-    navigate();
+    cb();
   },
 });
 
@@ -83,10 +98,10 @@ interface IUserStore {
   isAuth: boolean;
   user: TypeUser;
   isLoading: boolean;
-  error: string | null;
+  error: null | string;
   loginUser: (email: string, password: string) => Promise<void>;
   registerUser: (email: string, password: string) => Promise<void>;
-  logoutUser: (navigate: () => void) => Promise<void>;
+  logoutUser: (cb: () => void) => Promise<void>;
 }
 
 type TypeUserStore = StateCreator<IUserStore>;

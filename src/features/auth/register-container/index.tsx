@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { AuthForm } from '../ui';
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
+import { toast } from '@/shared/lib';
 
 export const RegisterContainer = (): JSX.Element => {
   const { t } = useTranslation();
@@ -17,7 +18,15 @@ export const RegisterContainer = (): JSX.Element => {
   }
 
   const handleRegisterUser = (email: string, password: string) => {
-    void register(email, password);
+    register(email, password)
+      .then(() => {
+        toast.success(t('toast.successfully-register'));
+      })
+      .catch((e) => {
+        if (e instanceof Error) {
+          toast.error(e.message);
+        }
+      });
   };
 
   return <AuthForm authUser={handleRegisterUser} label={t('register.sign-up')} />;

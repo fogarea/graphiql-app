@@ -1,19 +1,37 @@
 import { useUserStore } from '../model';
+import { shallow } from 'zustand/shallow';
 
 export const useAuth = () => {
-  const [isAuth, loginUser, registerUser, logoutUser] = useUserStore((store) => [
-    store.isAuth,
-    store.loginUser,
-    store.registerUser,
-    store.logoutUser,
-  ]);
+  const [isLoading, isAuth, error, loginUser, registerUser, logoutUser] = useUserStore(
+    (store) => [
+      store.isLoading,
+      store.isAuth,
+      store.error,
+      store.loginUser,
+      store.registerUser,
+      store.logoutUser,
+    ],
+    shallow
+  );
 
   const login = async (email: string, password: string) => {
-    await loginUser(email, password);
+    try {
+      await loginUser(email, password);
+    } catch (e) {
+      if (e instanceof Error) {
+        throw new Error(e.message);
+      }
+    }
   };
 
   const register = async (email: string, password: string) => {
-    await registerUser(email, password);
+    try {
+      await registerUser(email, password);
+    } catch (e) {
+      if (e instanceof Error) {
+        throw new Error(e.message);
+      }
+    }
   };
 
   const logout = async (cb: () => void) => {
@@ -21,7 +39,9 @@ export const useAuth = () => {
   };
 
   return {
+    isLoading,
     isAuth,
+    error,
     login,
     register,
     logout,
