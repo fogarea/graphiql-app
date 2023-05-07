@@ -74,6 +74,7 @@ export const EditorContainer = (): JSX.Element => {
           <Tabs
             value={activeTab}
             onChange={handleChangeTab}
+            onClick={() => setExpanded(true)}
             TabIndicatorProps={{
               style: { display: 'none' },
             }}
