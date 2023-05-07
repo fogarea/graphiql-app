@@ -1,21 +1,17 @@
-import { EditorContainer, ResponseContainer } from '@/features/editor';
-import { ExplorerContainer } from '@/features/explorer-container';
-
-import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import { GraphQLEditor } from '@/widgets/graphql-editor';
+import { a11yHeaderTextAlign } from '@/shared/theme';
+import { useTranslation } from 'react-i18next';
 
 export const EditorPage = (): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <>
-      <h1>Editor page</h1>
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <EditorContainer />
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <ResponseContainer />
-        </Grid>
-      </Grid>
-      <ExplorerContainer />
+      <Typography variant="h1" sx={{ ...a11yHeaderTextAlign() }}>
+        Graph<i>i</i>QL {t('editor.q-editor')}
+      </Typography>
+      <GraphQLEditor />
     </>
   );
 };

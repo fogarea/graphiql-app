@@ -3,9 +3,21 @@ import { prettifiedQueryContent } from '../lib';
 import { useEditorStore } from '../model';
 
 export const useQueryEditor = () => {
-  const [queryCode, setQueryCode, setResponseCode] = useEditorStore((state) => [
+  const [
+    queryCode,
+    variableCode,
+    headerCode,
+    setQueryCode,
+    setVariableCode,
+    setHeaderCode,
+    setResponseCode,
+  ] = useEditorStore((state) => [
     state.queryCode,
+    state.variableCode,
+    state.headerCode,
     state.setQueryCode,
+    state.setVariableCode,
+    state.setHeaderCode,
     state.setResponseCode,
   ]);
 
@@ -28,5 +40,16 @@ export const useQueryEditor = () => {
     setResponseCode('');
   };
 
-  return { queryCode, execQuery, prettifyQuery, copyQuery, cleanQuery, setQueryCode };
+  return {
+    queryCode,
+    variableCode,
+    headerCode,
+    execQuery,
+    prettifyQuery,
+    copyQuery,
+    cleanQuery,
+    setQueryCode,
+    setVariableCode,
+    setHeaderCode,
+  };
 };

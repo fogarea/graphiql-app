@@ -1,2 +1,3 @@
 export * from './editor-container';
-export * from './response-container';
+export { ResponseContainer } from './response-container';
+export { ToolbarContainer } from './toolbar-container';
