@@ -9,8 +9,10 @@ export const LoginButton = (): JSX.Element => {
 
   return (
     <Grid item>
-      <Button variant="contained">
-        <NavLink to={TypeAppRoute.Login}>{t('welcome.sign-in')}</NavLink>
+      <Button color="inherit">
+        <NavLink to={TypeAppRoute.Login} style={{ textDecoration: 'none', color: 'inherit' }}>
+          {t('welcome.sign-in')}
+        </NavLink>
       </Button>
     </Grid>
   );

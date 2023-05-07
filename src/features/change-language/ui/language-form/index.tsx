@@ -1,33 +1,60 @@
 import { LanguageNames, Languages } from '@/shared/config';
-import { Button, ButtonProps, styled } from '@mui/material';
-import { purple } from '@mui/material/colors';
-
-const ColorButton = styled(Button)<ButtonProps>(({ theme }) => ({
-  color: theme.palette.getContrastText(purple[500]),
-  backgroundColor: purple[500],
-  '&:hover': {
-    backgroundColor: purple[700],
-  },
-}));
+import { Menu, Fade, MenuItem, Divider, Button } from '@mui/material';
+import { useState, MouseEvent } from 'react';
+import TranslateIcon from '@mui/icons-material/Translate';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 export const LanguageForm = ({ onToggleLanguage }: IChangeLanguageProps): JSX.Element => {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const isOpen = Boolean(anchorEl);
+
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = (lang: string) => {
+    setAnchorEl(null);
+    onToggleLanguage(lang);
+  };
+
   return (
     <>
-      <ColorButton
-        onClick={() => {
-          onToggleLanguage(Languages.English);
+      <Button
+        id="demo-customized-button"
+        aria-controls={isOpen ? 'demo-customized-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={isOpen ? 'true' : undefined}
+        variant="contained"
+        disableElevation
+        onClick={handleClick}
+        endIcon={<KeyboardArrowDownIcon />}
+        startIcon={<TranslateIcon />}
+      >
+        Languages
+      </Button>
+      <Menu
+        MenuListProps={{
+          'aria-labelledby': 'fade-button',
+        }}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        TransitionComponent={Fade}
+        open={isOpen}
+        PaperProps={{
+          style: {
+            width: '160px',
+          },
         }}
       >
-        {LanguageNames[Languages.English]}
-      </ColorButton>{' '}
-      <ColorButton
-        variant="outlined"
-        onClick={() => {
-          onToggleLanguage(Languages.Russian);
-        }}
-      >
-        {LanguageNames[Languages.Russian]}
-      </ColorButton>
+        <MenuItem onClick={() => handleClose(Languages.English)}>
+          {LanguageNames[Languages.English]}
+        </MenuItem>
+        <Divider sx={{ my: 0.5 }} />
+        <MenuItem onClick={() => handleClose(Languages.Russian)}>
+          {LanguageNames[Languages.Russian]}
+        </MenuItem>
+      </Menu>
     </>
   );
 };

@@ -9,8 +9,10 @@ export const RegisterButton = (): JSX.Element => {
 
   return (
     <Grid item>
-      <Button variant="contained">
-        <NavLink to={TypeAppRoute.Register}>{t('welcome.sign-up')}</NavLink>
+      <Button color="inherit">
+        <NavLink to={TypeAppRoute.Register} style={{ textDecoration: 'none', color: 'inherit' }}>
+          {t('welcome.sign-up')}
+        </NavLink>
       </Button>
     </Grid>
   );

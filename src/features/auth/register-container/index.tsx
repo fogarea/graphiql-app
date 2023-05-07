@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 import { AuthForm } from '../ui';
@@ -29,5 +30,17 @@ export const RegisterContainer = (): JSX.Element => {
       });
   };
 
-  return <AuthForm authUser={handleRegisterUser} label={t('register.sign-up')} />;
+  return (
+    <>
+      <AuthForm authUser={handleRegisterUser} label={t('register.sign-up')} />
+      <Grid container justifyContent="center">
+        <Grid item>
+          <Typography>
+            {t('register.already-have-an-account')}
+            <NavLink to={TypeAppRoute.Login}>{t('register.sign-in')}</NavLink>
+          </Typography>
+        </Grid>
+      </Grid>
+    </>
+  );
 };

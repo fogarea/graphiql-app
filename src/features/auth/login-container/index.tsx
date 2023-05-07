@@ -1,10 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { AuthForm } from '../ui';
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
 import { toast } from '@/shared/lib';
+import { Grid, Typography } from '@mui/material';
 
 export const LoginContainer = (): JSX.Element => {
   const { t } = useTranslation();
@@ -29,5 +30,17 @@ export const LoginContainer = (): JSX.Element => {
       });
   };
 
-  return <AuthForm authUser={handleLoginUser} label={t('login.sign-in')} />;
+  return (
+    <>
+      <AuthForm authUser={handleLoginUser} label={t('login.sign-in')} />
+      <Grid container justifyContent="center">
+        <Grid item>
+          <Typography>
+            {t('login.dont-have-an-account')}
+            <NavLink to={TypeAppRoute.Register}>{t('login.sign-up')}</NavLink>
+          </Typography>
+        </Grid>
+      </Grid>
+    </>
+  );
 };
