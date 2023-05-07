@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Tabs from '@mui/material/Tabs';
 import Collapse from '@mui/material/Collapse';
 import Tab from '@mui/material/Tab';
+import { useTranslation } from 'react-i18next';
 
 import {
   EditorExpandMore,
@@ -27,6 +28,7 @@ export const EditorContainer = (): JSX.Element => {
     useQueryEditor();
   const [expanded, setExpanded] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
+  const { t } = useTranslation();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -83,8 +85,8 @@ export const EditorContainer = (): JSX.Element => {
               '& .Mui-selected': { color: `${grey[700]} !important` },
             }}
           >
-            <Tab label="Variable" {...a11yTabProps(0)} />
-            <Tab label="Header" {...a11yTabProps(1)} />
+            <Tab label={t('editor.label-variable')} {...a11yTabProps(0)} />
+            <Tab label={t('editor.label-header')} {...a11yTabProps(1)} />
           </Tabs>
           <EditorExpandMore
             expand={expanded}
