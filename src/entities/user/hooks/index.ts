@@ -15,23 +15,11 @@ export const useAuth = () => {
   );
 
   const login = async (email: string, password: string) => {
-    try {
-      await loginUser(email, password);
-    } catch (e) {
-      if (e instanceof Error) {
-        throw new Error(e.message);
-      }
-    }
+    await loginUser(email, password);
   };
 
   const register = async (email: string, password: string) => {
-    try {
-      await registerUser(email, password);
-    } catch (e) {
-      if (e instanceof Error) {
-        throw new Error(e.message);
-      }
-    }
+    await registerUser(email, password);
   };
 
   const logout = async (cb: () => void) => {
