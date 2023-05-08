@@ -10,6 +10,10 @@ export const enum Languages {
   'Russian' = 'ru',
 }
 
+export const PossibleLanguagesValues = ['en', 'ru'] as const;
+
+export type TypePossibleLanguages = (typeof PossibleLanguagesValues)[number];
+
 export const LanguageNames: { [key: string]: string } = {
   [Languages.English]: 'English',
   [Languages.Russian]: 'Russian',
