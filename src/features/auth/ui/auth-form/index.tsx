@@ -1,9 +1,19 @@
-import { Button, Box, Typography, TextField, CssBaseline } from '@mui/material';
+import { Button, Box, Typography, TextField } from '@mui/material';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
+import { styled } from '@mui/material/styles';
 
-import { loginSchema, type TypeLoginSchema } from '../lib';
+import { loginSchema, type TypeLoginSchema } from '../../lib';
+
+const StyledForm = styled('div')(() => ({
+  maxWidth: 480,
+  margin: 'auto',
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  padding: '96px 0 10px 10px',
+}));
 
 export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
   const { t } = useTranslation();
@@ -21,17 +31,9 @@ export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
   };
 
   return (
-    <>
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography component="h1" variant="h5">
+    <StyledForm>
+      <Box>
+        <Typography component="h1" variant="h2" sx={{ textAlign: 'center', mb: 2 }}>
           {label}
         </Typography>
         <form noValidate onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
@@ -74,7 +76,7 @@ export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
           </Button>
         </form>
       </Box>
-    </>
+    </StyledForm>
   );
 };
 

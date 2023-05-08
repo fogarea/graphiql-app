@@ -25,6 +25,7 @@ export const HeaderLayout = (): JSX.Element => {
     }
 
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, [headerRect, scrollY]);
 
