@@ -1,13 +1,13 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
-
-import { useAuth } from '@/entities/user';
-import { LogoutButton } from '@/features/logout-button';
-import { ChangeLanguage } from '@/features';
 import styles from './styles.module.scss';
 
+import { useAuth } from '@/entities/user';
+import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
+import { ChangeLanguage } from '@/features/change-language';
+
 export const HeaderLayout = (): JSX.Element => {
-  const isAuth = useAuth((state) => state.isAuth);
+  const { isAuth } = useAuth();
   const [scrollY, setScrollY] = useState(0);
   const [headerClasses, setHeaderClasses] = useState(`${styles.header}`);
   const headerRef = useRef<HTMLHeadingElement>(null);
@@ -25,6 +25,7 @@ export const HeaderLayout = (): JSX.Element => {
     }
 
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, [headerRect, scrollY]);
 
@@ -34,8 +35,15 @@ export const HeaderLayout = (): JSX.Element => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           GraphiQL
         </Typography>
-        {isAuth && <LogoutButton />}
         <ChangeLanguage />
+        {isAuth ? (
+          <LogoutButton />
+        ) : (
+          <>
+            <LoginButton />
+            <RegisterButton />
+          </>
+        )}
       </Toolbar>
     </AppBar>
   );

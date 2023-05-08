@@ -1,8 +1,8 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { routes } from './routes';
 import { PrivateRoute } from '@/features/private-route';
+import { TypeAppRoute } from '@/shared/config';
 
 const EditorPage = lazy(async () => ({
   default: (await import('./editor')).EditorPage,
@@ -30,12 +30,12 @@ const Layout = lazy(async () => ({
 
 export const Routing = (): JSX.Element => (
   <Routes>
-    <Route path={routes.welcome} element={<Layout />}>
+    <Route path={TypeAppRoute.Welcome} element={<Layout />}>
       <Route index element={<WelcomePage />} />
-      <Route path={routes.login} element={<LoginPage />} />
-      <Route path={routes.register} element={<RegisterPage />} />
+      <Route path={TypeAppRoute.Login} element={<LoginPage />} />
+      <Route path={TypeAppRoute.Register} element={<RegisterPage />} />
       <Route
-        path={routes.editor}
+        path={TypeAppRoute.Editor}
         element={
           <PrivateRoute>
             <EditorPage />

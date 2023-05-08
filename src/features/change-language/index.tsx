@@ -1,17 +1,13 @@
-import { LS_LANGUAGE_KEY } from '@/shared/config';
-import { LanguageForm } from './ui';
-import { useTranslation } from 'react-i18next';
+import languagesData, { LanguageForm, useLanguage } from '@/entities/language';
 
 export const ChangeLanguage = (): JSX.Element => {
-  const { i18n } = useTranslation();
+  const { lang, toggleLanguage } = useLanguage();
 
-  const onToggleLanguage = (lang: string) => {
-    void i18n.changeLanguage(lang, (err: string) => {
-      if (!err) {
-        localStorage.setItem(LS_LANGUAGE_KEY, lang);
-      }
-    });
-  };
-
-  return <LanguageForm onToggleLanguage={onToggleLanguage} />;
+  return (
+    <LanguageForm
+      selectedLanguage={lang}
+      onToggleLanguage={toggleLanguage}
+      languages={languagesData.languages}
+    />
+  );
 };

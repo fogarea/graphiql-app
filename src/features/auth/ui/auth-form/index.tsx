@@ -1,12 +1,21 @@
-import { Button, Box, Typography, TextField, CssBaseline } from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
+import { Button, Box, Typography, TextField } from '@mui/material';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
+import { styled } from '@mui/material/styles';
 
-import { loginSchema, type TypeLoginSchema } from '../lib';
-import { onPromise } from '@/shared/lib';
+import { loginSchema, type TypeLoginSchema } from '../../lib';
 
-export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
+const StyledForm = styled('div')(() => ({
+  maxWidth: 480,
+  margin: 'auto',
+  display: 'flex',
+  justifyContent: 'center',
+  flexDirection: 'column',
+  padding: '96px 0 10px 10px',
+}));
+
+export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
   const { t } = useTranslation();
 
   const {
@@ -17,25 +26,17 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
     resolver: yupResolver(loginSchema),
   });
 
-  const onSubmit = handleSubmit(async ({ email, password }) => {
-    await authUser(email, password);
-  });
+  const onSubmit: SubmitHandler<TypeLoginSchema> = ({ email, password }) => {
+    authUser(email, password);
+  };
 
   return (
-    <>
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: 8,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}
-      >
-        <Typography component="h1" variant="h5">
+    <StyledForm>
+      <Box>
+        <Typography component="h1" variant="h2" sx={{ textAlign: 'center', mb: 2 }}>
           {label}
         </Typography>
-        <form noValidate onSubmit={onPromise(onSubmit)}>
+        <form noValidate onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
           <Controller
             name="email"
             control={control}
@@ -75,11 +76,11 @@ export const AuthForm = ({ authUser, label }: IAuthForm): JSX.Element => {
           </Button>
         </form>
       </Box>
-    </>
+    </StyledForm>
   );
 };
 
-interface IAuthForm {
-  authUser: (email: string, password: string) => Promise<void>;
+interface IAuthFormProps {
+  authUser: (email: string, password: string) => void;
   label: string;
 }

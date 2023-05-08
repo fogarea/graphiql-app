@@ -1,17 +1,18 @@
 import * as yup from 'yup';
+import i18n from 'i18next';
 
 export const loginSchema = yup.object().shape({
   email: yup
     .string()
-    .email('Email should have correct format')
-    .required('Email is a required field'),
+    .email(i18n.t('validation.email-format'))
+    .required(i18n.t('validation.email-required')),
   password: yup
     .string()
     .matches(
       /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,})/,
-      'Password should pass requirements (minimum 8 symbols, at least one letter, one digit, one special character)'
+      i18n.t('validation.password-format')
     )
-    .required('Password is a required field'),
+    .required(i18n.t('validation.password-required')),
 });
 
 export type TypeLoginSchema = yup.InferType<typeof loginSchema>;

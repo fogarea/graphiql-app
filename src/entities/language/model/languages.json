@@ -1,0 +1,12 @@
+[
+  {
+    "value": "en",
+    "label": "English",
+    "icon": "./assets/svg/flags/great-britain.svg"
+  },
+  {
+    "value": "ru",
+    "label": "Russian",
+    "icon": "./assets/svg/flags/russia.svg"
+  }
+]

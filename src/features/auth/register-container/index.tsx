@@ -1,26 +1,42 @@
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { AuthForm } from '../ui';
+import { AuthForm, AuthRedirectButton } from '@/features/auth';
 import { useAuth } from '@/entities/user';
+import { TypeAppRoute } from '@/shared/config';
+import { toast } from '@/shared/lib';
 
 export const RegisterContainer = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const { registerUser, isAuth } = useAuth((store) => ({
-    registerUser: store.registerUser,
-    isAuth: store.isAuth,
-  }));
+  const { isAuth, register } = useAuth();
 
   const navigate = useNavigate();
 
-  const registerUserHandler = async (email: string, password: string) => {
-    await registerUser(email, password);
+  if (isAuth) {
+    navigate(TypeAppRoute.Editor);
+  }
 
-    if (isAuth) {
-      navigate('/editor');
-    }
+  const handleRegisterUser = (email: string, password: string) => {
+    register(email, password)
+      .then(() => {
+        toast.success(t('toast.successfully-register'));
+      })
+      .catch((e) => {
+        if (e instanceof Error) {
+          toast.error(e.message);
+        }
+      });
   };
 
-  return <AuthForm authUser={registerUserHandler} label={t('register.sign-up')} />;
+  return (
+    <>
+      <AuthForm authUser={handleRegisterUser} label={t('register.sign-up')} />
+      <AuthRedirectButton
+        label={t('register.already-have-an-account')}
+        route={TypeAppRoute.Login}
+        routeLabel={t('register.sign-in')}
+      />
+    </>
+  );
 };
