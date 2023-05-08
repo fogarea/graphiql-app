@@ -21,6 +21,7 @@ export const GlobalStyles = () => {
           height: '100%',
           display: 'block',
           position: 'relative',
+          fontSize: '16px',
         },
         '#root': {
           width: '100%',

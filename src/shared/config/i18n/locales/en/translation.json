@@ -38,7 +38,10 @@
   "editor": {
     "welcome-page": "Go to Main Page",
     "log-out": "Log out",
-    "placeholder": "Please enter GraphQL query."
+    "placeholder": "Please enter GraphQL query.",
+    "q-editor": "Editor",
+    "label-variable": "Variable",
+    "label-header": "Header"
   },
   "explorer": {
     "documentation": "Documentation"
