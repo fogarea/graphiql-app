@@ -9,7 +9,7 @@ import { toast } from '@/shared/lib';
 export const LoginContainer = (): JSX.Element => {
   const { t } = useTranslation();
 
-  const { isAuth, login } = useAuth();
+  const { isAuth, isLoading, login } = useAuth();
 
   const navigate = useNavigate();
 
@@ -31,11 +31,11 @@ export const LoginContainer = (): JSX.Element => {
 
   return (
     <>
-      <AuthForm authUser={handleLoginUser} label={t('login.sign-in')} />
+      <AuthForm authUser={handleLoginUser} label={t('login.sign-in')} isLoading={isLoading} />
       <AuthRedirectButton
         label={t('login.dont-have-an-account')}
-        route={TypeAppRoute.Register}
-        routeLabel={t('login.sign-up')}
+        redirectTo={TypeAppRoute.Register}
+        redirectToLabel={t('login.sign-up')}
       />
     </>
   );
