@@ -1,4 +1,5 @@
-import { Avatar, Skeleton } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Skeleton from '@mui/material/Skeleton';
 import { useImageLoader } from '@/shared/lib';
 
 export const DeveloperAvatar = ({ src, alt }: IDeveloperAvatarProps): JSX.Element => {

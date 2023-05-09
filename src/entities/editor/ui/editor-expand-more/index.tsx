@@ -1,5 +1,5 @@
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
-import { styled } from '@mui/material/styles';
+import styled from '@mui/material/styles/styled';
 
 export const EditorExpandMore = styled(({ expand, ...other }: IEditorExpandMoreProps) => {
   return <IconButton data-expand={expand} {...other} />;

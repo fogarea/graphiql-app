@@ -1,6 +1,7 @@
-import { Grid, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import styled from '@mui/material/styles/styled';
 import { NavLink } from 'react-router-dom';
-import { styled } from '@mui/material/styles';
 
 const StyledRedirect = styled('div')(({ theme }) => ({
   color: theme.palette.info.dark,

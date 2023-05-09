@@ -1,9 +1,12 @@
-import { Container, Grid, Link, Typography } from '@mui/material';
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
-import styles from './styles.module.scss';
 import data, { DeveloperCardList } from '@/entities/developer';
 import { EditorPageButton } from '@/features/editor';
+import styles from './styles.module.scss';
 
 export const WelcomePage = (): JSX.Element => {
   const { t } = useTranslation();
