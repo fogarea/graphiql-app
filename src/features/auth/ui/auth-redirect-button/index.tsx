@@ -9,18 +9,18 @@ const StyledRedirect = styled('div')(({ theme }) => ({
 
 export const AuthRedirectButton = ({
   label,
-  route,
-  routeLabel,
+  redirectTo,
+  redirectToLabel,
 }: IAuthRedirectButtonProps): JSX.Element => {
   return (
     <Grid container justifyContent="center" spacing={1}>
       <Grid item>
-        <Typography>{label}</Typography>
+        <Typography component="span">{label}</Typography>
       </Grid>
       <Grid item>
-        <Typography>
-          <NavLink to={route}>
-            <StyledRedirect>{routeLabel}</StyledRedirect>
+        <Typography component="span">
+          <NavLink to={redirectTo}>
+            <StyledRedirect>{redirectToLabel}</StyledRedirect>
           </NavLink>
         </Typography>
       </Grid>
@@ -30,6 +30,6 @@ export const AuthRedirectButton = ({
 
 interface IAuthRedirectButtonProps {
   label: string;
-  route: string;
-  routeLabel: string;
+  redirectTo: string;
+  redirectToLabel: string;
 }

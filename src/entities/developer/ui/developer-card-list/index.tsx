@@ -1,7 +1,8 @@
 import { Grid, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-import { DeveloperCard, TypeJsonDevelopers } from '@/entities/developer/';
+import { DeveloperCard } from '../developer-card';
+import { TypeJsonDevelopers } from '../../types';
 
 export const DeveloperCardList = ({ developers }: TypeJsonDevelopers): JSX.Element => {
   const { t } = useTranslation();

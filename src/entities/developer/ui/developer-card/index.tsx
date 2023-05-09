@@ -1,8 +1,9 @@
-import { Avatar, Grid, Link, Typography } from '@mui/material';
+import { Grid, Link, Typography } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTranslation } from 'react-i18next';
 
-import { IDeveloperData } from '@/entities/developer/';
+import { IDeveloperData } from '../../types';
+import { DeveloperAvatar } from '../developer-avatar';
 
 export const DeveloperCard = ({
   name,
@@ -26,14 +27,7 @@ export const DeveloperCard = ({
         pb: 2,
       }}
     >
-      <Avatar
-        src={avatarSrc}
-        alt={githubName}
-        sx={{
-          width: 128,
-          height: 128,
-        }}
-      />
+      <DeveloperAvatar src={avatarSrc} alt={githubName} />
       <Typography variant="h4" textAlign="center">
         {t(`welcome.${name}`)}
       </Typography>

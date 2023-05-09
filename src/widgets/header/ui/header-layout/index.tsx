@@ -1,10 +1,11 @@
-import { AppBar, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 
 import { useAuth } from '@/entities/user';
 import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
 import { ChangeLanguage } from '@/features/change-language';
+import { Logo } from '@/widgets/logo';
 
 export const HeaderLayout = (): JSX.Element => {
   const { isAuth } = useAuth();
@@ -32,9 +33,7 @@ export const HeaderLayout = (): JSX.Element => {
   return (
     <AppBar position="sticky" ref={headerRef} className={headerClasses}>
       <Toolbar>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          GraphiQL
-        </Typography>
+        <Logo />
         <ChangeLanguage />
         {isAuth ? (
           <LogoutButton />

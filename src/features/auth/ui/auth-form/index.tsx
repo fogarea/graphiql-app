@@ -1,8 +1,9 @@
-import { Button, Box, Typography, TextField } from '@mui/material';
+import { Box, Typography, TextField } from '@mui/material';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
 import { styled } from '@mui/material/styles';
+import LoadingButton from '@mui/lab/LoadingButton';
 
 import { loginSchema, type TypeLoginSchema } from '../../lib';
 
@@ -15,7 +16,7 @@ const StyledForm = styled('div')(() => ({
   padding: '96px 0 10px 10px',
 }));
 
-export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
+export const AuthForm = ({ authUser, label, isLoading }: IAuthFormProps): JSX.Element => {
   const { t } = useTranslation();
 
   const {
@@ -71,9 +72,15 @@ export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
               />
             )}
           />
-          <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2 }}>
-            {label}
-          </Button>
+          <LoadingButton
+            type="submit"
+            fullWidth
+            loading={isLoading}
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            <span>{label}</span>
+          </LoadingButton>
         </form>
       </Box>
     </StyledForm>
@@ -83,4 +90,5 @@ export const AuthForm = ({ authUser, label }: IAuthFormProps): JSX.Element => {
 interface IAuthFormProps {
   authUser: (email: string, password: string) => void;
   label: string;
+  isLoading: boolean;
 }
