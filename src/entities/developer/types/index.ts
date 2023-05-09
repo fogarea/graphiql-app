@@ -1,4 +1,5 @@
 export interface IDeveloperData {
+  id: number;
   name: string;
   role: string;
   avatarSrc: string;
