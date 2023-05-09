@@ -4,9 +4,9 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
+import { memo } from 'react';
 
 import { developerService } from '@/entities/developer';
-import { memo } from 'react';
 
 const developers = developerService.getAll();
 
