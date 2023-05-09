@@ -6,10 +6,11 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 
 import { developerService } from '@/entities/developer';
+import { memo } from 'react';
 
-export const FooterLayout = (): JSX.Element => {
-  const developers = developerService.getAll();
+const developers = developerService.getAll();
 
+export const FooterLayout = memo((): JSX.Element => {
   const developerList = developers.map(({ id, githubName, githubLink }) => {
     return (
       <Link
@@ -70,4 +71,4 @@ export const FooterLayout = (): JSX.Element => {
       </Container>
     </Box>
   );
-};
+});
