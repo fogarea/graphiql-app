@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
 import { DeveloperCard } from '../developer-card';
-import { TypeDeveloper } from '../../types';
+import { TypeDeveloper } from '../../model/types';
 
 export const DeveloperCardList = (props: { developers: TypeDeveloper[] }): JSX.Element => {
   const { t } = useTranslation();

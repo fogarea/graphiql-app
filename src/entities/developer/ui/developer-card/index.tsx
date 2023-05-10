@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTranslation } from 'react-i18next';
 
-import { TypeDeveloper } from '../../types';
+import { TypeDeveloper } from '../../model/types';
 import { DeveloperAvatar } from '../developer-avatar';
 
 export const DeveloperCard = ({

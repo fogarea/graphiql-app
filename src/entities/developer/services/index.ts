@@ -1,4 +1,4 @@
-import { TypeDeveloper } from '../types';
+import { TypeDeveloper } from '../model/types';
 import developers from '../model/developers.json';
 
 export const developerService = {
