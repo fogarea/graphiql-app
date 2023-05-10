@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useTranslation } from 'react-i18next';
 
-import { IDeveloperData } from '../../types';
+import { TypeDeveloper } from '../../types';
 import { DeveloperAvatar } from '../developer-avatar';
 
 export const DeveloperCard = ({
@@ -13,7 +13,7 @@ export const DeveloperCard = ({
   avatarSrc,
   githubName,
   githubLink,
-}: IDeveloperData): JSX.Element => {
+}: TypeDeveloper): JSX.Element => {
   const { t } = useTranslation();
   return (
     <Grid

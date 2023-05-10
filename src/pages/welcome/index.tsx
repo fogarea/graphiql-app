@@ -4,14 +4,13 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
-import data, { DeveloperCardList } from '@/entities/developer';
+import { DeveloperCardList, developerService } from '@/entities/developer';
 import { EditorPageButton } from '@/features/editor';
 import styles from './styles.module.scss';
 
 export const WelcomePage = (): JSX.Element => {
   const { t } = useTranslation();
-
-  const { developers } = data;
+  const developers = developerService.getAll();
 
   return (
     <Container className={styles.welcomeContainer}>
