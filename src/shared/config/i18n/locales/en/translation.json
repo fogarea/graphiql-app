@@ -43,6 +43,9 @@
     "label-variable": "Variable",
     "label-header": "Header"
   },
+  "response": {
+    "loading": "Loading..."
+  },
   "explorer": {
     "documentation": "Documentation"
   },

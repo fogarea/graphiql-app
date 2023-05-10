@@ -1,7 +1,7 @@
 import { ResponseEditor, useResponseEditor } from '@/entities/editor';
 
 export const ResponseContainer = (): JSX.Element => {
-  const { responseCode } = useResponseEditor();
+  const { isFetching, responseCode } = useResponseEditor();
 
-  return <ResponseEditor json={responseCode} />;
+  return <ResponseEditor isFetching={isFetching} json={responseCode} />;
 };
