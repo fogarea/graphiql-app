@@ -42,7 +42,6 @@ export const EditorContainer = (): JSX.Element => {
 
   const handleSetCode = (value: string) => {
     setQueryCode(value);
-    console.log(value);
   };
 
   return (
