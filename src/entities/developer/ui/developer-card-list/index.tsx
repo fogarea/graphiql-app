@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { DeveloperCard } from '../developer-card';
 import { TypeDeveloper } from '../../model/types';
 
-export const DeveloperCardList = (props: { developers: TypeDeveloper[] }): JSX.Element => {
+export const DeveloperCardList = ({ developers }: IDeveloperCardListProps): JSX.Element => {
   const { t } = useTranslation();
   return (
     <Grid container flexDirection="column" mt={2}>
@@ -13,10 +13,14 @@ export const DeveloperCardList = (props: { developers: TypeDeveloper[] }): JSX.E
         {t('welcome.our-team')}
       </Typography>
       <Grid container gap={2}>
-        {props.developers.map((el) => (
-          <DeveloperCard key={el.githubName} {...el} />
+        {developers.map((developer) => (
+          <DeveloperCard key={developer.githubName} {...developer} />
         ))}
       </Grid>
     </Grid>
   );
 };
+
+interface IDeveloperCardListProps {
+  developers: TypeDeveloper[];
+}
