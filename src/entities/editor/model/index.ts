@@ -1,20 +1,21 @@
-import { create } from 'zustand';
+import { StateCreator, create } from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 
 import { prettifiedJSONContent, parseJSONStringToObject } from '../lib';
 import { graphiqlClient } from '@/shared/api';
 
-export const useEditorStore = create<IEditorState>()((set, get) => ({
+const editorStore: TypeEditorStore = (set, get) => ({
   queryCode: '',
   headerCode: '',
   variableCode: '',
   responseCode: '',
   isFetching: false,
-  setQueryCode: (value: string) => set(() => ({ queryCode: value })),
-  setHeaderCode: (value: string) => set(() => ({ headerCode: value })),
-  setVariableCode: (value: string) => set(() => ({ variableCode: value })),
-  setResponseCode: (value: string) => set(() => ({ responseCode: value })),
+  setQueryCode: (value: string) => set({ queryCode: value }),
+  setHeaderCode: (value: string) => set({ headerCode: value }),
+  setVariableCode: (value: string) => set({ variableCode: value }),
+  setResponseCode: (value: string) => set({ responseCode: value }),
   fetchData: async () => {
-    set(() => ({ isFetching: true }));
+    set({ isFetching: true });
 
     const { queryCode, headerCode, variableCode } = get();
 
@@ -24,12 +25,19 @@ export const useEditorStore = create<IEditorState>()((set, get) => ({
       parseJSONStringToObject(variableCode)
     );
 
-    prettifiedJSONContent(results, (value) => {
-      set(() => ({ responseCode: value }));
-      set(() => ({ isFetching: false }));
-    });
+    prettifiedJSONContent(results, (value) => set({ responseCode: value }));
+
+    set({ isFetching: false });
   },
-}));
+});
+
+export const useEditorStore = create<IEditorState>()(
+  devtools(
+    persist(editorStore, {
+      name: '@editor-storage',
+    })
+  )
+);
 
 interface IEditorState {
   queryCode: string;
@@ -43,3 +51,5 @@ interface IEditorState {
   setResponseCode: (value: string) => void;
   fetchData: () => Promise<void>;
 }
+
+type TypeEditorStore = StateCreator<IEditorState>;
