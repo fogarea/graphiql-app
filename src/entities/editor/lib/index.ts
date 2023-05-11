@@ -26,3 +26,13 @@ export const prettifiedQueryContent = (
     /* Parsing Query failed, skip prettification */
   }
 };
+
+export const parseJSONStringToObject = (value: string): Record<string, string> => {
+  try {
+    const headers = JSON.parse(value) as Record<string, string>;
+
+    return headers;
+  } catch {
+    return {};
+  }
+};

@@ -4,6 +4,7 @@ import { useEditorStore } from '../model';
 
 export const useQueryEditor = () => {
   const [
+    isFetching,
     queryCode,
     variableCode,
     headerCode,
@@ -11,7 +12,9 @@ export const useQueryEditor = () => {
     setVariableCode,
     setHeaderCode,
     setResponseCode,
+    fetchData,
   ] = useEditorStore((state) => [
+    state.isFetching,
     state.queryCode,
     state.variableCode,
     state.headerCode,
@@ -19,10 +22,11 @@ export const useQueryEditor = () => {
     state.setVariableCode,
     state.setHeaderCode,
     state.setResponseCode,
+    state.fetchData,
   ]);
 
   const execQuery = (): void => {
-    console.log('execQuery');
+    void fetchData();
   };
 
   const prettifyQuery = (): void => {
@@ -41,6 +45,7 @@ export const useQueryEditor = () => {
   };
 
   return {
+    isFetching,
     queryCode,
     variableCode,
     headerCode,
