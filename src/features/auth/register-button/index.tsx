@@ -1,4 +1,5 @@
-import { Button, Grid } from '@mui/material';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 

@@ -1,11 +1,12 @@
-import { AppBar, Toolbar } from '@mui/material';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
 import { useEffect, useRef, useState } from 'react';
-import styles from './styles.module.scss';
 
 import { useAuth } from '@/entities/user';
 import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
 import { ChangeLanguage } from '@/features/change-language';
 import { Logo } from '@/widgets/logo';
+import styles from './styles.module.scss';
 
 export const HeaderLayout = (): JSX.Element => {
   const { isAuth } = useAuth();

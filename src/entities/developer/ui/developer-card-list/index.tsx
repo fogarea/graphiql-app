@@ -1,10 +1,11 @@
-import { Grid, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
 import { DeveloperCard } from '../developer-card';
-import { TypeJsonDevelopers } from '../../types';
+import { TypeDeveloper } from '../../model/types';
 
-export const DeveloperCardList = ({ developers }: TypeJsonDevelopers): JSX.Element => {
+export const DeveloperCardList = ({ developers }: IDeveloperCardListProps): JSX.Element => {
   const { t } = useTranslation();
   return (
     <Grid container flexDirection="column" mt={2}>
@@ -12,10 +13,14 @@ export const DeveloperCardList = ({ developers }: TypeJsonDevelopers): JSX.Eleme
         {t('welcome.our-team')}
       </Typography>
       <Grid container gap={2}>
-        {developers.map((el) => (
-          <DeveloperCard key={el.githubName} {...el} />
+        {developers.map((developer) => (
+          <DeveloperCard key={developer.githubName} {...developer} />
         ))}
       </Grid>
     </Grid>
   );
 };
+
+interface IDeveloperCardListProps {
+  developers: TypeDeveloper[];
+}

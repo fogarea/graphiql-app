@@ -1,4 +1,5 @@
-import Grid from '@mui/material/Grid/Grid';
+import Grid from '@mui/material/Grid';
+
 import { ReactNode } from 'react';
 
 export const ColumnXsNoneMd40 = ({ children }: IColumnXsNoneMd40Props): JSX.Element => {
