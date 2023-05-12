@@ -1,5 +1,5 @@
 import { create, StateCreator } from 'zustand';
-import { devtools } from 'zustand/middleware';
+import { devtools, persist } from 'zustand/middleware';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -91,7 +91,13 @@ const userStore: TypeUserStore = (set) => ({
   },
 });
 
-export const useUserStore = create<IUserStore>()(devtools(userStore));
+export const useUserStore = create<IUserStore>()(
+  devtools(
+    persist(userStore, {
+      name: '@user',
+    })
+  )
+);
 
 onAuthStateChanged(auth, (user) => {
   if (user) {

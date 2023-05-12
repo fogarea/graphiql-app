@@ -2,7 +2,7 @@ import Popover from '@mui/material/Popover';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import { useState, MouseEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 

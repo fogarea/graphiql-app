@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+import { Layout } from '@/widgets/layout';
 import { PrivateRoute } from '@/features/private-route';
 import { TypeAppRoute } from '@/shared/config';
 
@@ -22,10 +23,6 @@ const WelcomePage = lazy(async () => ({
 
 const NotFoundPage = lazy(async () => ({
   default: (await import('./not-found')).NotFoundPage,
-}));
-
-const Layout = lazy(async () => ({
-  default: (await import('@/widgets/layout')).Layout,
 }));
 
 export const Routing = (): JSX.Element => (
