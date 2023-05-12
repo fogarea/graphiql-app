@@ -1,18 +1,31 @@
 import { create, StateCreator } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { devtools } from 'zustand/middleware';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
 import { FirebaseError } from 'firebase/app';
 
 import { auth } from '@/shared/config';
 import { mapFirebaseAuthCodeToMessage } from '@/shared/lib';
 
-const initialUserState: TypeUser = { email: null, token: null, id: null };
+const initialUserState: TypeUser = { email: null, id: null };
 
 const userStore: TypeUserStore = (set) => ({
   user: initialUserState,
   isAuth: false,
   isLoading: false,
   error: null,
+  setUser: (user) => {
+    set({
+      user: {
+        id: user.id,
+        email: user.email,
+      },
+      isAuth: true,
+    });
+  },
   loginUser: async (email, password) => {
     set({ isLoading: true, error: null });
 
@@ -21,9 +34,8 @@ const userStore: TypeUserStore = (set) => ({
 
       set({
         user: {
-          email: user.email,
-          token: user.refreshToken,
           id: user.uid,
+          email: user.email,
         },
         isAuth: true,
       });
@@ -47,9 +59,8 @@ const userStore: TypeUserStore = (set) => ({
 
       set({
         user: {
-          email: user.email,
-          token: user.refreshToken,
           id: user.uid,
+          email: user.email,
         },
         isAuth: true,
       });
@@ -80,18 +91,30 @@ const userStore: TypeUserStore = (set) => ({
   },
 });
 
-export const useUserStore = create<IUserStore>()(
-  devtools(
-    persist(userStore, {
-      name: '@user',
-    })
-  )
-);
+export const useUserStore = create<IUserStore>()(devtools(userStore));
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    useUserStore.setState({
+      user: {
+        id: user.uid,
+        email: user.email,
+      },
+      isAuth: true,
+    });
+  } else {
+    useUserStore.setState({
+      user: {
+        ...initialUserState,
+      },
+      isAuth: false,
+    });
+  }
+});
 
 type TypeUser = {
-  email: string | null;
-  token: string | null;
   id: string | null;
+  email: string | null;
 };
 
 interface IUserStore {
@@ -99,6 +122,7 @@ interface IUserStore {
   user: TypeUser;
   isLoading: boolean;
   error: null | string;
+  setUser: (user: TypeUser) => void;
   loginUser: (email: string, password: string) => Promise<void>;
   registerUser: (email: string, password: string) => Promise<void>;
   logoutUser: (cb: () => void) => Promise<void>;
