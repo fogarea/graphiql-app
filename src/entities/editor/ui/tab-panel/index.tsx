@@ -1,4 +1,4 @@
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import { ComponentProps, ReactNode } from 'react';
 
 export const EditorTabPanel = ({ children, value, index, ...rest }: IEditorTabPanelProps) => {

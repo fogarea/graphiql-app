@@ -7,7 +7,6 @@ export const Loader = (): JSX.Element => {
       open={true}
       sx={{
         backgroundColor: (theme) => theme.palette.background.paper,
-        zIndex: 'drawer',
       }}
     >
       <CircularProgress
