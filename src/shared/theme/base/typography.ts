@@ -20,7 +20,7 @@ export const responsiveFontSizes = ({ sm, md, lg }: { sm: number; md: number; lg
   };
 };
 
-const FONT_PRIMARY = 'Roboto, sans-serif'; // Google Font
+const FONT_PRIMARY = 'Poppins, sans-serif'; // Google Font
 
 export const typography = {
   fontFamily: FONT_PRIMARY,
@@ -31,7 +31,7 @@ export const typography = {
     fontWeight: 700,
     lineHeight: 1.5,
     fontSize: pxToRem(24),
-    ...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
+    ...responsiveFontSizes({ sm: 26, md: 30, lg: 48 }),
   },
   h2: {
     fontWeight: 700,

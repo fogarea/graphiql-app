@@ -23,7 +23,8 @@ export const FooterLayout = memo((): JSX.Element => {
         gap={0.3}
         flexDirection={{ xs: 'column', sm: 'column', md: 'row' }}
       >
-        <GitHubIcon /> {githubName}
+        <GitHubIcon />
+        {githubName}
       </Link>
     );
   });

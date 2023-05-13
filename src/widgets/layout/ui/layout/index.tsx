@@ -2,10 +2,9 @@ import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
-import CssBaseline from '@mui/material/CssBaseline';
 
-import { HeaderLayout } from '@/widgets/header';
-import { FooterLayout } from '@/widgets/footer';
+import { HeaderLayout } from '../header-layout';
+import { FooterLayout } from '../footer-layout';
 import { Loader } from '@/shared/ui';
 
 export const Layout = (): JSX.Element => (
@@ -16,9 +15,8 @@ export const Layout = (): JSX.Element => (
       minHeight: '100vh',
     }}
   >
-    <CssBaseline />
     <HeaderLayout />
-    <Container component="main" maxWidth="xl">
+    <Container component="main" disableGutters maxWidth="xl">
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
