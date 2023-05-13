@@ -85,7 +85,7 @@ export const palette = {
   },
   background: {
     paper: '#fff',
-    default: GREY[100],
+    default: '#fafafa',
     neutral: GREY[200],
   },
   action: {

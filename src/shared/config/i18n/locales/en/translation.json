@@ -16,8 +16,8 @@
     "Konstantin Sapronov": "Konstantin Sapronov",
     "Konstantin Smirnov": "Konstantin Smirnov",
     "Danil Podgorniy": "Danil Podgorniy",
-    "course-info1": "The application is made in",
-    "course-info2": "of the"
+    "course-info1": "The application is made in ",
+    "course-info2": " of the "
   },
   "hero": {
     "description": "GraphiQL is a IDE for graphQL requests.",

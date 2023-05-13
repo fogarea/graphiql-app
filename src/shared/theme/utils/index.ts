@@ -4,6 +4,12 @@ export const a11yHeaderTextAlign = () => ({
   marginBottom: { lg: '16px', md: '16px', sm: '12px', xs: '8px' },
 });
 
+export const a11yHeader2TextAlign = () => ({
+  textAlign: { lg: 'left', md: 'left', sm: 'center', xs: 'center' },
+  marginTop: { lg: '40px', md: '40px', sm: '20px', xs: '12px' },
+  marginBottom: { lg: '40px', md: '40px', sm: '20px', xs: '12px' },
+});
+
 export const a11yCodeEditorStyles = (attributes?: { [key: string]: string }) => ({
   style: {
     fontSize: 14,

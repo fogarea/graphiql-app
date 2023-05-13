@@ -5,6 +5,6 @@ export const WelcomeHeroContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
-  minHeight: '90vh',
+  minHeight: '98vh',
   backgroundColor: theme.palette.common.white,
 }));

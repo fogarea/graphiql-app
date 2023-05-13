@@ -15,7 +15,11 @@ export const WelcomeHeroLayout = (): JSX.Element => {
       <WelcomeHeroBox>
         <img src={'./assets/svg/logo/logo.svg'} alt="Logo" width="247" height="120" />
         <Typography variant="h1">GraphiQL</Typography>
-        <Typography align="center" variant="h2" sx={{ mb: 4, mt: { xs: 2, sm: 4 }, maxWidth: 800 }}>
+        <Typography
+          align="center"
+          variant="subtitle1"
+          sx={{ mb: 4, mt: { xs: 2, sm: 4 }, maxWidth: 800 }}
+        >
           {t('welcome.description')}
         </Typography>
         <EditorPageButton />
