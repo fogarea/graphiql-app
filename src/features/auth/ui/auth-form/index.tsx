@@ -5,11 +5,11 @@ import styled from '@mui/material/styles/styled';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
-import LoadingButton from '@mui/lab/LoadingButton';
 
 import { loginSchema, type TypeLoginSchema } from '../../lib';
+import { LoadingButton } from '@/shared/ui';
 
-const StyledForm = styled('div')(() => ({
+const StyledForm = styled(Box)(() => ({
   maxWidth: 480,
   margin: 'auto',
   display: 'flex',
@@ -35,56 +35,54 @@ export const AuthForm = ({ authUser, label, isLoading }: IAuthFormProps): JSX.El
 
   return (
     <StyledForm>
-      <Box>
-        <Typography component="h1" variant="h2" sx={{ textAlign: 'center', mb: 2 }}>
-          {label}
-        </Typography>
-        <form noValidate onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
-          <Controller
-            name="email"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                label={t('login.email')}
-                variant="outlined"
-                placeholder="example@dev.com"
-                error={!!errors.email}
-                helperText={errors.email ? errors.email?.message : ''}
-                fullWidth
-                margin="dense"
-              />
-            )}
-          />
-          <Controller
-            name="password"
-            control={control}
-            defaultValue=""
-            render={({ field }) => (
-              <TextField
-                {...field}
-                type="password"
-                label={t('login.password')}
-                variant="outlined"
-                error={!!errors.password}
-                helperText={errors.password ? errors.password?.message : ''}
-                fullWidth
-                margin="dense"
-              />
-            )}
-          />
-          <LoadingButton
-            type="submit"
-            fullWidth
-            loading={isLoading}
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            <span>{label}</span>
-          </LoadingButton>
-        </form>
-      </Box>
+      <Typography component="h2" variant="h2" sx={{ textAlign: 'center', mb: 2 }}>
+        {label}
+      </Typography>
+      <form noValidate onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
+        <Controller
+          name="email"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              {...field}
+              label={t('login.email')}
+              variant="outlined"
+              placeholder="example@dev.com"
+              error={!!errors.email}
+              helperText={errors.email ? errors.email?.message : ''}
+              fullWidth
+              margin="dense"
+            />
+          )}
+        />
+        <Controller
+          name="password"
+          control={control}
+          defaultValue=""
+          render={({ field }) => (
+            <TextField
+              {...field}
+              type="password"
+              label={t('login.password')}
+              variant="outlined"
+              error={!!errors.password}
+              helperText={errors.password ? errors.password?.message : ''}
+              fullWidth
+              margin="dense"
+            />
+          )}
+        />
+        <LoadingButton
+          type="submit"
+          fullWidth
+          loading={isLoading}
+          variant="outlined"
+          sx={{ mt: 3, mb: 2 }}
+        >
+          <span>{label}</span>
+        </LoadingButton>
+      </form>
     </StyledForm>
   );
 };

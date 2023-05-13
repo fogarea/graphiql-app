@@ -34,13 +34,13 @@ export const typography = {
     ...responsiveFontSizes({ sm: 26, md: 30, lg: 48 }),
   },
   h2: {
-    fontWeight: 700,
+    fontWeight: 400,
     lineHeight: 1.5,
     fontSize: pxToRem(24),
     ...responsiveFontSizes({ sm: 24, md: 28, lg: 32 }),
   },
   h3: {
-    fontWeight: 700,
+    fontWeight: 500,
     lineHeight: 1.5,
     fontSize: pxToRem(20),
     ...responsiveFontSizes({ sm: 19, md: 20, lg: 21 }),
