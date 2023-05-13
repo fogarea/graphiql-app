@@ -9,7 +9,7 @@
   "welcome": {
     "sign-in": "Вход",
     "sign-up": "Регистрация",
-    "description": "GraphiQL это IDE для graphQL запросов.",
+    "description": "Веб-интерфейс, упрощающий процесс запроса и тестирования API GraphQL для разработчиков",
     "our-team": "Наша Команда:",
     "Developer": "Разработчик",
     "Team Lead / Developer": "Тимлид / Разработчик",
@@ -34,7 +34,7 @@
     "password": "Пароль"
   },
   "editor": {
-    "welcome-page": "На главную",
+    "welcome-page": "Начать",
     "log-out": "Выйти",
     "placeholder": "Введите запрос GraphQL.",
     "q-editor": "Редактор",

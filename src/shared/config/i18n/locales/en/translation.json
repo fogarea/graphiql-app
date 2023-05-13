@@ -7,8 +7,19 @@
     "documentation": "Documentation"
   },
   "welcome": {
-    "sign-in": "Sign in",
-    "sign-up": "Sign up",
+    "sign-in": "Sign In",
+    "sign-up": "Sign Up",
+    "description": "This is a web-based interface that simplifies the process of querying and testing GraphQL APIs for developers",
+    "our-team": "Our Team:",
+    "Developer": "Developer",
+    "Team Lead / Developer": "Team Lead / Developer",
+    "Konstantin Sapronov": "Konstantin Sapronov",
+    "Konstantin Smirnov": "Konstantin Smirnov",
+    "Danil Podgorniy": "Danil Podgorniy",
+    "course-info1": "The application is made in",
+    "course-info2": "of the"
+  },
+  "hero": {
     "description": "GraphiQL is a IDE for graphQL requests.",
     "our-team": "Our Team:",
     "Developer": "Developer",
@@ -36,7 +47,7 @@
     "register-action": "Sign Up"
   },
   "editor": {
-    "welcome-page": "Go to Main Page",
+    "welcome-page": "Get started",
     "log-out": "Log out",
     "placeholder": "Please enter GraphQL query.",
     "q-editor": "Editor",

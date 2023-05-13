@@ -1,20 +1,22 @@
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useTranslation } from 'react-i18next';
 
 import { WelcomeHeroContainer } from '../welcome-hero-container';
 import { WelcomeHeroBox } from '../welcome-hero-box';
 import { EditorPageButton } from '@/features/editor';
 
 export const WelcomeHeroLayout = (): JSX.Element => {
+  const { t } = useTranslation();
+
   return (
     <WelcomeHeroContainer>
       <WelcomeHeroBox>
         <img src={'./assets/svg/logo/logo.svg'} alt="Logo" width="247" height="120" />
         <Typography variant="h1">GraphiQL</Typography>
         <Typography align="center" variant="h2" sx={{ mb: 4, mt: { xs: 2, sm: 4 }, maxWidth: 800 }}>
-          GraphiQL is a web-based interface that simplifies the process of querying and testing
-          GraphQL APIs for developers
+          {t('welcome.description')}
         </Typography>
         <EditorPageButton />
       </WelcomeHeroBox>
