@@ -3,7 +3,7 @@ import { Suspense } from 'react';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
 
-import { HeaderLayout } from '../header-layout';
+import { HeaderLayout } from '../../../header-layout/ui';
 import { FooterLayout } from '../footer-layout';
 import { Loader } from '@/shared/ui';
 

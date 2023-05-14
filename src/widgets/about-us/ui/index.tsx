@@ -25,7 +25,7 @@ export const AboutUs = () => {
       </Grid>
 
       <Grid container justifyContent="center" mt={10} mb={10}>
-        <Typography variant="subtitle2">
+        <Typography component="p" variant="subtitle2" textAlign="center">
           {t('welcome.course-info1')}
           <Link href="https://rs.school/react/">React Course</Link>
           {t('welcome.course-info2')}
