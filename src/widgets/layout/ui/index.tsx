@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
 
-import { HeaderLayout } from '../../../header-layout/ui';
-import { FooterLayout } from '../footer-layout';
+import { HeaderLayout } from '@/widgets/header-layout';
+import { FooterLayout } from '@/widgets/footer-layout';
 import { Loader } from '@/shared/ui';
 
 export const Layout = (): JSX.Element => (
