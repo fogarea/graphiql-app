@@ -8,7 +8,12 @@ export const LoginButton = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (
-    <DefaultButton variant="contained">
+    <DefaultButton
+      variant="contained"
+      sx={{
+        color: (theme) => theme.palette.grey['800'],
+      }}
+    >
       <NavLink to={TypeAppRoute.Login}>{t('welcome.sign-in')}</NavLink>
     </DefaultButton>
   );

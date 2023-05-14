@@ -3,17 +3,15 @@ import styled from '@mui/material/styles/styled';
 import MuiLoadingButton, {
   LoadingButtonProps as MuiLoadingButtonProps,
 } from '@mui/lab/LoadingButton';
+import { alpha } from '@mui/material/styles';
 
 const StyledLoadingButton = styled(MuiLoadingButton)(({ theme }) => ({
-  backgroundColor: 'inherit',
-  color: theme.palette.grey['800'],
   boxShadow: 'none',
-  borderColor: theme.palette.grey['800'],
   whiteSpace: 'nowrap',
   textTransform: 'none',
   '&:hover': {
-    backgroundColor: theme.palette.action.hover,
-    borderColor: theme.palette.grey['800'],
+    backgroundColor: alpha(theme.palette.primary.main, 0.85),
+    borderColor: theme.palette.primary.main,
     boxShadow: 'none',
   },
   a: {

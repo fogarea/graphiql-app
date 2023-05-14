@@ -5,13 +5,13 @@ import styled from '@mui/material/styles/styled';
 const StyledDefaultButton = styled(Button)(({ theme }) => ({
   backgroundColor: 'inherit',
   color: theme.palette.grey['800'],
+  borderColor: theme.palette.primary.main,
   boxShadow: 'none',
-  borderColor: theme.palette.grey['800'],
   whiteSpace: 'nowrap',
   textTransform: 'none',
   '&:hover': {
     backgroundColor: theme.palette.action.hover,
-    borderColor: theme.palette.grey['800'],
+    borderColor: theme.palette.primary.main,
     boxShadow: 'none',
   },
   a: {
