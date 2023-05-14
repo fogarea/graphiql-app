@@ -1,17 +1,22 @@
 import { create } from 'zustand';
+import { expoloreSevice } from '../services';
 
 export const useExplorerStore = create<IExplorerState>()((set) => ({
   isOpen: false,
   content: '',
-  isLoading: false,
+  isLoaded: false,
   error: null,
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
+  fetchSchema: async () => {
+    await expoloreSevice.loadDocumentation();
+  },
 }));
 
 interface IExplorerState {
   isOpen: boolean;
   content: string;
-  isLoading: boolean;
+  isLoaded: boolean;
   error: string | null;
   toggleExplorer: () => void;
+  fetchSchema: () => Promise<void>;
 }
