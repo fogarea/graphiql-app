@@ -1,5 +1,5 @@
 import { create, StateCreator } from 'zustand';
-import { ParserTree } from 'graphql-js-tree';
+import { ParserField } from 'graphql-js-tree';
 import { expoloreSevice } from '../services';
 import { devtools, persist } from 'zustand/middleware';
 
@@ -10,10 +10,10 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   error: null,
   parsedSchema: [],
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
-  setParsedSchema: (value: ParserTree) => set({ parsedSchema: value }),
+  setParsedSchema: (value: ParserField[]) => set({ parsedSchema: value }),
   fetchSchema: async () => {
     const schema = await expoloreSevice.loadDocumentation();
-    set({ parsedSchema: schema });
+    set({ parsedSchema: schema.nodes });
     set({ isLoaded: true });
   },
 });
@@ -31,9 +31,9 @@ interface IExplorerState {
   content: string;
   isLoaded: boolean;
   error: string | null;
-  parsedSchema: ParserTree | [];
+  parsedSchema: ParserField[] | [];
   toggleExplorer: () => void;
-  setParsedSchema: (value: ParserTree) => void;
+  setParsedSchema: (value: ParserField[]) => void;
   fetchSchema: () => Promise<void>;
 }
 

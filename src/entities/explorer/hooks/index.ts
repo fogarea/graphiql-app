@@ -1,12 +1,16 @@
 import { useExplorerStore } from '../model';
 
 export const useExplorer = () => {
-  const [isOpen, content, toggleExplorer, fetchSchema] = useExplorerStore((state) => [
-    state.isOpen,
-    state.content,
-    state.toggleExplorer,
-    state.fetchSchema,
-  ]);
+  const [isOpen, isLoaded, content, toggleExplorer, fetchSchema, parsedSchema] = useExplorerStore(
+    (state) => [
+      state.isOpen,
+      state.isLoaded,
+      state.content,
+      state.toggleExplorer,
+      state.fetchSchema,
+      state.parsedSchema,
+    ]
+  );
 
   const execSchema = (): void => {
     void fetchSchema();
@@ -14,10 +18,10 @@ export const useExplorer = () => {
 
   const handleToggleDocumentation = () => {
     toggleExplorer();
-    // fetchSchema();
+    // await fetchSchema();
 
     console.log('handleToggleDocumentation');
   };
 
-  return { isOpen, content, handleToggleDocumentation, execSchema };
+  return { isOpen, content, handleToggleDocumentation, execSchema, parsedSchema, isLoaded };
 };
