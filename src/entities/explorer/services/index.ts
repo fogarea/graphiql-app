@@ -20,5 +20,6 @@ export const expoloreSevice = {
     console.log(data);
     console.log(printedSchema);
     console.log(parsedSchema);
+    return parsedSchema;
   },
 };
