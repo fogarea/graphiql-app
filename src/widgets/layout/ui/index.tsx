@@ -16,7 +16,7 @@ export const Layout = (): JSX.Element => (
     }}
   >
     <HeaderLayout />
-    <Container component="main" disableGutters maxWidth="xl">
+    <Container component="main" disableGutters maxWidth={false}>
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
