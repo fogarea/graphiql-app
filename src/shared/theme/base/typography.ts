@@ -20,7 +20,7 @@ export const responsiveFontSizes = ({ sm, md, lg }: { sm: number; md: number; lg
   };
 };
 
-const FONT_PRIMARY = 'Roboto, sans-serif'; // Google Font
+const FONT_PRIMARY = 'Poppins, sans-serif'; // Google Font
 
 export const typography = {
   fontFamily: FONT_PRIMARY,
@@ -30,20 +30,20 @@ export const typography = {
   h1: {
     fontWeight: 700,
     lineHeight: 1.5,
-    fontSize: pxToRem(24),
-    ...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
+    fontSize: pxToRem(32),
+    ...responsiveFontSizes({ sm: 26, md: 30, lg: 48 }),
   },
   h2: {
-    fontWeight: 700,
+    fontWeight: 400,
     lineHeight: 1.5,
-    fontSize: pxToRem(20),
-    ...responsiveFontSizes({ sm: 20, md: 24, lg: 24 }),
+    fontSize: pxToRem(24),
+    ...responsiveFontSizes({ sm: 24, md: 28, lg: 32 }),
   },
   h3: {
     fontWeight: 500,
     lineHeight: 1.5,
-    fontSize: pxToRem(18),
-    ...responsiveFontSizes({ sm: 19, md: 20, lg: 20 }),
+    fontSize: pxToRem(20),
+    ...responsiveFontSizes({ sm: 19, md: 20, lg: 21 }),
   },
   h4: {
     fontWeight: 500,
@@ -64,14 +64,14 @@ export const typography = {
     ...responsiveFontSizes({ sm: 16, md: 16, lg: 16 }),
   },
   subtitle1: {
-    fontWeight: 500,
+    fontWeight: 300,
     lineHeight: 1.5,
-    fontSize: pxToRem(16),
+    fontSize: pxToRem(21),
   },
   subtitle2: {
-    fontWeight: 500,
-    lineHeight: 22 / 14,
-    fontSize: pxToRem(14),
+    fontWeight: 300,
+    lineHeight: 1.5,
+    fontSize: pxToRem(18),
   },
   body1: {
     lineHeight: 1.5,
@@ -91,7 +91,7 @@ export const typography = {
     fontSize: pxToRem(12),
   },
   button: {
-    fontWeight: 700,
+    fontWeight: 500,
     lineHeight: 24 / 14,
     fontSize: pxToRem(14),
   },

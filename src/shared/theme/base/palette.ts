@@ -15,11 +15,11 @@ const GREY = {
 };
 
 const PRIMARY = {
-  lighter: '#D1E9FC',
-  light: '#76B0F1',
-  main: '#2065D1',
-  dark: '#103996',
-  darker: '#061B64',
+  lighter: '#fff',
+  light: '#b4c2f2',
+  main: '#5E7CE2',
+  dark: '#2144b9',
+  darker: '#122462',
   contrastText: '#fff',
 };
 
@@ -85,12 +85,12 @@ export const palette = {
   },
   background: {
     paper: '#fff',
-    default: GREY[100],
+    default: '#fafafa',
     neutral: GREY[200],
   },
   action: {
     active: GREY[600],
-    hover: alpha(GREY[500], 0.08),
+    hover: alpha(PRIMARY.main, 0.08),
     selected: alpha(GREY[500], 0.16),
     disabled: alpha(GREY[500], 0.8),
     disabledBackground: alpha(GREY[500], 0.24),

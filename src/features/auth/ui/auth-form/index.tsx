@@ -1,3 +1,4 @@
+import Container from '@mui/material/Container';
 import { Box } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -5,11 +6,11 @@ import styled from '@mui/material/styles/styled';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useTranslation } from 'react-i18next';
-import LoadingButton from '@mui/lab/LoadingButton';
 
 import { loginSchema, type TypeLoginSchema } from '../../lib';
+import { LoadingButton } from '@/shared/ui';
 
-const StyledForm = styled('div')(() => ({
+const StyledForm = styled(Box)(() => ({
   maxWidth: 480,
   margin: 'auto',
   display: 'flex',
@@ -34,9 +35,9 @@ export const AuthForm = ({ authUser, label, isLoading }: IAuthFormProps): JSX.El
   };
 
   return (
-    <StyledForm>
-      <Box>
-        <Typography component="h1" variant="h2" sx={{ textAlign: 'center', mb: 2 }}>
+    <Container maxWidth="xl">
+      <StyledForm>
+        <Typography component="h2" variant="h2" sx={{ textAlign: 'center', mb: 2 }}>
           {label}
         </Typography>
         <form noValidate onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
@@ -79,13 +80,14 @@ export const AuthForm = ({ authUser, label, isLoading }: IAuthFormProps): JSX.El
             fullWidth
             loading={isLoading}
             variant="contained"
+            color="primary"
             sx={{ mt: 3, mb: 2 }}
           >
             <span>{label}</span>
           </LoadingButton>
         </form>
-      </Box>
-    </StyledForm>
+      </StyledForm>
+    </Container>
   );
 };
 

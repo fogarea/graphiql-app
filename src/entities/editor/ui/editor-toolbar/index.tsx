@@ -19,7 +19,7 @@ export const EditorToolbar = ({
   return (
     <>
       <TooltipButton title={t('button.execute-query')} onClick={execQuery}>
-        {isFetching ? <StopIcon color="error" /> : <PlayArrowIcon color="secondary" />}
+        {isFetching ? <StopIcon color="error" /> : <PlayArrowIcon color="primary" />}
       </TooltipButton>
       <TooltipButton title={t('button.prettify-query')} onClick={prettifyQuery}>
         <TextFormatIcon />

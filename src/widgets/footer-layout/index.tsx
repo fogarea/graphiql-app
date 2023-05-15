@@ -1,4 +1,3 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -11,7 +10,7 @@ import { developerService } from '@/entities/developer';
 const developers = developerService.getAll();
 
 export const FooterLayout = memo((): JSX.Element => {
-  const developerList = developers.map(({ id, githubName, githubLink }) => {
+  const developerList = developers.map(({ id, githubLink }) => {
     return (
       <Link
         key={id}
@@ -21,9 +20,12 @@ export const FooterLayout = memo((): JSX.Element => {
         display="flex"
         alignItems="center"
         gap={0.3}
-        flexDirection={{ xs: 'column', sm: 'column', md: 'row' }}
       >
-        <GitHubIcon /> {githubName}
+        <img
+          src={'./assets/svg/github/github.svg'}
+          alt="Github Logo"
+          style={{ height: '24px', width: '24px', display: 'inline-block' }}
+        />
       </Link>
     );
   });
@@ -38,22 +40,16 @@ export const FooterLayout = memo((): JSX.Element => {
       }}
     >
       <Container maxWidth="xl">
-        <Grid
-          container
-          direction={{ xs: 'column', sm: 'column', md: 'row' }}
-          justifyContent="space-around"
-          alignItems="center"
-          spacing={2}
-        >
-          <Grid item xs={12} md={4}>
+        <Grid container justifyContent="space-around" alignItems="center" spacing={2}>
+          <Grid item xs>
             <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs>
             <Typography variant="body1" textAlign="center">
-              2023
+              © 2023
             </Typography>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs>
             <Link
               href="https://rs.school/react/"
               target="_blank"
@@ -61,9 +57,13 @@ export const FooterLayout = memo((): JSX.Element => {
               flexDirection="row-reverse"
             >
               <img
-                src="https://rs.school/images/rs_school_js.svg"
+                src={'./assets/svg/rs/logo_rs.svg'}
                 alt="RS School React Course"
-                style={{ height: '24px', width: '64px', display: 'inline-block' }}
+                style={{
+                  height: '24px',
+                  width: '64px',
+                  display: 'inline-block',
+                }}
               />
             </Link>
           </Grid>

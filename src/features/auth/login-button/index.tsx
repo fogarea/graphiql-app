@@ -1,20 +1,22 @@
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { DefaultButton } from '@/shared/ui';
 import { TypeAppRoute } from '@/shared/config';
 
 export const LoginButton = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (
-    <Grid item>
-      <Button color="inherit">
-        <NavLink to={TypeAppRoute.Login} style={{ textDecoration: 'none', color: 'inherit' }}>
-          {t('welcome.sign-in')}
-        </NavLink>
-      </Button>
-    </Grid>
+    <DefaultButton
+      variant="contained"
+      sx={{
+        color: (theme) => theme.palette.grey['800'],
+      }}
+      component={NavLink}
+      to={TypeAppRoute.Login}
+    >
+      {t('welcome.sign-in')}
+    </DefaultButton>
   );
 };

@@ -4,7 +4,7 @@ import styled from '@mui/material/styles/styled';
 import { NavLink } from 'react-router-dom';
 
 const StyledRedirect = styled('div')(({ theme }) => ({
-  color: theme.palette.info.dark,
+  color: theme.palette.primary.main,
   textDecoration: 'underline',
 }));
 
