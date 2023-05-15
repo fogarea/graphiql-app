@@ -32,11 +32,7 @@ const editorStore: TypeEditorStore = (set, get) => ({
 });
 
 export const useEditorStore = create<IEditorState>()(
-  devtools(
-    persist(editorStore, {
-      name: '@editor-storage',
-    })
-  )
+  devtools(editorStore, { name: '@editor-store' })
 );
 
 interface IEditorState {
