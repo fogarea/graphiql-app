@@ -1,10 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { alpha } from '@mui/material/styles';
 
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
 import { DefaultButton } from '@/shared/ui';
-import { alpha } from '@mui/material/styles';
 
 export const EditorPageButton = (): JSX.Element => {
   const { t } = useTranslation();
@@ -22,10 +22,10 @@ export const EditorPageButton = (): JSX.Element => {
           backgroundColor: (theme) => alpha(theme.palette.primary.main, 0.85),
         },
       }}
+      component={NavLink}
+      to={isAuth ? TypeAppRoute.Editor : TypeAppRoute.Login}
     >
-      <NavLink to={isAuth ? TypeAppRoute.Editor : TypeAppRoute.Login}>
-        {t('editor.welcome-page')}
-      </NavLink>
+      {t('editor.welcome-page')}
     </DefaultButton>
   );
 };

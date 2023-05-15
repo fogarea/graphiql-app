@@ -1,6 +1,7 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
+import MuiToolbar from '@mui/material/Toolbar';
+import Divider from '@mui/material/Divider';
 import styled from '@mui/material/styles/styled';
 import { useState } from 'react';
 
@@ -13,6 +14,17 @@ import { useHeader } from '../hooks';
 const Header = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
   transition: 'all 0.5s ease-in',
+  [theme.breakpoints.down('sm')]: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}));
+
+const Toolbar = styled(MuiToolbar)(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
 }));
 
 export const HeaderLayout = (): JSX.Element => {
@@ -42,7 +54,11 @@ export const HeaderLayout = (): JSX.Element => {
       >
         <Toolbar>
           <BurgerMenu isOpen={isMenuOpen} toggleMenu={() => setIsMenuOpen(!isMenuOpen)}>
-            {buttons}
+            <>
+              <Logo withTitle isMobile />
+              <Divider />
+              {buttons}
+            </>
           </BurgerMenu>
           <Logo withTitle />
           <ChangeLanguage />

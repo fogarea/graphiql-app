@@ -30,7 +30,16 @@ export const BurgerMenu = ({ isOpen, toggleMenu, children }: IBurgerMenuProps): 
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: 240 },
           }}
         >
-          <Container sx={{ display: { xs: 'flex', sm: 'none' }, gap: 3, flexDirection: 'column' }}>
+          <Container
+            sx={{
+              display: { xs: 'flex', sm: 'none' },
+              gap: 1,
+              flexDirection: 'column',
+              mt: 2,
+              textAlign: 'center',
+            }}
+            onClick={toggleMenu}
+          >
             {children}
           </Container>
         </Drawer>

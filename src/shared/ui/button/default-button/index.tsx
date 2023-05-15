@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ElementType } from 'react';
 import Button, { ButtonProps } from '@mui/material/Button';
 import styled from '@mui/material/styles/styled';
 
@@ -14,21 +14,11 @@ const StyledDefaultButton = styled(Button)(({ theme }) => ({
     borderColor: theme.palette.primary.main,
     boxShadow: 'none',
   },
-  a: {
-    textDecoration: 'none',
-    color: 'inherit',
-  },
 }));
 
-export const DefaultButton = ({ children, variant, ...rest }: IDefaultButtonProps): JSX.Element => {
-  return (
-    <StyledDefaultButton variant={variant} {...rest}>
-      {children}
-    </StyledDefaultButton>
-  );
+export const DefaultButton = <C extends ElementType>({
+  children,
+  ...rest
+}: ButtonProps<C, { component?: C }>): JSX.Element => {
+  return <StyledDefaultButton {...rest}>{children}</StyledDefaultButton>;
 };
-
-interface IDefaultButtonProps extends Pick<ButtonProps, Exclude<keyof ButtonProps, 'variant'>> {
-  children?: ReactNode;
-  variant: 'text' | 'outlined' | 'contained';
-}

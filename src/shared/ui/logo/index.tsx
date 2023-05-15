@@ -1,10 +1,11 @@
 import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 import styled from '@mui/material/styles/styled';
 import { Link } from 'react-router-dom';
 
 import { TypeAppRoute } from '../../config';
 
-const StyledLogo = styled('div')(({ theme }) => ({
+const StyledLogo = styled(Box)(({ theme }) => ({
   flexGrow: 1,
   a: {
     textDecoration: 'none',
@@ -13,9 +14,13 @@ const StyledLogo = styled('div')(({ theme }) => ({
   },
 }));
 
-export const Logo = ({ withTitle }: ILogoProps): JSX.Element => {
+export const Logo = ({ withTitle, isMobile }: ILogoProps): JSX.Element => {
   return (
-    <StyledLogo>
+    <StyledLogo
+      sx={{
+        display: !isMobile ? { xs: 'none', sm: 'block' } : { xs: 'block', sm: 'none' },
+      }}
+    >
       <Link to={TypeAppRoute.Welcome}>
         <img src={'./assets/svg/logo/logo.svg'} alt="Logo" style={{ marginRight: '5px' }} />
         {withTitle && (
@@ -29,5 +34,6 @@ export const Logo = ({ withTitle }: ILogoProps): JSX.Element => {
 };
 
 interface ILogoProps {
-  withTitle: boolean;
+  withTitle?: boolean;
+  isMobile?: boolean;
 }

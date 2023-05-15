@@ -13,8 +13,10 @@ export const LoginButton = (): JSX.Element => {
       sx={{
         color: (theme) => theme.palette.grey['800'],
       }}
+      component={NavLink}
+      to={TypeAppRoute.Login}
     >
-      <NavLink to={TypeAppRoute.Login}>{t('welcome.sign-in')}</NavLink>
+      {t('welcome.sign-in')}
     </DefaultButton>
   );
 };

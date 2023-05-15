@@ -8,8 +8,13 @@ export const RegisterButton = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (
-    <DefaultButton variant="outlined" sx={{ color: (theme) => theme.palette.primary.main }}>
-      <NavLink to={TypeAppRoute.Register}>{t('welcome.sign-up')}</NavLink>
+    <DefaultButton
+      variant="outlined"
+      sx={{ color: (theme) => theme.palette.primary.main }}
+      component={NavLink}
+      to={TypeAppRoute.Register}
+    >
+      {t('welcome.sign-up')}
     </DefaultButton>
   );
 };
