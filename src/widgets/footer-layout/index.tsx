@@ -43,20 +43,20 @@ export const FooterLayout = memo((): JSX.Element => {
       <Container maxWidth="xl">
         <Grid
           container
-          direction={{ xs: 'column', sm: 'column', md: 'row' }}
+          direction={{ xs: 'row', sm: 'row', md: 'row' }}
           justifyContent="space-around"
           alignItems="center"
           spacing={2}
         >
-          <Grid item xs={12} md={4}>
+          <Grid item xs>
             <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs>
             <Typography variant="body1" textAlign="center">
-              Copyright © 2023
+              © 2023
             </Typography>
           </Grid>
-          <Grid item xs={12} md={4}>
+          <Grid item xs>
             <Link
               href="https://rs.school/react/"
               target="_blank"

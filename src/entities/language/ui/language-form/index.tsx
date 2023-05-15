@@ -42,7 +42,7 @@ export const LanguageForm = ({
           padding: 0,
           width: 28,
           height: 20,
-          margin: '0 10px',
+          margin: { xs: '0', sm: '0 10px' },
         }}
       >
         <img src={selectedLanguageData?.icon} alt={selectedLanguageData?.label} />

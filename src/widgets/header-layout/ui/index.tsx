@@ -14,10 +14,6 @@ import { useHeader } from '../hooks';
 const Header = styled(AppBar)(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
   transition: 'all 0.5s ease-in',
-  [theme.breakpoints.down('sm')]: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
 }));
 
 const Toolbar = styled(MuiToolbar)(({ theme }) => ({
