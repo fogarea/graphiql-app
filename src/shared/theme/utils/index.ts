@@ -13,7 +13,7 @@ export const a11yHeader2TextAlign = () => ({
 export const a11yCodeEditorStyles = (attributes?: { [key: string]: string }) => ({
   style: {
     fontSize: 14,
-    backgroundColor: '#fff', // Default value
+    backgroundColor: '#fff',
     fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
     height: '100%',
     width: '100%',

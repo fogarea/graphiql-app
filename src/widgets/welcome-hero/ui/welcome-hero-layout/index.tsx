@@ -7,7 +7,7 @@ import { WelcomeHeroContainer } from '../welcome-hero-container';
 import { WelcomeHeroBox } from '../welcome-hero-box';
 import { EditorPageButton } from '@/features/editor';
 
-export const WelcomeHeroLayout = (): JSX.Element => {
+export const WelcomeHeroLayout = ({ onScrollClick }: IWelcomeHeroLayoutProps): JSX.Element => {
   const { t } = useTranslation();
 
   return (
@@ -23,10 +23,14 @@ export const WelcomeHeroLayout = (): JSX.Element => {
           {t('welcome.description')}
         </Typography>
         <EditorPageButton />
+        <IconButton sx={{ mt: { xs: 2, sm: 4 } }} onClick={() => onScrollClick()}>
+          <ExpandMoreIcon color="inherit" />
+        </IconButton>
       </WelcomeHeroBox>
-      <IconButton sx={{ position: 'absolute', bottom: 32 }}>
-        <ExpandMoreIcon color="inherit" />
-      </IconButton>
     </WelcomeHeroContainer>
   );
 };
+
+interface IWelcomeHeroLayoutProps {
+  onScrollClick: () => void;
+}

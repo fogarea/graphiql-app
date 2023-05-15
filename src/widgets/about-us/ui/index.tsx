@@ -3,17 +3,18 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import { useTranslation } from 'react-i18next';
+import { RefObject } from 'react';
 
 import { DeveloperCard, developerService } from '@/entities/developer';
 import { a11yHeader2TextAlign } from '@/shared/theme';
 
 const developers = developerService.getAll();
 
-export const AboutUs = () => {
+export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
   const { t } = useTranslation();
 
   return (
-    <Container>
+    <Container ref={aboutUsRef}>
       <Typography variant="h2" sx={{ ...a11yHeader2TextAlign() }}>
         {t('welcome.our-team')}
       </Typography>
@@ -35,3 +36,7 @@ export const AboutUs = () => {
     </Container>
   );
 };
+
+interface IAboutUsProps {
+  aboutUsRef?: RefObject<HTMLDivElement>;
+}
