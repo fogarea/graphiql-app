@@ -1,5 +1,5 @@
 import { StateCreator, create } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
+import { devtools } from 'zustand/middleware';
 
 import { prettifiedJSONContent, parseJSONStringToObject } from '../lib';
 import { graphiqlClient } from '@/shared/api';
