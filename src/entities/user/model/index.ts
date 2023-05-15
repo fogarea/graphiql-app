@@ -95,7 +95,8 @@ export const useUserStore = create<IUserStore>()(
   devtools(
     persist(userStore, {
       name: '@user',
-    })
+    }),
+    { name: '@user-store' }
   )
 );
 

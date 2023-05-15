@@ -1,5 +1,5 @@
 import { StateCreator, create } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
+import { devtools } from 'zustand/middleware';
 
 import { prettifiedJSONContent, parseJSONStringToObject } from '../lib';
 import { graphiqlClient } from '@/shared/api';
@@ -32,11 +32,7 @@ const editorStore: TypeEditorStore = (set, get) => ({
 });
 
 export const useEditorStore = create<IEditorState>()(
-  devtools(
-    persist(editorStore, {
-      name: '@editor-storage',
-    })
-  )
+  devtools(editorStore, { name: '@editor-store' })
 );
 
 interface IEditorState {

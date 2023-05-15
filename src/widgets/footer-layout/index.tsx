@@ -20,7 +20,6 @@ export const FooterLayout = memo((): JSX.Element => {
         display="flex"
         alignItems="center"
         gap={0.3}
-        flexDirection={{ xs: 'column', sm: 'column', md: 'row' }}
       >
         <img
           src={'./assets/svg/github/github.svg'}
@@ -41,13 +40,7 @@ export const FooterLayout = memo((): JSX.Element => {
       }}
     >
       <Container maxWidth="xl">
-        <Grid
-          container
-          direction={{ xs: 'row', sm: 'row', md: 'row' }}
-          justifyContent="space-around"
-          alignItems="center"
-          spacing={2}
-        >
+        <Grid container justifyContent="space-around" alignItems="center" spacing={2}>
           <Grid item xs>
             <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
           </Grid>
