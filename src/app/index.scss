@@ -2,10 +2,9 @@
 
 .app {
   display: grid;
-
   grid-template-rows: auto 1fr auto;
   grid-template-columns: 1fr;
-
   gap: 0;
   height: 100%;
+  overflow-x: auto;
 }
