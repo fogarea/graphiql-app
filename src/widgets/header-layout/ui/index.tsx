@@ -1,5 +1,5 @@
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import MuiToolbar from '@mui/material/Toolbar';
 import Divider from '@mui/material/Divider';
 import styled from '@mui/material/styles/styled';

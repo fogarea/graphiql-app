@@ -1,5 +1,5 @@
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import styled from '@mui/material/styles/styled';
 import { Link } from 'react-router-dom';
 

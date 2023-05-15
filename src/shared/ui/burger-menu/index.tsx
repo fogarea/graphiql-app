@@ -1,6 +1,6 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
+import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
 import Drawer from '@mui/material/Drawer';
 import { ReactNode } from 'react';
