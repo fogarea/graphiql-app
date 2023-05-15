@@ -21,7 +21,7 @@ export const Logo = ({ withTitle, isMobile }: ILogoProps): JSX.Element => {
         display: !isMobile ? { xs: 'none', sm: 'block' } : { xs: 'block', sm: 'none' },
       }}
     >
-      <Link to={TypeAppRoute.Welcome}>
+      <Link to={TypeAppRoute.Welcome} style={{ display: 'inline-flex', alignItems: 'center' }}>
         <img src={'./assets/svg/logo/logo.svg'} alt="Logo" style={{ marginRight: '5px' }} />
         {withTitle && (
           <Typography variant="h6" component="div">
