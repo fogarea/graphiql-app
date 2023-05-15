@@ -92,12 +92,7 @@ const userStore: TypeUserStore = (set) => ({
 });
 
 export const useUserStore = create<IUserStore>()(
-  devtools(
-    persist(userStore, {
-      name: '@user',
-    }),
-    { name: '@user-store' }
-  )
+  devtools(persist(userStore, { name: '@user-store' }))
 );
 
 onAuthStateChanged(auth, (user) => {
