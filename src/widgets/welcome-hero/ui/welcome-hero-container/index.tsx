@@ -1,7 +1,7 @@
 import styled from '@mui/material/styles/styled';
-import Container from '@mui/material/Container';
+import { Box } from '@mui/material';
 
-export const WelcomeHeroContainer = styled(Container)(({ theme }) => ({
+export const WelcomeHeroContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
@@ -10,4 +10,7 @@ export const WelcomeHeroContainer = styled(Container)(({ theme }) => ({
   backgroundColor: theme.palette.common.white,
   textAlign: 'center',
   gap: theme.spacing(4),
+  [theme.breakpoints.down('md')]: {
+    padding: theme.spacing(2),
+  },
 }));

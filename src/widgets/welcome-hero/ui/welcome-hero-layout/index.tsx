@@ -10,7 +10,7 @@ export const WelcomeHeroLayout = ({ onScrollClick }: IWelcomeHeroLayoutProps): J
   const { t } = useTranslation();
 
   return (
-    <WelcomeHeroContainer maxWidth={false}>
+    <WelcomeHeroContainer>
       <img src={'./assets/svg/logo/logo.svg'} alt="Logo" width="247" height="120" />
       <Typography variant="h1">GraphiQL</Typography>
       <Typography
