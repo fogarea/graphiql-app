@@ -1,14 +1,12 @@
 import {
   ExplorerDrawer,
   useExplorer,
-  ExplorerSchemaBlock,
   ExplorerDocsQueries,
+  ExplorerDocsDetails,
 } from '@/entities/explorer';
 
-import { ExplorerDocsContainer } from '../../../entities/explorer/ui/explorer-docs/docs-container';
-
 export const ExplorerContainer = (): JSX.Element => {
-  const { isOpen, handleToggleDocumentation, parsedSchema } = useExplorer();
+  const { isOpen, handleToggleDocumentation, parsedSchema, docsContainers } = useExplorer();
 
   return (
     <ExplorerDrawer open={isOpen} toggleDrawer={handleToggleDocumentation}>
@@ -22,8 +20,14 @@ export const ExplorerContainer = (): JSX.Element => {
       ) : (
         <p>No documentation</p>
       )}
-      <ExplorerDocsContainer />
-      <ExplorerDocsContainer />
+      {docsContainers &&
+        docsContainers.map((typeInfo) => (
+          <ExplorerDocsDetails
+            key={typeInfo.typeDetails.id}
+            typeDetails={typeInfo.typeDetails}
+            typeArguments={typeInfo.typeArguments}
+          />
+        ))}
     </ExplorerDrawer>
   );
 };

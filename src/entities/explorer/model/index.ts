@@ -2,6 +2,7 @@ import { create, StateCreator } from 'zustand';
 import { ParserField } from 'graphql-js-tree';
 import { expoloreSevice } from '../services';
 import { devtools, persist } from 'zustand/middleware';
+import { IDocsTypeInfo } from './types';
 
 const explorerStore: TyoeExplorerStore = (set) => ({
   isOpen: false,
@@ -12,10 +13,10 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   docsContainers: [],
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
   setParsedSchema: (value: ParserField[]) => set({ parsedSchema: value }),
-  addDocsContainer: (queryInfo: ParserField) => {
+  addDocsContainer: (queryInfo: IDocsTypeInfo) => {
     set((state) => ({ docsContainers: [...state.docsContainers, queryInfo] }));
   },
-  setDocsContainer: (queryInfo: ParserField) => set({ docsContainers: [queryInfo] }),
+  setDocsContainer: (queryInfo: IDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   removeDocsContainer: () =>
     set((state) => ({ docsContainers: [...state.docsContainers.slice(0, 1)] })),
   fetchSchema: async () => {
@@ -39,9 +40,9 @@ interface IExplorerState {
   isLoaded: boolean;
   error: string | null;
   parsedSchema: ParserField[] | [];
-  docsContainers: ParserField[] | [];
-  addDocsContainer: (queryInfo: ParserField) => void;
-  setDocsContainer: (queryInfo: ParserField) => void;
+  docsContainers: IDocsTypeInfo[] | [];
+  addDocsContainer: (queryInfo: IDocsTypeInfo) => void;
+  setDocsContainer: (queryInfo: IDocsTypeInfo) => void;
   removeDocsContainer: () => void;
   toggleExplorer: () => void;
   setParsedSchema: (value: ParserField[]) => void;
