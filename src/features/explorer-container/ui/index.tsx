@@ -5,6 +5,8 @@ import {
   ExplorerDocsQueries,
 } from '@/entities/explorer';
 
+import { ExplorerDocsContainer } from '../../../entities/explorer/ui/explorer-docs/docs-container';
+
 export const ExplorerContainer = (): JSX.Element => {
   const { isOpen, handleToggleDocumentation, parsedSchema } = useExplorer();
 
@@ -20,6 +22,8 @@ export const ExplorerContainer = (): JSX.Element => {
       ) : (
         <p>No documentation</p>
       )}
+      <ExplorerDocsContainer />
+      <ExplorerDocsContainer />
     </ExplorerDrawer>
   );
 };
