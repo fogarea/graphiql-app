@@ -12,9 +12,9 @@ export const useHeader = () => {
 
   const elevationValue = location.pathname === TypeAppRoute.Welcome ? headerShadow : 4;
 
-  const changeBackground = ({ currentTarget: el }: HTMLElementEventMap['scroll']): void => {
+  const changeBackground = ({ currentTarget: ct }: TypeEventScroll): void => {
     const flag = Boolean(
-      headerRef.current && (el as HTMLDivElement)?.scrollTop >= headerRef.current.offsetHeight
+      headerRef.current && (ct as HTMLDivElement)?.scrollTop >= headerRef.current.offsetHeight
     );
 
     setIsScrolled(flag);
@@ -25,16 +25,10 @@ export const useHeader = () => {
   useEffect(() => {
     const rootElement = document.getElementById('root');
 
-    rootElement?.addEventListener(
-      'scroll',
-      throttle<HTMLElementEventMap['scroll']>(changeBackground)
-    );
+    rootElement?.addEventListener('scroll', throttle<TypeEventScroll>(changeBackground));
 
     return () =>
-      rootElement?.removeEventListener(
-        'scroll',
-        throttle<HTMLElementEventMap['scroll']>(changeBackground)
-      );
+      rootElement?.removeEventListener('scroll', throttle<TypeEventScroll>(changeBackground));
   }, []);
 
   return {
@@ -44,35 +38,4 @@ export const useHeader = () => {
   };
 };
 
-// export const useHeader = () => {
-//   const [isScrolled, setIsScrolled] = useState(false);
-//   const [headerShadow, setHeaderShadow] = useState(0);
-//   const location = useLocation();
-//   const headerRef = useRef<HTMLHeadingElement>(null);
-//   const elevationValue = location.pathname === TypeAppRoute.Welcome ? headerShadow : 4;
-
-//   const toggleState = (flag: boolean | null) => {
-//     setIsScrolled(!flag);
-//     setHeaderShadow(Number(!flag) * 4);
-//   };
-
-//   const changeBackground = (ev: HTMLElementEventMap['scroll']): void => {
-//     const element = ev.currentTarget as HTMLDivElement;
-
-//     toggleState(headerRef.current && element?.scrollTop >= headerRef.current.offsetHeight);
-//   };
-
-//   useEffect(() => {
-//     const rootElement = document.getElementById('root');
-
-//     rootElement?.addEventListener('scroll', changeBackground);
-
-//     return () => rootElement?.removeEventListener('scroll', changeBackground);
-//   }, []);
-
-//   return {
-//     isScrolled,
-//     elevationValue,
-//     headerRef,
-//   };
-// };
+type TypeEventScroll = HTMLElementEventMap['scroll'];
