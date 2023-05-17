@@ -10,9 +10,12 @@ export const ExplorerDocsQuery = (props: ParserField): JSX.Element => {
     : `[${props.type.fieldType.nest.name}]`;
 
   const handleClickQuery = (name: string) => {
-    const findTypeDetails = parsedSchema.find((schema) => schema.name === name);
+    const nameNoBrackets = name.replace(/[\[\]]/g, '');
+    const findTypeDetails = parsedSchema.find((schema) => schema.name === nameNoBrackets);
     const findQuery = parsedSchema.find((schema) => schema.name === 'Query');
-    const findTypeArguments = findQuery?.args.find((arg) => arg.name === name.toLowerCase());
+    const findTypeArguments = findQuery?.args.find(
+      (arg) => arg.name === nameNoBrackets.toLowerCase()
+    );
     console.log('findTypeDetails', findTypeDetails);
     console.log('findType Name', name);
     console.log('findTypeArguments', findTypeArguments);
