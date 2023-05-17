@@ -9,15 +9,14 @@ export const ExplorerDocsQuery = (props: ParserField): JSX.Element => {
     ? `${props.type.fieldType.name}`
     : `[${props.type.fieldType.nest.name}]`;
 
-  const handleClickQuery = (name: string) => {
-    const nameNoBrackets = name.replace(/[\[\]]/g, '');
-    const findTypeDetails = parsedSchema.find((schema) => schema.name === nameNoBrackets);
+  const handleClickQuery = (typeName: string, queryName: string) => {
+    const typeNameNoBrackets = typeName.replace(/[\[\]]/g, '');
+    const findTypeDetails = parsedSchema.find((schema) => schema.name === typeNameNoBrackets);
     const findQuery = parsedSchema.find((schema) => schema.name === 'Query');
-    const findTypeArguments = findQuery?.args.find(
-      (arg) => arg.name === nameNoBrackets.toLowerCase()
-    );
+    const findTypeArguments = findQuery?.args.find((arg) => arg.name === queryName);
+    console.log('typeName', typeName);
+    console.log('queryName ', queryName);
     console.log('findTypeDetails', findTypeDetails);
-    console.log('findType Name', name);
     console.log('findTypeArguments', findTypeArguments);
 
     if (findTypeDetails && findTypeArguments) {
@@ -32,7 +31,7 @@ export const ExplorerDocsQuery = (props: ParserField): JSX.Element => {
 
   return (
     <div
-      onClick={() => handleClickQuery(fieldLink)}
+      onClick={() => handleClickQuery(fieldLink, props.name)}
       style={{ position: 'relative', cursor: 'pointer', marginBottom: 6 }}
     >
       <span>{props.name}</span>
