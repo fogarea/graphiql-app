@@ -17,8 +17,6 @@ export const expoloreSevice = {
     const schema: GraphQLSchema = buildClientSchema(data);
     const printedSchema = printSchema(schema);
     const parsedSchema = Parser.parse(printedSchema);
-    console.log(data);
-    console.log(printedSchema);
     console.log(parsedSchema);
     return parsedSchema;
   },

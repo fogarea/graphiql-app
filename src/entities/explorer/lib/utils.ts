@@ -1,6 +1,33 @@
 import { ParserField, Options } from 'graphql-js-tree';
 
-import { TypeGetTypeArgumentsReturn } from '../model/types';
+import { ITypeArguments, TypeGetTypeArgumentsReturn } from '../model/types';
+
+export const getTypeDetails = (parsedField: ParserField): TypeGetTypeArgumentsReturn => {
+  return parsedField.args.map((arg) => {
+    const fieldType = arg.type.fieldType;
+    if ('name' in fieldType) {
+      return {
+        name: arg.name,
+        type: `${fieldType.name}`,
+      };
+    } else if ('nest' in fieldType) {
+      if (fieldType.type === Options.required && 'nest' in fieldType.nest) {
+        if (fieldType.nest.type === Options.array && 'name' in fieldType.nest.nest) {
+          return {
+            name: arg.name,
+            type: `[${fieldType.nest.nest.name}]!`,
+          };
+        }
+      }
+      if (fieldType.type === Options.array && 'name' in fieldType.nest) {
+        return {
+          name: arg.name,
+          type: `[${fieldType.nest.name}]`,
+        };
+      }
+    }
+  });
+};
 
 export const getTypeArguments = (parserField: ParserField): TypeGetTypeArgumentsReturn => {
   return parserField.args.map((arg) => {
@@ -24,5 +51,11 @@ export const getTypeArguments = (parserField: ParserField): TypeGetTypeArguments
           };
       }
     }
+  });
+};
+
+export const checkArrayInterface = (array: TypeGetTypeArgumentsReturn): boolean | undefined => {
+  return array?.every((el): el is ITypeArguments => {
+    return el !== undefined && typeof el.name === 'string' && typeof el.type === 'string';
   });
 };
