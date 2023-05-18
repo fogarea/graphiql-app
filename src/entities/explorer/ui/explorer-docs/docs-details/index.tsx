@@ -1,9 +1,9 @@
 import Grid from '@mui/material/Grid';
 
+import { IDocsTypeInfo, ExplorerDocsArguments } from '@/entities/explorer';
 import styles from './styles.module.scss';
-import { IDocsTypeInfo } from '@/entities/explorer';
 
-export const ExplorerDocsDetails = ({ typeDetails, typeArguments }: IDocsTypeInfo) => {
+export const ExplorerDocsDetails = ({ typeDetails, typeArguments }: IDocsTypeInfo): JSX.Element => {
   return (
     <Grid container sx={{ borderLeft: 1, paddingLeft: 3, flexDirection: 'column' }}>
       <Grid item>
@@ -12,7 +12,6 @@ export const ExplorerDocsDetails = ({ typeDetails, typeArguments }: IDocsTypeInf
       <Grid item>
         <pre>
           <span className={styles.type}>{typeDetails.type.fieldType.name}</span>
-          {/*  // проблема интерфейса, name существует */}
           <span> </span>
           <span className={styles.typeName}>{typeDetails.name}</span>
           <span>{` {`}</span>
@@ -36,23 +35,7 @@ export const ExplorerDocsDetails = ({ typeDetails, typeArguments }: IDocsTypeInf
           <span>{`}`}</span>
         </pre>
       </Grid>
-      {typeArguments && (
-        <>
-          <Grid item>
-            <h2>Type Arguments</h2>
-          </Grid>
-          <Grid item>
-            {typeArguments.args.map((typeArgument) => (
-              <pre key={typeArgument.id}>
-                <span>{`${typeArgument.name}: `}</span>
-                <span>{`${
-                  typeArgument.type.fieldType.name || typeArgument.type.fieldType.nest.name
-                }`}</span>
-              </pre>
-            ))}
-          </Grid>
-        </>
-      )}
+      {typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} />}
     </Grid>
   );
 };
