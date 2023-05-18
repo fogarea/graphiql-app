@@ -6,7 +6,7 @@ export { ExplorerSchemaBlock } from './ui/explorer-schema';
 export {
   ExplorerDocsQueries,
   ExplorerDocsQuery,
-  ExplorerDocsDetails,
+  ExplorerDocsInfo,
   ExplorerDocsArguments,
 } from './ui/explorer-docs';
 export * from './model/types';

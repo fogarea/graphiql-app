@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { IDocsTypeInfo, ExplorerDocsArguments } from '@/entities/explorer';
 import styles from './styles.module.scss';
 
-export const ExplorerDocsDetails = ({ typeDetails, typeArguments }: IDocsTypeInfo): JSX.Element => {
+export const ExplorerDocsInfo = ({ typeDetails, typeArguments }: IDocsTypeInfo): JSX.Element => {
   return (
     <Grid container sx={{ borderLeft: 1, paddingLeft: 3, flexDirection: 'column' }}>
       <Grid item>

@@ -2,7 +2,7 @@ import {
   ExplorerDrawer,
   useExplorer,
   ExplorerDocsQueries,
-  ExplorerDocsDetails,
+  ExplorerDocsInfo,
 } from '@/entities/explorer';
 
 export const ExplorerContainer = (): JSX.Element => {
@@ -22,7 +22,7 @@ export const ExplorerContainer = (): JSX.Element => {
       )}
       {docsContainers &&
         docsContainers.map((typeInfo) => (
-          <ExplorerDocsDetails
+          <ExplorerDocsInfo
             key={typeInfo.typeDetails.id}
             typeDetails={typeInfo.typeDetails}
             typeArguments={typeInfo.typeArguments}
