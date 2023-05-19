@@ -1,18 +1,18 @@
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
 import { a11yColumnHeight, a11yHeaderTextAlign } from '@/shared/theme';
 import { EditorContainer, ResponseContainer, ToolbarContainer } from '@/features/editor';
 import { ExplorerContainer } from '@/features/explorer-container';
-import { ColumnXsNoneMd40, StackRowVertical } from '@/shared/ui';
-import Typography from '@mui/material/Typography';
+import { ColumnXsNoneMd40, StackRowVertical, Section } from '@/shared/ui';
 
 export const GraphQLEditor = (): JSX.Element => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <Section>
       <Typography variant="h1" sx={{ ...a11yHeaderTextAlign() }}>
         Graph<i>i</i>QL {t('editor.q-editor')}
       </Typography>
@@ -48,6 +48,6 @@ export const GraphQLEditor = (): JSX.Element => {
         </Grid>
       </Grid>
       <ExplorerContainer />
-    </>
+    </Section>
   );
 };

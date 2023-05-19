@@ -1,4 +1,3 @@
-import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
@@ -7,6 +6,7 @@ import { RefObject } from 'react';
 
 import { DeveloperCard, developerService } from '@/entities/developer';
 import { a11yHeader2TextAlign } from '@/shared/theme';
+import { Section } from '@/shared/ui';
 
 const developers = developerService.getAll();
 
@@ -14,7 +14,7 @@ export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
   const { t } = useTranslation();
 
   return (
-    <Container ref={aboutUsRef}>
+    <Section ref={aboutUsRef}>
       <Typography variant="h2" sx={{ ...a11yHeader2TextAlign() }}>
         {t('welcome.our-team')}
       </Typography>
@@ -33,7 +33,7 @@ export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
           <Link href="https://rs.school/index.html">RS School</Link>
         </Typography>
       </Grid>
-    </Container>
+    </Section>
   );
 };
 

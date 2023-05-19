@@ -11,6 +11,7 @@ export const WelcomeHeroContainer = styled(Box)(({ theme }) => ({
   textAlign: 'center',
   gap: theme.spacing(4),
   [theme.breakpoints.down('md')]: {
-    padding: theme.spacing(2),
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
   },
 }));
