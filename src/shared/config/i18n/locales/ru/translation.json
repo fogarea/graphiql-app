@@ -6,6 +6,13 @@
     "clean-query": "Очистить",
     "documentation": "Документация"
   },
+  "page-title": {
+    "welcome": "GraphiQL Редактор - Онлайн Редактор для GraphQL",
+    "login": "Войти в GraphiQL",
+    "register": "Зарегистрироваться в GraphiQL",
+    "editor": "GraphiQL Редактор",
+    "not-found": "Страница на найдена"
+  },
   "welcome": {
     "sign-in": "Вход",
     "sign-up": "Регистрация",

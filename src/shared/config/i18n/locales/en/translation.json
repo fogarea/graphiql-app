@@ -6,6 +6,13 @@
     "clean-query": "Clean query",
     "documentation": "Documentation"
   },
+  "page-title": {
+    "welcome": "GraphiQL Editor - Online Code Editor & IDE for GraphQL Development",
+    "login": "Sign in to GraphiQL",
+    "register": "Sign up to GraphiQL",
+    "editor": "GraphiQL Editor",
+    "not-found": "Page Not Found"
+  },
   "welcome": {
     "sign-in": "Sign In",
     "sign-up": "Sign Up",
