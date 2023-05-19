@@ -1,5 +1,5 @@
 import { copyToClipBoard } from '@/shared/lib';
-import { prettifiedQueryContent } from '../lib';
+import { prettifiedJSONContent, prettifiedQueryContent } from '../lib';
 import { useEditorStore } from '../model';
 
 export const useQueryEditor = () => {
@@ -30,9 +30,11 @@ export const useQueryEditor = () => {
   };
 
   const prettifyQuery = (): void => {
-    prettifiedQueryContent(queryCode, (value: string) => {
-      setQueryCode(value);
-    });
+    prettifiedQueryContent(queryCode, (v: string) => setQueryCode(v));
+
+    prettifiedJSONContent(variableCode, (v: string) => setVariableCode(v));
+
+    prettifiedJSONContent(headerCode, (v: string) => setHeaderCode(v));
   };
 
   const copyQuery = (): void => {
@@ -42,6 +44,8 @@ export const useQueryEditor = () => {
   const cleanQuery = (): void => {
     setQueryCode('');
     setResponseCode('');
+    setVariableCode('');
+    setHeaderCode('');
   };
 
   return {
