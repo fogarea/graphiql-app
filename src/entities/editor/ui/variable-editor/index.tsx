@@ -1,10 +1,24 @@
+import { useEffect, useRef } from 'react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 
 import { a11yCodeEditorStyles } from '@/shared/theme';
 
 export const VariableEditor = ({ code, setCode }: IVariableEditorProps) => {
+  const editorRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    editorRef.current?.focus();
+  }, []);
+
   return (
     <CodeEditor
+      ref={editorRef}
+      onFocus={(e) =>
+        e.currentTarget.setSelectionRange(
+          e.currentTarget.value.length,
+          e.currentTarget.value.length
+        )
+      }
       value={code}
       language="json"
       onChange={(evn) => setCode(evn.target.value)}
