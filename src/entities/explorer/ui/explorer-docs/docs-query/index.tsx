@@ -1,16 +1,13 @@
 import { ParserField } from 'graphql-js-tree';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-import { TypeDocsTypeInfo, useExplorer } from '@/entities/explorer';
+import { TypeDocsTypeInfo, useExplorer, getQueryValue } from '@/entities/explorer';
 
 export const ExplorerDocsQuery = (props: ParserField): JSX.Element => {
   const { setDocsContainer, parsedSchema } = useExplorer();
-  const fieldLink = props.type.fieldType.name
-    ? `${props.type.fieldType.name}`
-    : `[${props.type.fieldType.nest.name}]`;
-
+  const queryValue = getQueryValue(props);
   const handleClickQuery = (typeName: string, queryName: string) => {
-    const typeNameNoBrackets = typeName.replace(/[\[\]]/g, '');
+    const typeNameNoBrackets = typeName.slice(1, -1);
     const findTypeDetails = parsedSchema.find((schema) => schema.name === typeNameNoBrackets);
     const findQuery = parsedSchema.find((schema) => schema.name === 'Query');
     const findTypeArguments = findQuery?.args.find((arg) => arg.name === queryName);
@@ -31,12 +28,12 @@ export const ExplorerDocsQuery = (props: ParserField): JSX.Element => {
 
   return (
     <div
-      onClick={() => handleClickQuery(fieldLink, props.name)}
+      onClick={() => handleClickQuery(queryValue!, props.name)}
       style={{ position: 'relative', cursor: 'pointer', marginBottom: 6 }}
     >
       <span>{props.name}</span>
       <span>{'(...): '}</span>
-      <span>{fieldLink}</span>
+      <span>{queryValue}</span>
       <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
     </div>
   );
