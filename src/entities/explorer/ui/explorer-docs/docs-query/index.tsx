@@ -1,7 +1,7 @@
 import { ParserField } from 'graphql-js-tree';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-import { IDocsTypeInfo, useExplorer } from '@/entities/explorer';
+import { TypeDocsTypeInfo, useExplorer } from '@/entities/explorer';
 
 export const ExplorerDocsQuery = (props: ParserField): JSX.Element => {
   const { setDocsContainer, parsedSchema } = useExplorer();
@@ -20,7 +20,7 @@ export const ExplorerDocsQuery = (props: ParserField): JSX.Element => {
     console.log('findTypeArguments', findTypeArguments);
 
     if (findTypeDetails && findTypeArguments) {
-      const docsTypeInfo: IDocsTypeInfo = {
+      const docsTypeInfo: TypeDocsTypeInfo = {
         typeDetails: findTypeDetails,
         typeArguments: findTypeArguments,
       };

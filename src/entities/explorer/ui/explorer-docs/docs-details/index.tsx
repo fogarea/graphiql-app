@@ -1,8 +1,11 @@
 import Grid from '@mui/material/Grid';
-import { ParserField } from 'graphql-js-tree';
 import { useEffect, useState } from 'react';
 
-import { getTypeDetails, ITypeArguments } from '@/entities/explorer';
+import {
+  getTypeDetails,
+  ITypeArguments,
+  IDocsTypeDetails as IExplorerDocsDetailsProps,
+} from '@/entities/explorer';
 import styles from './styles.module.scss';
 
 export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps): JSX.Element => {
@@ -34,7 +37,3 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
     </Grid>
   );
 };
-
-interface IExplorerDocsDetailsProps {
-  typeDetails: ParserField;
-}

@@ -1,8 +1,11 @@
 import { Grid } from '@mui/material';
 import { useEffect, useState } from 'react';
-import { ParserField } from 'graphql-js-tree';
 
-import { getTypeArguments, ITypeArguments } from '@/entities/explorer';
+import {
+  getTypeArguments,
+  ITypeArguments,
+  IDocsTypeArguments as IExplorerDocsArgumentsProps,
+} from '@/entities/explorer';
 
 export const ExplorerDocsArguments = ({
   typeArguments,
@@ -29,7 +32,3 @@ export const ExplorerDocsArguments = ({
     </Grid>
   );
 };
-
-interface IExplorerDocsArgumentsProps {
-  typeArguments: ParserField;
-}
