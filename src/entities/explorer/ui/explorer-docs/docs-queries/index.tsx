@@ -1,8 +1,10 @@
-import { ParserField } from 'graphql-js-tree';
 import { useTranslation } from 'react-i18next';
 import { Container, Divider } from '@mui/material';
 
-import { ExplorerDocsQuery } from '@/entities/explorer';
+import {
+  ExplorerDocsQuery,
+  IArrayParsedShema as IExplorerDocsQueriesProps,
+} from '@/entities/explorer';
 import { DrawerHeader } from '../../explorer-drawer/drawer-header';
 
 export const ExplorerDocsQueries = ({ parsedSchema }: IExplorerDocsQueriesProps): JSX.Element => {
@@ -16,14 +18,10 @@ export const ExplorerDocsQueries = ({ parsedSchema }: IExplorerDocsQueriesProps)
       </DrawerHeader>
       <Divider />
       {schemaQueries &&
-        schemaQueries.args.map((name) => <ExplorerDocsQuery key={name.id} {...name} />)}
+        schemaQueries.args.map((name) => <ExplorerDocsQuery key={name.id} typeArguments={name} />)}
     </Container>
   );
 };
-
-interface IExplorerDocsQueriesProps {
-  parsedSchema: ParserField[];
-}
 
 enum docsQuery {
   Query = 'Query',

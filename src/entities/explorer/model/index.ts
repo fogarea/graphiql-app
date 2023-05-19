@@ -1,8 +1,7 @@
 import { create, StateCreator } from 'zustand';
-import { ParserField } from 'graphql-js-tree';
 import { expoloreSevice } from '../services';
 import { devtools, persist } from 'zustand/middleware';
-import { TypeDocsTypeInfo } from './types';
+import { TypeDocsTypeInfo, TypeArrayParsedField } from './types';
 
 const explorerStore: TyoeExplorerStore = (set) => ({
   isOpen: false,
@@ -12,7 +11,7 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   parsedSchema: [],
   docsContainers: [],
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
-  setParsedSchema: (value: ParserField[]) => set({ parsedSchema: value }),
+  setParsedSchema: (value: TypeArrayParsedField) => set({ parsedSchema: value }),
   addDocsContainer: (queryInfo: TypeDocsTypeInfo) => {
     set((state) => ({ docsContainers: [...state.docsContainers, queryInfo] }));
   },
@@ -39,13 +38,13 @@ interface IExplorerState {
   content: string;
   isLoaded: boolean;
   error: string | null;
-  parsedSchema: ParserField[] | [];
+  parsedSchema: TypeArrayParsedField | [];
   docsContainers: TypeDocsTypeInfo[] | [];
   addDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   removeDocsContainer: () => void;
   toggleExplorer: () => void;
-  setParsedSchema: (value: ParserField[]) => void;
+  setParsedSchema: (value: TypeArrayParsedField) => void;
   fetchSchema: () => Promise<void>;
 }
 
