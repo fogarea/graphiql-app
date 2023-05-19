@@ -54,6 +54,15 @@ export const getTypeArguments = (parserField: ParserField): TypeGetTypeArguments
   });
 };
 
+export const getQueryValue = (parsedField: ParserField): string | undefined => {
+  const fieldType = parsedField.type.fieldType;
+  if ('nest' in fieldType && 'name' in fieldType.nest && fieldType.type === Options.array) {
+    return `[${fieldType.nest.name}]`;
+  } else if (fieldType.type === Options.name) {
+    return `${fieldType.name}`;
+  }
+};
+
 export const checkArrayInterface = (array: TypeGetTypeArgumentsReturn): boolean | undefined => {
   return array?.every((el): el is ITypeArguments => {
     return el !== undefined && typeof el.name === 'string' && typeof el.type === 'string';

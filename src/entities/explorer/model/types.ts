@@ -2,8 +2,18 @@ import { ParserField } from 'graphql-js-tree';
 
 export interface IDocsTypeInfo {
   typeDetails: ParserField;
-  typeArguments?: ParserField;
+  typeArguments: ParserField;
 }
+
+export interface IDocsTypeArguments {
+  typeArguments: ParserField;
+}
+
+export interface IDocsTypeDetails {
+  typeDetails: ParserField;
+}
+
+export type TypeDocsTypeInfo = IDocsTypeDetails & IDocsTypeArguments;
 
 export interface ITypeArguments {
   name: string;

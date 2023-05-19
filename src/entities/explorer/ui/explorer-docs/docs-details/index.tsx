@@ -16,27 +16,22 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
     if (isValidDetails) setDocsDetails(details);
   }, [typeDetails]);
   return (
-    <>
-      <Grid item>
-        <h2>Type Details</h2>
-      </Grid>
-      <Grid item>
-        <pre>
-          <span className={styles.type}>{'type'}</span>
-          <span> </span>
-          <span className={styles.typeName}>{typeDetails.name}</span>
-          <span>{` {`}</span>
-          {docsDetails &&
-            docsDetails.map((detail) => (
-              <pre key={detail.name}>
-                <span className={styles.typeField}>{`  ${detail.name}: `}</span>
-                <span className={styles.typeFieldType}>{`${detail.type}`}</span>
-              </pre>
-            ))}
-          <span>{`}`}</span>
-        </pre>
-      </Grid>
-    </>
+    <Grid item>
+      <pre>
+        <span className={styles.type}>{'type'}</span>
+        <span> </span>
+        <span className={styles.typeName}>{typeDetails.name}</span>
+        <span>{` {`}</span>
+        {docsDetails &&
+          docsDetails.map((detail) => (
+            <pre key={detail.name}>
+              <span className={styles.typeField}>{`  ${detail.name}: `}</span>
+              <span className={styles.typeFieldType}>{`${detail.type}`}</span>
+            </pre>
+          ))}
+        <span>{`}`}</span>
+      </pre>
+    </Grid>
   );
 };
 

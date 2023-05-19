@@ -18,20 +18,15 @@ export const ExplorerDocsArguments = ({
   }, [typeArguments]);
 
   return (
-    <>
-      <Grid item>
-        <h2>Arguments</h2>
-      </Grid>
-      <Grid item>
-        {docsArguments &&
-          docsArguments.map((el) => (
-            <pre key={el.name}>
-              <span>{el.name}: </span>
-              <span>{el.type}</span>
-            </pre>
-          ))}
-      </Grid>
-    </>
+    <Grid item>
+      {docsArguments &&
+        docsArguments.map((el) => (
+          <pre key={el.name}>
+            <span>{el.name}: </span>
+            <span>{el.type}</span>
+          </pre>
+        ))}
+    </Grid>
   );
 };
 
