@@ -10,6 +10,7 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   error: null,
   parsedSchema: [],
   docsContainers: [],
+  selectedElement: '',
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
   setParsedSchema: (value: TypeArrayParsedField) => set({ parsedSchema: value }),
   addDocsContainer: (queryInfo: TypeDocsTypeInfo) => {
@@ -18,6 +19,7 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   removeDocsContainer: () =>
     set((state) => ({ docsContainers: [...state.docsContainers.slice(0, 1)] })),
+  setSelectedElement: (selectedElement: string) => set({ selectedElement: selectedElement }),
   fetchSchema: async () => {
     const schema = await expoloreSevice.loadDocumentation();
     set({ parsedSchema: schema.nodes });
@@ -36,10 +38,12 @@ interface IExplorerState {
   error: string | null;
   parsedSchema: TypeArrayParsedField | [];
   docsContainers: TypeDocsTypeInfo[] | [];
+  selectedElement: string;
   addDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   removeDocsContainer: () => void;
   toggleExplorer: () => void;
+  setSelectedElement: (selectedElement: string) => void;
   setParsedSchema: (value: TypeArrayParsedField) => void;
   fetchSchema: () => Promise<void>;
 }

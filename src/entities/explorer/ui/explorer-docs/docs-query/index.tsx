@@ -9,7 +9,7 @@ import {
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): JSX.Element => {
-  const { setDocsContainer, parsedSchema } = useExplorer();
+  const { setDocsContainer, parsedSchema, selectedElement, setSelectedElement } = useExplorer();
   const queryValue = getQueryValue(typeArguments);
 
   const handleClickQuery = (typeName: string, queryName: string) => {
@@ -30,11 +30,17 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
       };
 
       setDocsContainer(docsTypeInfo);
+      setSelectedElement(typeArguments.id);
     }
   };
 
   return (
-    <div onClick={() => handleClickQuery(queryValue!, typeArguments.name)} className={styles.query}>
+    <div
+      onClick={() => handleClickQuery(queryValue!, typeArguments.name)}
+      className={`${styles.query} ${
+        selectedElement === typeArguments.id ? styles.activeQuery : ''
+      }`}
+    >
       <span className={styles.colorRed}>{typeArguments.name}</span>
       <span>{'(...): '}</span>
       <span className={styles.colorOrange}>{queryValue}</span>

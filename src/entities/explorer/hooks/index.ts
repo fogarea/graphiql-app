@@ -12,6 +12,8 @@ export const useExplorer = () => {
     addDocsContainer,
     setDocsContainer,
     removeDocsContainer,
+    selectedElement,
+    setSelectedElement,
   ] = useExplorerStore((state) => [
     state.isOpen,
     state.isLoaded,
@@ -23,6 +25,8 @@ export const useExplorer = () => {
     state.addDocsContainer,
     state.setDocsContainer,
     state.removeDocsContainer,
+    state.selectedElement,
+    state.setSelectedElement,
   ]);
 
   const execSchema = (): void => {
@@ -47,5 +51,7 @@ export const useExplorer = () => {
     addDocsContainer,
     setDocsContainer,
     removeDocsContainer,
+    selectedElement,
+    setSelectedElement,
   };
 };
