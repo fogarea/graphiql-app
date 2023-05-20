@@ -6,10 +6,12 @@ import {
   getQueryValue,
   IDocsTypeArguments as IExplorerDocsQueryProps,
 } from '@/entities/explorer';
+import styles from '../styles.module.scss';
 
 export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): JSX.Element => {
   const { setDocsContainer, parsedSchema } = useExplorer();
   const queryValue = getQueryValue(typeArguments);
+
   const handleClickQuery = (typeName: string, queryName: string) => {
     let typeNameNoBrackets = typeName;
     if (typeNameNoBrackets.startsWith('[') && typeNameNoBrackets.endsWith(']')) {
@@ -32,13 +34,10 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
   };
 
   return (
-    <div
-      onClick={() => handleClickQuery(queryValue!, typeArguments.name)}
-      style={{ position: 'relative', cursor: 'pointer', marginBottom: 6 }}
-    >
-      <span>{typeArguments.name}</span>
+    <div onClick={() => handleClickQuery(queryValue!, typeArguments.name)} className={styles.query}>
+      <span className={styles.colorRed}>{typeArguments.name}</span>
       <span>{'(...): '}</span>
-      <span>{queryValue}</span>
+      <span className={styles.colorOrange}>{queryValue}</span>
       <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
     </div>
   );

@@ -6,6 +6,7 @@ import {
   ITypeArguments,
   IDocsTypeArguments as IExplorerDocsArgumentsProps,
 } from '@/entities/explorer';
+import styles from '../styles.module.scss';
 
 export const ExplorerDocsArguments = ({
   typeArguments,
@@ -25,8 +26,8 @@ export const ExplorerDocsArguments = ({
       {docsArguments &&
         docsArguments.map((el) => (
           <pre key={el.name}>
-            <span>{el.name}: </span>
-            <span>{el.type}</span>
+            <span className={styles.colorBlue}>{el.name}: </span>
+            <span className={styles.colorOrange}>{el.type}</span>
           </pre>
         ))}
     </Grid>

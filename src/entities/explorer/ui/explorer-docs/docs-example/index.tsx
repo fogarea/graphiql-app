@@ -5,19 +5,22 @@ import {
   getQueryValue,
   IDocsTypeArguments as IExplorerDocsExampleProps,
 } from '@/entities/explorer/';
+import styles from '../styles.module.scss';
 
 export const ExplorerDocsExample = ({ typeArguments }: IExplorerDocsExampleProps) => {
   const detailsName = getQueryValue(typeArguments);
   return (
-    <Grid item>
+    <Grid item sx={{ fontWeight: 600 }}>
       <pre>
-        <span>{typeArguments.name}</span>
+        <span className={styles.colorRed}>{typeArguments.name}</span>
         <span>{'('}</span>
       </pre>
-      <pre>{typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} />}</pre>
+      <pre style={{ paddingLeft: 30 }}>
+        {typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} />}
+      </pre>
       <pre>
         <span>{'): '}</span>
-        <span>{detailsName}</span>
+        <span className={styles.colorOrange}>{detailsName}</span>
       </pre>
     </Grid>
   );
