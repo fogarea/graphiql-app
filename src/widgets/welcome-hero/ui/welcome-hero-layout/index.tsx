@@ -14,10 +14,13 @@ export const WelcomeHeroLayout = ({ onScrollClick }: IWelcomeHeroLayoutProps): J
     <Section disableGutters={true} maxWidth={false}>
       <WelcomeHeroContainer>
         <img src={'./assets/svg/logo/logo.svg'} alt="Logo" width="247" height="120" />
-        <Typography variant="h1">GraphiQL</Typography>
+        <Typography variant="h1" component="h1">
+          GraphiQL
+        </Typography>
         <Typography
           align="center"
           variant="subtitle1"
+          component="p"
           sx={{ mb: 4, mt: { xs: 2, sm: 4 }, maxWidth: 800 }}
         >
           {t('welcome.description')}

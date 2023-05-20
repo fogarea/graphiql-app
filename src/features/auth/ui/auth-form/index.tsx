@@ -15,7 +15,7 @@ const StyledForm = styled(Box)(() => ({
   display: 'flex',
   justifyContent: 'center',
   flexDirection: 'column',
-  padding: '96px 0 10px 0',
+  padding: '46px 0 10px 0',
 }));
 
 export const AuthForm = ({ authUser, label, isLoading }: IAuthFormProps): JSX.Element => {
