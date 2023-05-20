@@ -14,10 +14,6 @@ const StyledLoadingButton = styled(MuiLoadingButton)(({ theme }) => ({
     borderColor: theme.palette.primary.main,
     boxShadow: 'none',
   },
-  a: {
-    textDecoration: 'none',
-    color: 'inherit',
-  },
 }));
 
 export const LoadingButton = ({ children, variant, ...rest }: ILoadingButtonProps): JSX.Element => {

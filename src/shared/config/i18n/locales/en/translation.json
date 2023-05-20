@@ -67,6 +67,11 @@
   "explorer": {
     "documentation": "Documentation"
   },
+  "not-found": {
+    "title": "Sorry, page not found!",
+    "subtitle": "Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL?",
+    "welcome-page-button": "Go to Home"
+  },
   "toast": {
     "successfully-login": "Welcome back! You have successfully logged in.",
     "successfully-register": "Congratulations! You have successfully registered.",

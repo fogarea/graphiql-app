@@ -9,7 +9,7 @@ const StyledLogo = styled(Box)(({ theme }) => ({
   flexGrow: 1,
   a: {
     textDecoration: 'none',
-    color: theme.palette.grey['800'],
+    color: theme.palette.text.primary,
     display: 'flex',
   },
 }));

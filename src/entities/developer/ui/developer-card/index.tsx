@@ -33,10 +33,12 @@ export const DeveloperCard = ({
       }}
     >
       <DeveloperAvatar src={avatarSrc} alt={githubName} />
-      <Typography variant="h3" textAlign="center" sx={{ mt: 3 }}>
+      <Typography variant="h3" component="h3" textAlign="center" sx={{ mt: 3 }}>
         {t(`welcome.${name}`)}
       </Typography>
-      <Typography variant="subtitle2">{t(`welcome.${role}`)}</Typography>
+      <Typography variant="subtitle2" component="p">
+        {t(`welcome.${role}`)}
+      </Typography>
       <Link color="inherit" href={githubLink} sx={{ mt: 1 }}>
         <GitHubIcon />
       </Link>
