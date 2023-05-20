@@ -31,44 +31,43 @@ export const FooterLayout = memo((): JSX.Element => {
   });
 
   return (
-    <Box
+    <Container
       component="footer"
+      maxWidth="xl"
       sx={{
         py: 3,
         px: 2,
         mt: 'auto',
       }}
     >
-      <Container maxWidth="xl">
-        <Grid container justifyContent="space-around" alignItems="center" spacing={2}>
-          <Grid item xs>
-            <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
-          </Grid>
-          <Grid item xs>
-            <Typography variant="body1" textAlign="center">
-              © 2023
-            </Typography>
-          </Grid>
-          <Grid item xs>
-            <Link
-              href="https://rs.school/react/"
-              target="_blank"
-              display="flex"
-              flexDirection="row-reverse"
-            >
-              <img
-                src={'./assets/svg/rs/logo_rs.svg'}
-                alt="RS School React Course"
-                style={{
-                  height: '24px',
-                  width: '64px',
-                  display: 'inline-block',
-                }}
-              />
-            </Link>
-          </Grid>
+      <Grid container justifyContent="space-around" alignItems="center" spacing={2}>
+        <Grid item xs>
+          <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
         </Grid>
-      </Container>
-    </Box>
+        <Grid item xs>
+          <Typography variant="body1" textAlign="center">
+            © 2023
+          </Typography>
+        </Grid>
+        <Grid item xs>
+          <Link
+            href="https://rs.school/react/"
+            target="_blank"
+            display="flex"
+            flexDirection="row-reverse"
+          >
+            <img
+              src={'./assets/svg/rs/logo_rs.svg'}
+              alt="RS School React Course"
+              style={{
+                height: '24px',
+                width: '64px',
+                display: 'inline-block',
+              }}
+            />
+          </Link>
+        </Grid>
+      </Grid>
+    </Container>
   );
 });

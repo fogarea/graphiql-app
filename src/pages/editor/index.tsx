@@ -1,4 +1,3 @@
-import Container from '@mui/material/Container';
 import { useTranslation } from 'react-i18next';
 
 import { GraphQLEditor } from '@/widgets/graphql-editor';
@@ -9,9 +8,5 @@ export const EditorPage = (): JSX.Element => {
 
   useTitle(t('page-title.editor'));
 
-  return (
-    <Container maxWidth="xl">
-      <GraphQLEditor />
-    </Container>
-  );
+  return <GraphQLEditor />;
 };
