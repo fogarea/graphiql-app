@@ -1,6 +1,6 @@
 import { create, StateCreator } from 'zustand';
 import { expoloreSevice } from '../services';
-import { devtools, persist } from 'zustand/middleware';
+import { devtools } from 'zustand/middleware';
 import { TypeDocsTypeInfo, TypeArrayParsedField } from './types';
 
 const explorerStore: TyoeExplorerStore = (set) => ({
@@ -26,11 +26,7 @@ const explorerStore: TyoeExplorerStore = (set) => ({
 });
 
 export const useExplorerStore = create<IExplorerState>()(
-  devtools(
-    persist(explorerStore, {
-      name: '@explorer-storage',
-    })
-  )
+  devtools(explorerStore, { name: '@explorer-storage' })
 );
 
 interface IExplorerState {
