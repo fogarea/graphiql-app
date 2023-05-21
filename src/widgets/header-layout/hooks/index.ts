@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import { TypeAppRoute } from '@/shared/config';
-import { throttle } from '@/shared/lib';
+import { throttle } from '@/shared/lib/fp';
 
 export const useHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);

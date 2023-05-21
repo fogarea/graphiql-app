@@ -1,4 +1,4 @@
-import { copyToClipBoard } from '@/shared/lib';
+import { copyToClipBoard } from '@/shared/lib/fp';
 import { prettifiedJSONContent, prettifiedQueryContent } from '../lib';
 import { useEditorStore } from '../model';
 

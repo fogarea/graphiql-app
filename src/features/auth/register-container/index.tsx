@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
-import { toast } from '@/shared/lib';
+import { toast } from '@/shared/lib/browser';
 import { Section } from '@/shared/ui';
 import { AuthForm, AuthRedirectButton } from '../ui';
 

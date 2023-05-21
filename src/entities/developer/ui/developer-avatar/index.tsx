@@ -1,6 +1,6 @@
 import Avatar from '@mui/material/Avatar';
 import Skeleton from '@mui/material/Skeleton';
-import { useImageLoader } from '@/shared/lib';
+import { useImageLoader } from '@/shared/lib/fp';
 
 export const DeveloperAvatar = ({ src, alt }: IDeveloperAvatarProps): JSX.Element => {
   const { isImageLoaded } = useImageLoader(src);

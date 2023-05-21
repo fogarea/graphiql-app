@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { GraphQLEditor } from '@/widgets/graphql-editor';
-import { useTitle } from '@/shared/lib';
+import { useTitle } from '@/shared/lib/browser';
 
 export const EditorPage = (): JSX.Element => {
   const { t } = useTranslation();

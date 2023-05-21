@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AboutUs } from '@/widgets/about-us';
 import { WelcomeHeroLayout } from '@/widgets/welcome-hero';
-import { useTitle } from '@/shared/lib';
+import { useTitle } from '@/shared/lib/browser';
 
 export const WelcomePage = (): JSX.Element => {
   const { t } = useTranslation();

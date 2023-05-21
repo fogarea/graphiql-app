@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 
 import { TypeAppRoute } from '@/shared/config';
-import { useTitle } from '@/shared/lib';
+import { useTitle } from '@/shared/lib/browser';
 import { LargeButton, Section } from '@/shared/ui';
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
