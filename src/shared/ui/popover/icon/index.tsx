@@ -19,5 +19,5 @@ export const PopoverIcon = ({ onOpen, children }: IPopoverIconProps) => {
 
 interface IPopoverIconProps {
   onOpen: (event: MouseEvent<HTMLElement>) => void;
-  children: ReactNode;
+  children?: ReactNode;
 }

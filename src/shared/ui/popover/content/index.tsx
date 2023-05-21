@@ -32,5 +32,5 @@ interface IPopoverContentProps {
   onClose: () => void;
   isOpen: boolean;
   anchorEl: null | HTMLElement;
-  children: ReactNode;
+  children?: ReactNode;
 }
