@@ -1,9 +1,9 @@
-import Grid from '@mui/material/Grid';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Tabs from '@mui/material/Tabs';
 import Collapse from '@mui/material/Collapse';
-import Tab from '@mui/material/Tab';
 import grey from '@mui/material/colors/grey';
+import Grid from '@mui/material/Grid';
+import Tab from '@mui/material/Tab';
+import Tabs from '@mui/material/Tabs';
 import { SyntheticEvent, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 

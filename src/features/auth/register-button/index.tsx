@@ -1,8 +1,8 @@
-import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
-import { DefaultButton } from '@/shared/ui';
 import { TypeAppRoute } from '@/shared/config';
+import { DefaultButton } from '@/shared/ui';
 
 export const RegisterButton = (): JSX.Element => {
   const { t } = useTranslation();

@@ -1,5 +1,5 @@
-import CodeEditor from '@uiw/react-textarea-code-editor';
 import grey from '@mui/material/colors/grey';
+import CodeEditor from '@uiw/react-textarea-code-editor';
 import { useTranslation } from 'react-i18next';
 
 import { a11yCodeEditorStyles } from '@/shared/theme';

@@ -1,13 +1,13 @@
-import AppBar from '@mui/material/AppBar';
 import { Box } from '@mui/material';
-import MuiToolbar from '@mui/material/Toolbar';
+import AppBar from '@mui/material/AppBar';
 import Divider from '@mui/material/Divider';
 import styled from '@mui/material/styles/styled';
+import MuiToolbar from '@mui/material/Toolbar';
 import { useState } from 'react';
 
-import { useAuth } from '@/entities/user';
 import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
 import { ChangeLanguage } from '@/features/change-language';
+import { useAuth } from '@/entities/user';
 import { BurgerMenu, Logo } from '@/shared/ui';
 import { useHeader } from '../hooks';
 

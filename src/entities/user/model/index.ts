@@ -1,10 +1,10 @@
-import { create, StateCreator } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { create, StateCreator } from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 import { FirebaseError } from 'firebase/app';
 
 import { auth } from '@/shared/config';

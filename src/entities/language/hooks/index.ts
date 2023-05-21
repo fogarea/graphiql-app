@@ -1,6 +1,6 @@
+import i18next from 'i18next';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import i18next from 'i18next';
 
 import { LS_LANGUAGE_KEY, PossibleLanguagesValues, TypePossibleLanguages } from '@/shared/config';
 

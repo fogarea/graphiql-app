@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom';
-import { Suspense } from 'react';
 import Container from '@mui/material/Container';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
-import { HeaderLayout } from '@/widgets/header-layout';
 import { FooterLayout } from '@/widgets/footer-layout';
+import { HeaderLayout } from '@/widgets/header-layout';
 import { Loader } from '@/shared/ui';
 
 export const Layout = (): JSX.Element => (

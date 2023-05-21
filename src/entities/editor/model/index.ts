@@ -1,8 +1,8 @@
 import { StateCreator, create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-import { prettifiedJSONContent, parseJSONStringToObject } from '../lib';
 import { graphiqlClient } from '@/shared/api';
+import { prettifiedJSONContent, parseJSONStringToObject } from '../lib';
 
 const editorStore: TypeEditorStore = (set, get) => ({
   queryCode: '',

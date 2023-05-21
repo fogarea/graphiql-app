@@ -1,5 +1,5 @@
-import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { Navigate } from 'react-router-dom';
 
 import { RegisterContainer } from '@/features/auth';
 import { useAuth } from '@/entities/user';

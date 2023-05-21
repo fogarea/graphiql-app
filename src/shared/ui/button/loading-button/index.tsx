@@ -1,9 +1,9 @@
-import { ReactNode } from 'react';
-import styled from '@mui/material/styles/styled';
 import MuiLoadingButton, {
   LoadingButtonProps as MuiLoadingButtonProps,
 } from '@mui/lab/LoadingButton';
 import { alpha } from '@mui/material/styles';
+import styled from '@mui/material/styles/styled';
+import { ReactNode } from 'react';
 
 const StyledLoadingButton = styled(MuiLoadingButton)(({ theme }) => ({
   boxShadow: 'none',

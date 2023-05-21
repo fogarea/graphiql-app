@@ -1,6 +1,7 @@
-import { defaultNS, i18next } from '@/shared/config';
 import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
+
+import { defaultNS, i18next } from '@/shared/config';
 
 export const withI18Next = (component: () => ReactNode) => () =>
   (

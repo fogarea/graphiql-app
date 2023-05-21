@@ -1,11 +1,11 @@
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useTranslation } from 'react-i18next';
 
-import { WelcomeHeroContainer } from '../welcome-hero-container';
 import { EditorPageButton } from '@/features/editor';
 import { Section } from '@/shared/ui';
+import { WelcomeHeroContainer } from '../welcome-hero-container';
 
 export const WelcomeHeroLayout = ({ onScrollClick }: IWelcomeHeroLayoutProps): JSX.Element => {
   const { t } = useTranslation();

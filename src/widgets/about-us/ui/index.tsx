@@ -1,8 +1,8 @@
-import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
-import { useTranslation } from 'react-i18next';
+import Typography from '@mui/material/Typography';
 import { RefObject } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { DeveloperCard, developerService } from '@/entities/developer';
 import { a11yHeader2TextAlign } from '@/shared/theme';

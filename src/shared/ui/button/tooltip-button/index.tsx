@@ -1,5 +1,5 @@
-import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton/IconButton';
+import Tooltip from '@mui/material/Tooltip';
 import { ReactNode } from 'react';
 
 export const TooltipButton = ({
@@ -8,8 +8,6 @@ export const TooltipButton = ({
   children,
   ...rest
 }: IToolButtonProps): JSX.Element => {
-  // const theme = useTheme();
-
   return (
     <Tooltip title={title}>
       <IconButton color="default" onClick={onClick} {...rest}>

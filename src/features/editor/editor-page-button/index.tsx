@@ -1,5 +1,5 @@
-import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';

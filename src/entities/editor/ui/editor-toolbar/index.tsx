@@ -1,8 +1,8 @@
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import StopIcon from '@mui/icons-material/Stop';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import TextFormatIcon from '@mui/icons-material/TextFormat';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { useTranslation } from 'react-i18next';
 
 import { TooltipButton } from '@/shared/ui';
