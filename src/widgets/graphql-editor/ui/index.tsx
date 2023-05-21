@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { EditorContainer, ResponseContainer, ToolbarContainer } from '@/features/editor';
 import { ExplorerContainer } from '@/features/explorer-container';
-import { a11yColumnHeight, a11yHeaderTextAlign } from '@/shared/theme';
+import { a11yColumnHeight, a11yHeaderTextAlign } from '@/shared/lib/theme';
 import { ColumnXsNoneMd40, StackRowVertical, Section } from '@/shared/ui';
 
 export const GraphQLEditor = (): JSX.Element => {

@@ -5,7 +5,7 @@ import { RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { DeveloperCard, developerService } from '@/entities/developer';
-import { a11yHeader2TextAlign } from '@/shared/theme';
+import { a11yHeader2TextAlign } from '@/shared/lib/theme';
 import { Section } from '@/shared/ui';
 
 const developers = developerService.getAll();
