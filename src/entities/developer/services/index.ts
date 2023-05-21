@@ -1,8 +1,7 @@
-import developers from '../model/developers.json';
-import { TypeDeveloper } from '../model/types';
+import developers, { TypeDeveloper } from '../model';
 
 export const developerService = {
   getAll: (): TypeDeveloper[] => {
-    return developers;
+    return developers.developers;
   },
 };

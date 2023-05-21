@@ -1,4 +1,4 @@
-import * as en from './en';
-import * as ru from './ru';
+import en from './en';
+import ru from './ru';
 
-export default { en, ru };
+export { en, ru };

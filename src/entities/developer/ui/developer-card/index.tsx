@@ -4,7 +4,7 @@ import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { useTranslation } from 'react-i18next';
 
-import { TypeDeveloper } from '../../model/types';
+import { TypeDeveloper } from '../../model';
 import { DeveloperAvatar } from '../developer-avatar';
 
 export const DeveloperCard = ({

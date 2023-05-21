@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import locales from './locales';
+import { en, ru } from './locales';
 
 export const LS_LANGUAGE_KEY = 'language';
 
@@ -20,7 +20,7 @@ export const LanguageNames: { [key: string]: string } = {
 
 export const defaultNS = 'translation';
 
-export const resources = { ...locales };
+export const resources = { en, ru };
 
 const preferredLanguage = navigator.language === 'ru-RU' ? 'ru' : 'en';
 
