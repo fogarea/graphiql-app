@@ -1,11 +1,19 @@
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import { ReactNode } from 'react';
 
-export const BurgerMenu = ({ isOpen, toggleMenu, children }: IBurgerMenuProps): JSX.Element => {
+import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
+import { useAuth } from '@/entities/user';
+import { Logo } from '@/shared/ui';
+import { useBurgerMenu } from '../hooks';
+
+export const BurgerMenu = (): JSX.Element => {
+  const { isMenuOpen, toggleMenu } = useBurgerMenu();
+  const { isAuth } = useAuth();
+
   return (
     <>
       <IconButton
@@ -20,7 +28,7 @@ export const BurgerMenu = ({ isOpen, toggleMenu, children }: IBurgerMenuProps): 
       <Box component="nav">
         <Drawer
           variant="temporary"
-          open={isOpen}
+          open={isMenuOpen}
           onClose={toggleMenu}
           ModalProps={{
             keepMounted: true,
@@ -40,16 +48,19 @@ export const BurgerMenu = ({ isOpen, toggleMenu, children }: IBurgerMenuProps): 
             }}
             onClick={toggleMenu}
           >
-            {children}
+            <Logo withTitle isMobile />
+            <Divider />
+            {isAuth ? (
+              <LogoutButton />
+            ) : (
+              <>
+                <LoginButton />
+                <RegisterButton />
+              </>
+            )}
           </Container>
         </Drawer>
       </Box>
     </>
   );
 };
-
-interface IBurgerMenuProps {
-  isOpen: boolean;
-  toggleMenu: () => void;
-  children: ReactNode;
-}

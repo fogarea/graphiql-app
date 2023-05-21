@@ -1,33 +1,33 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { Layout } from '@/widgets/layout';
 import { PrivateRoute } from '@/features/private-route';
 import { TypeAppRoute } from '@/shared/config';
+import { AppLayout } from './app-layout';
 
 const EditorPage = lazy(async () => ({
-  default: (await import('./editor')).EditorPage,
+  default: (await import('@/pages/editor')).EditorPage,
 }));
 
 const RegisterPage = lazy(async () => ({
-  default: (await import('./register')).RegisterPage,
+  default: (await import('@/pages/register')).RegisterPage,
 }));
 
 const LoginPage = lazy(async () => ({
-  default: (await import('./login')).LoginPage,
+  default: (await import('@/pages/login')).LoginPage,
 }));
 
 const WelcomePage = lazy(async () => ({
-  default: (await import('./welcome')).WelcomePage,
+  default: (await import('@/pages/welcome')).WelcomePage,
 }));
 
 const NotFoundPage = lazy(async () => ({
-  default: (await import('./not-found')).NotFoundPage,
+  default: (await import('@/pages/not-found')).NotFoundPage,
 }));
 
 export const Routing = (): JSX.Element => (
   <Routes>
-    <Route path={TypeAppRoute.Welcome} element={<Layout />}>
+    <Route path={TypeAppRoute.Welcome} element={<AppLayout />}>
       <Route index element={<WelcomePage />} />
       <Route path={TypeAppRoute.Login} element={<LoginPage />} />
       <Route path={TypeAppRoute.Register} element={<RegisterPage />} />
