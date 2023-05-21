@@ -6,7 +6,7 @@ import {
   ITypeArguments,
   IDocsTypeDetails as IExplorerDocsDetailsProps,
 } from '@/entities/explorer';
-import styles from './styles.module.scss';
+import styles from '../styles.module.scss';
 
 export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps): JSX.Element => {
   const [docsDetails, setDocsDetails] = useState<ITypeArguments[]>([]);
@@ -21,15 +21,15 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
   return (
     <Grid item>
       <pre>
-        <span className={styles.type}>{'type'}</span>
+        <span className={styles.colorBlue}>{'type'}</span>
         <span> </span>
-        <span className={styles.typeName}>{typeDetails.name}</span>
+        <span className={styles.colorRed}>{typeDetails.name}</span>
         <span>{` {`}</span>
         {docsDetails &&
           docsDetails.map((detail) => (
             <pre key={detail.name}>
-              <span className={styles.typeField}>{`  ${detail.name}: `}</span>
-              <span className={styles.typeFieldType}>{`${detail.type}`}</span>
+              <span className={styles.colorBlue}>{`  ${detail.name}: `}</span>
+              <span className={styles.colorOrange}>{`${detail.type}`}</span>
             </pre>
           ))}
         <span>{`}`}</span>
