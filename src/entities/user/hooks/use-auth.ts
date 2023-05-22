@@ -3,11 +3,12 @@ import { shallow } from 'zustand/shallow';
 import { useUserStore } from '../model';
 
 export const useAuth = () => {
-  const [isLoading, isAuth, error, loginUser, registerUser, logoutUser] = useUserStore(
+  const [isLoading, isAuth, error, user, loginUser, registerUser, logoutUser] = useUserStore(
     (store) => [
       store.isLoading,
       store.isAuth,
       store.error,
+      store.user,
       store.loginUser,
       store.registerUser,
       store.logoutUser,
@@ -31,6 +32,7 @@ export const useAuth = () => {
     isLoading,
     isAuth,
     error,
+    user,
     login,
     register,
     logout,
