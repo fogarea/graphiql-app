@@ -2,6 +2,8 @@ import { ParserField } from 'graphql-js-tree';
 
 export type TypeArrayParsedField = ParserField[];
 
+export type TypeParsedField = ParserField;
+
 export interface IArrayParsedShema {
   parsedSchema: ParserField[];
 }

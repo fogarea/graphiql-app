@@ -60,6 +60,12 @@ export const getQueryValue = (parsedField: ParserField): string | undefined => {
     return `[${fieldType.nest.name}]`;
   } else if (fieldType.type === Options.name) {
     return `${fieldType.name}`;
+  } else if (
+    fieldType.type === Options.required &&
+    'nest' in fieldType.nest &&
+    'name' in fieldType.nest.nest
+  ) {
+    return `[${fieldType.nest.nest.name}]!`;
   }
 };
 

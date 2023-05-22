@@ -1,7 +1,7 @@
 import { create, StateCreator } from 'zustand';
 import { expoloreSevice } from '../services';
 import { devtools } from 'zustand/middleware';
-import { TypeDocsTypeInfo, TypeArrayParsedField } from './types';
+import { TypeDocsTypeInfo, TypeArrayParsedField, TypeParsedField } from './types';
 
 const explorerStore: TyoeExplorerStore = (set) => ({
   isOpen: false,
@@ -10,6 +10,7 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   error: null,
   parsedSchema: [],
   docsContainers: [],
+  fieldInfo: null,
   selectedElement: '',
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
   setParsedSchema: (value: TypeArrayParsedField) => set({ parsedSchema: value }),
@@ -19,6 +20,7 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   removeDocsContainer: () =>
     set((state) => ({ docsContainers: [...state.docsContainers.slice(0, 1)] })),
+  setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
   setSelectedElement: (selectedElement: string) => set({ selectedElement: selectedElement }),
   fetchSchema: async () => {
     const schema = await expoloreSevice.loadDocumentation();
@@ -38,10 +40,12 @@ interface IExplorerState {
   error: string | null;
   parsedSchema: TypeArrayParsedField | [];
   docsContainers: TypeDocsTypeInfo[] | [];
+  fieldInfo: TypeParsedField | null;
   selectedElement: string;
   addDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   removeDocsContainer: () => void;
+  setFieldInfo: (fieldInfo: TypeParsedField | null) => void;
   toggleExplorer: () => void;
   setSelectedElement: (selectedElement: string) => void;
   setParsedSchema: (value: TypeArrayParsedField) => void;

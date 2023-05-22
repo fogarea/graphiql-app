@@ -10,6 +10,7 @@ export {
   ExplorerDocsArguments,
   ExplorerDocsDetails,
   ExplorerDocsExample,
+  ExplorerFieldInfo,
 } from './ui/explorer-docs';
 export * from './model/types';
 export { useExplorerStore } from './model';

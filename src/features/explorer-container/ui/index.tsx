@@ -3,10 +3,12 @@ import {
   useExplorer,
   ExplorerDocsQueries,
   ExplorerDocsInfo,
+  ExplorerFieldInfo,
 } from '@/entities/explorer';
 
 export const ExplorerContainer = (): JSX.Element => {
-  const { isOpen, handleToggleDocumentation, parsedSchema, docsContainers } = useExplorer();
+  const { isOpen, handleToggleDocumentation, parsedSchema, docsContainers, fieldInfo } =
+    useExplorer();
 
   return (
     <ExplorerDrawer open={isOpen} toggleDrawer={handleToggleDocumentation}>
@@ -28,6 +30,7 @@ export const ExplorerContainer = (): JSX.Element => {
             typeArguments={typeInfo.typeArguments}
           />
         ))}
+      {fieldInfo && <ExplorerFieldInfo typeDetails={fieldInfo} />}
     </ExplorerDrawer>
   );
 };

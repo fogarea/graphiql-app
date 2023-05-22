@@ -9,7 +9,8 @@ import {
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): JSX.Element => {
-  const { setDocsContainer, parsedSchema, selectedElement, setSelectedElement } = useExplorer();
+  const { setDocsContainer, parsedSchema, selectedElement, setSelectedElement, setFieldInfo } =
+    useExplorer();
   const queryValue = getQueryValue(typeArguments);
 
   const handleClickQuery = (typeName: string, queryName: string) => {
@@ -31,6 +32,7 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
 
       setDocsContainer(docsTypeInfo);
       setSelectedElement(typeArguments.id);
+      setFieldInfo(null);
     }
   };
 

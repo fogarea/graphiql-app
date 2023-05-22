@@ -1,7 +1,8 @@
 import Grid from '@mui/material/Grid';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 
 import {
+  useExplorer,
   getTypeDetails,
   ITypeArguments,
   IDocsTypeDetails as IExplorerDocsDetailsProps,
@@ -9,7 +10,19 @@ import {
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps): JSX.Element => {
+  const { setFieldInfo } = useExplorer();
   const [docsDetails, setDocsDetails] = useState<ITypeArguments[]>([]);
+
+  const findFieldInfo = useMemo(() => {
+    return (name: string) => {
+      return typeDetails.args.find((value) => value.name === name);
+    };
+  }, [typeDetails]);
+
+  const handleClickDetail = (name: string) => {
+    const fieldInfo = findFieldInfo(name);
+    if (fieldInfo) setFieldInfo(fieldInfo);
+  };
 
   useEffect(() => {
     const details = getTypeDetails(typeDetails);
@@ -18,6 +31,7 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
     });
     if (isValidDetails) setDocsDetails(details);
   }, [typeDetails]);
+
   return (
     <Grid item>
       <pre>
@@ -27,7 +41,7 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
         <span>{` {`}</span>
         {docsDetails &&
           docsDetails.map((detail) => (
-            <pre key={detail.name}>
+            <pre key={detail.name} onClick={() => handleClickDetail(detail.name)}>
               <span className={styles.colorBlue}>{`  ${detail.name}: `}</span>
               <span className={styles.colorOrange}>{`${detail.type}`}</span>
             </pre>
