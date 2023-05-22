@@ -14,6 +14,7 @@ export const LogoutButton = (): JSX.Element => {
     <DefaultButton
       variant="contained"
       onClick={() => void logout(() => navigate(TypeAppRoute.Logout))}
+      sx={{ width: '100%' }}
     >
       {t('editor.log-out')}
     </DefaultButton>

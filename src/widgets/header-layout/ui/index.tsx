@@ -4,9 +4,8 @@ import styled from '@mui/material/styles/styled';
 import MuiToolbar from '@mui/material/Toolbar';
 import { ReactNode } from 'react';
 
-import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
+import { AuthToolbar } from '@/features/auth';
 import { ChangeLanguage } from '@/features/change-language';
-import { useAuth } from '@/entities/user';
 import { Logo } from '@/shared/ui';
 import { useHeader } from '../hooks';
 
@@ -23,17 +22,7 @@ const Toolbar = styled(MuiToolbar)(({ theme }) => ({
 }));
 
 export const HeaderLayout = ({ burgerMenuSlot }: IHeaderLayoutProps): JSX.Element => {
-  const { isAuth } = useAuth();
   const { isScrolled, elevationValue, headerRef } = useHeader();
-
-  const buttons = isAuth ? (
-    <LogoutButton />
-  ) : (
-    <>
-      <LoginButton />
-      <RegisterButton />
-    </>
-  );
 
   return (
     <>
@@ -50,7 +39,9 @@ export const HeaderLayout = ({ burgerMenuSlot }: IHeaderLayoutProps): JSX.Elemen
           {burgerMenuSlot}
           <Logo withTitle />
           <ChangeLanguage />
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>{buttons}</Box>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
+            <AuthToolbar />
+          </Box>
         </Toolbar>
       </Header>
     </>
