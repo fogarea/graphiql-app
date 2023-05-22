@@ -1,4 +1,4 @@
-import { LanguageForm, useLanguage, languages } from '@/entities/language';
+import languages, { LanguageForm, useLanguage } from '@/entities/language';
 
 export const ChangeLanguage = (): JSX.Element => {
   const { lang, toggleLanguage } = useLanguage();
@@ -7,7 +7,7 @@ export const ChangeLanguage = (): JSX.Element => {
     <LanguageForm
       selectedLanguage={lang}
       onToggleLanguage={toggleLanguage}
-      languages={languages.languages}
+      languages={languages.results}
     />
   );
 };

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
-import { toast } from '@/shared/lib/browser';
+import { alert } from '@/shared/lib/browser';
 import { Section } from '@/shared/ui';
 import { AuthForm, AuthRedirectButton } from '../ui';
 
@@ -19,11 +19,11 @@ export const RegisterContainer = (): JSX.Element => {
   const handleRegisterUser = (email: string, password: string) => {
     register(email, password)
       .then(() => {
-        toast.success(t('toast.successfully-register'));
+        alert.success(t('alert.successfully-register'));
       })
       .catch((e) => {
         if (e instanceof Error) {
-          toast.error(e.message);
+          alert.error(e.message);
         }
       });
   };

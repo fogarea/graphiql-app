@@ -1,5 +1,5 @@
-import languages from './model';
+import { results } from './model';
 
 export * from './ui';
 export * from './hooks';
-export { languages };
+export default { results } as const;

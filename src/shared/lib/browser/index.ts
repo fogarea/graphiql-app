@@ -1,2 +1,2 @@
-export { toast } from './toast';
-export { useTitle } from './use-title';
+export { alert } from './alert';
+export { useTitle, copyToClipBoard } from './dom';

@@ -1,3 +1,2 @@
-import languages from './languages.json';
-
-export default { languages } as const;
+import results from './results.json';
+export { results };

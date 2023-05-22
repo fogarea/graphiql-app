@@ -9,15 +9,15 @@ const enum FirebaseAuthCode {
 export const mapFirebaseAuthCodeToMessage = (firebaseCode: string): string => {
   switch (firebaseCode) {
     case FirebaseAuthCode.EMAIL_ALREADY_IN_USE:
-      return i18n.t('toast.email-already-in-use');
+      return i18n.t('alert.email-already-in-use');
 
     case FirebaseAuthCode.USER_NOT_FOUND:
-      return i18n.t('toast.user-not-found');
+      return i18n.t('alert.user-not-found');
 
     case FirebaseAuthCode.WRONG_PASSWORD:
-      return i18n.t('toast.wrong-password');
+      return i18n.t('alert.wrong-password');
 
     default:
-      return i18n.t('toast.something-went-wrong');
+      return i18n.t('alert.something-went-wrong');
   }
 };

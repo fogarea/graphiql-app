@@ -8,7 +8,7 @@ import { devtools, persist } from 'zustand/middleware';
 import { FirebaseError } from 'firebase/app';
 
 import { auth } from '@/shared/config';
-import { mapFirebaseAuthCodeToMessage } from '@/shared/lib/fp';
+import { mapFirebaseAuthCodeToMessage } from '@/shared/lib/firebase';
 
 const initialUserState: TypeUser = { email: null, id: null };
 

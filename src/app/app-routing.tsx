@@ -25,7 +25,7 @@ const NotFoundPage = lazy(async () => ({
   default: (await import('@/pages/not-found')).NotFoundPage,
 }));
 
-export const Routing = (): JSX.Element => (
+export const AppRouting = (): JSX.Element => (
   <Routes>
     <Route path={TypeAppRoute.Welcome} element={<AppLayout />}>
       <Route index element={<WelcomePage />} />

@@ -1,4 +1,4 @@
-import developers from './developers.json';
+import results from './results.json';
 
 export * from './types';
-export default { developers } as const;
+export default { results } as const;

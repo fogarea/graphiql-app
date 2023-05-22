@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
-import { toast } from '@/shared/lib/browser';
+import { alert } from '@/shared/lib/browser';
 import { Section } from '@/shared/ui';
 import { AuthForm, AuthRedirectButton } from '../ui';
 
@@ -19,11 +19,11 @@ export const LoginContainer = (): JSX.Element => {
   const handleLoginUser = (email: string, password: string) => {
     login(email, password)
       .then(() => {
-        toast.success(t('toast.successfully-login'));
+        alert.success(t('alert.successfully-login'));
       })
       .catch((e) => {
         if (e instanceof Error) {
-          toast.error(e.message);
+          alert.error(e.message);
         }
       });
   };
