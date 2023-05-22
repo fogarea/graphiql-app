@@ -42,7 +42,7 @@ export const AuthToolbar = (): JSX.Element => {
       <PopoverContent onClose={handleClose} isOpen={isOpen} anchorEl={anchorEl}>
         {user.email && <UserCard email={user.email} />}
         <Divider sx={{ borderStyle: 'dashed', my: 1 }} />
-        <LogoutButton />
+        <LogoutButton onLogout={handleClose} />
       </PopoverContent>
     </>
   );
