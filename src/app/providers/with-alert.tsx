@@ -1,7 +1,7 @@
 import { SnackbarProvider } from 'notistack';
 import { ReactNode } from 'react';
 
-export const withToast = (component: () => ReactNode) => () =>
+export const withAlert = (component: () => ReactNode) => () =>
   (
     <SnackbarProvider
       preventDuplicate

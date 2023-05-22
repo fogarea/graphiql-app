@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { WelcomeHeroLayout } from '@/widgets/welcome-hero';
 import { AboutUs } from '@/widgets/about-us';
-import { useTitle } from '@/shared/lib';
+import { WelcomeHeroLayout } from '@/widgets/welcome-hero';
+import { useTitle } from '@/shared/lib/browser';
 
 export const WelcomePage = (): JSX.Element => {
   const { t } = useTranslation();

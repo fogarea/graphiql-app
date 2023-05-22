@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
 import CodeEditor from '@uiw/react-textarea-code-editor';
+import { useEffect, useRef } from 'react';
 
-import { a11yCodeEditorStyles } from '@/shared/theme';
+import { a11yCodeEditorStyles } from '@/shared/lib/theme';
 import { useEditorFocus } from '../../hooks';
 
 export const VariableEditor = ({ code, setCode }: IVariableEditorProps) => {

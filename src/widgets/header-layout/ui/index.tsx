@@ -1,14 +1,13 @@
-import AppBar from '@mui/material/AppBar';
 import { Box } from '@mui/material';
-import MuiToolbar from '@mui/material/Toolbar';
-import Divider from '@mui/material/Divider';
+import AppBar from '@mui/material/AppBar';
 import styled from '@mui/material/styles/styled';
-import { useState } from 'react';
+import MuiToolbar from '@mui/material/Toolbar';
+import { ReactNode } from 'react';
 
-import { useAuth } from '@/entities/user';
 import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
 import { ChangeLanguage } from '@/features/change-language';
-import { BurgerMenu, Logo } from '@/shared/ui';
+import { useAuth } from '@/entities/user';
+import { Logo } from '@/shared/ui';
 import { useHeader } from '../hooks';
 
 const Header = styled(AppBar)(({ theme }) => ({
@@ -23,9 +22,8 @@ const Toolbar = styled(MuiToolbar)(({ theme }) => ({
   },
 }));
 
-export const HeaderLayout = (): JSX.Element => {
+export const HeaderLayout = ({ burgerMenuSlot }: IHeaderLayoutProps): JSX.Element => {
   const { isAuth } = useAuth();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isScrolled, elevationValue, headerRef } = useHeader();
 
   const buttons = isAuth ? (
@@ -49,13 +47,7 @@ export const HeaderLayout = (): JSX.Element => {
         }}
       >
         <Toolbar>
-          <BurgerMenu isOpen={isMenuOpen} toggleMenu={() => setIsMenuOpen(!isMenuOpen)}>
-            <>
-              <Logo withTitle isMobile />
-              <Divider />
-              {buttons}
-            </>
-          </BurgerMenu>
+          {burgerMenuSlot}
           <Logo withTitle />
           <ChangeLanguage />
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>{buttons}</Box>
@@ -64,3 +56,7 @@ export const HeaderLayout = (): JSX.Element => {
     </>
   );
 };
+
+interface IHeaderLayoutProps {
+  burgerMenuSlot: ReactNode;
+}

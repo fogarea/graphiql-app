@@ -1,13 +1,13 @@
-import { Box } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import styled from '@mui/material/styles/styled';
-import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Box } from '@mui/material';
+import styled from '@mui/material/styles/styled';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { loginSchema, type TypeLoginSchema } from '../../lib';
 import { LoadingButton } from '@/shared/ui';
+import { loginSchema, type TypeLoginSchema } from '../../lib';
 
 const StyledForm = styled(Box)(() => ({
   maxWidth: 480,

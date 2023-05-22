@@ -1,6 +1,6 @@
-import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import styled from '@mui/material/styles/styled';
+import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
 import { TypeAppRoute } from '../../config';

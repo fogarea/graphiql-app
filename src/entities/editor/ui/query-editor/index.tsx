@@ -1,6 +1,7 @@
-import { a11yCodeEditorStyles } from '@/shared/theme';
 import CodeEditor from '@uiw/react-textarea-code-editor';
 import { useTranslation } from 'react-i18next';
+
+import { a11yCodeEditorStyles } from '@/shared/lib/theme';
 
 export const QueryEditor = ({ code, setCode }: IQueryEditorProps) => {
   const { t } = useTranslation();

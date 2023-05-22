@@ -72,7 +72,7 @@
     "subtitle": "Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL?",
     "welcome-page-button": "Go to Home"
   },
-  "toast": {
+  "alert": {
     "successfully-login": "Welcome back! You have successfully logged in.",
     "successfully-register": "Congratulations! You have successfully registered.",
     "email-already-in-use": "Sorry, that email is already registered. Please use a different email.",

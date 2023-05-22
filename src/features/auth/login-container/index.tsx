@@ -1,11 +1,11 @@
-import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 
-import { AuthForm, AuthRedirectButton } from '../ui';
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
-import { toast } from '@/shared/lib';
+import { alert } from '@/shared/lib/browser';
 import { Section } from '@/shared/ui';
+import { AuthForm, AuthRedirectButton } from '../ui';
 
 export const LoginContainer = (): JSX.Element => {
   const { t } = useTranslation();
@@ -19,11 +19,11 @@ export const LoginContainer = (): JSX.Element => {
   const handleLoginUser = (email: string, password: string) => {
     login(email, password)
       .then(() => {
-        toast.success(t('toast.successfully-login'));
+        alert.success(t('alert.successfully-login'));
       })
       .catch((e) => {
         if (e instanceof Error) {
-          toast.error(e.message);
+          alert.error(e.message);
         }
       });
   };

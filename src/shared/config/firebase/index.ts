@@ -1,5 +1,5 @@
-import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { initializeApp } from 'firebase/app';
 
 const getEnvVar = (key: string): string => {
   if (import.meta.env[key] === undefined) {

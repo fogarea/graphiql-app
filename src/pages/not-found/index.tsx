@@ -1,12 +1,12 @@
-import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
-import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import styled from '@mui/material/styles/styled';
+import Typography from '@mui/material/Typography';
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 import { TypeAppRoute } from '@/shared/config';
+import { useTitle } from '@/shared/lib/browser';
 import { LargeButton, Section } from '@/shared/ui';
-import { useTitle } from '@/shared/lib';
 
 const StyledWrapper = styled(Box)(({ theme }) => ({
   maxWidth: 780,
