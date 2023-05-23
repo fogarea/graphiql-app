@@ -1,7 +1,14 @@
 export * from './ui';
 export * from './hooks';
 export * from './services';
-export { getTypeDetails, getTypeArguments, getQueryValue } from './lib/utils';
+export {
+  getTypeDetails,
+  getTypeArguments,
+  getQueryValue,
+  getQueryInfo,
+  showQueryValue,
+  showQueryValueByInfo,
+} from './lib/utils';
 export { ExplorerSchemaBlock } from './ui/explorer-schema';
 export {
   ExplorerDocsQueries,

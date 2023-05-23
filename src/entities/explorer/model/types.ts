@@ -4,6 +4,15 @@ export type TypeArrayParsedField = ParserField[];
 
 export type TypeParsedField = ParserField;
 
+interface INest {
+  isRequired: boolean;
+  isArray: boolean;
+}
+
+export interface IGetQueryValue {
+  name: string;
+  nest: INest;
+}
 export interface IArrayParsedShema {
   parsedSchema: ParserField[];
 }

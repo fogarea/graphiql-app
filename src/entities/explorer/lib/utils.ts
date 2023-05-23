@@ -1,6 +1,6 @@
 import { ParserField, Options } from 'graphql-js-tree';
 
-import { ITypeArguments, TypeGetTypeArgumentsReturn } from '../model/types';
+import { ITypeArguments, TypeGetTypeArgumentsReturn, IGetQueryValue } from '../model/types';
 
 export const getTypeDetails = (parsedField: ParserField): TypeGetTypeArgumentsReturn => {
   return parsedField.args.map((arg) => {
@@ -67,6 +67,44 @@ export const getQueryValue = (parsedField: ParserField): string | undefined => {
   ) {
     return `[${fieldType.nest.nest.name}]!`;
   }
+};
+
+export const getQueryInfo = (parsedField: ParserField): IGetQueryValue => {
+  const result: IGetQueryValue = {
+    name: '',
+    nest: {
+      isRequired: false,
+      isArray: false,
+    },
+  };
+  const fieldType = parsedField.type.fieldType;
+  if ('nest' in fieldType && 'name' in fieldType.nest && fieldType.type === Options.array) {
+    result.name = fieldType.nest.name;
+    result.nest.isArray = true;
+  } else if (fieldType.type === Options.name) {
+    result.name = fieldType.name;
+  } else if (
+    fieldType.type === Options.required &&
+    'nest' in fieldType.nest &&
+    'name' in fieldType.nest.nest
+  ) {
+    result.name = fieldType.nest.nest.name;
+    (result.nest.isArray = true), (result.nest.isRequired = true);
+  }
+  return result;
+};
+
+export const showQueryValue = (parsedField: ParserField): string => {
+  const result = getQueryInfo(parsedField);
+  if (result.nest.isArray) return `[${result.name}]`;
+  else if (result.nest.isRequired) return `${result.name}]`;
+  else return `${result.name}`;
+};
+
+export const showQueryValueByInfo = (queryInfo: IGetQueryValue): string => {
+  if (queryInfo.nest.isArray) return `[${queryInfo.name}]`;
+  else if (queryInfo.nest.isRequired) return `${queryInfo.name}]`;
+  else return `${queryInfo.name}`;
 };
 
 export const checkArrayInterface = (array: TypeGetTypeArgumentsReturn): boolean | undefined => {
