@@ -11,7 +11,18 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   parsedSchema: [],
   docsContainers: [],
   fieldInfo: null,
-  selectedElement: '',
+  selectedElements: {
+    selectedQuery: '',
+    selectedTypeArguments: '',
+    selectedTypeDetails: '',
+  },
+  setSelectedElements: (updatedElements) =>
+    set((state) => ({
+      selectedElements: {
+        ...state.selectedElements,
+        ...updatedElements,
+      },
+    })),
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
   setParsedSchema: (value: TypeArrayParsedField) => set({ parsedSchema: value }),
   addDocsContainer: (queryInfo: TypeDocsTypeInfo) => {
@@ -21,7 +32,6 @@ const explorerStore: TyoeExplorerStore = (set) => ({
   removeDocsContainer: () =>
     set((state) => ({ docsContainers: [...state.docsContainers.slice(0, 1)] })),
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
-  setSelectedElement: (selectedElement: string) => set({ selectedElement: selectedElement }),
   fetchSchema: async () => {
     const schema = await expoloreSevice.loadDocumentation();
     set({ parsedSchema: schema.nodes });
@@ -41,15 +51,21 @@ interface IExplorerState {
   parsedSchema: TypeArrayParsedField | [];
   docsContainers: TypeDocsTypeInfo[] | [];
   fieldInfo: TypeParsedField | null;
-  selectedElement: string;
+  selectedElements: ISelectedElements;
   addDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   removeDocsContainer: () => void;
   setFieldInfo: (fieldInfo: TypeParsedField | null) => void;
   toggleExplorer: () => void;
-  setSelectedElement: (selectedElement: string) => void;
+  setSelectedElements: (selectedElements: Partial<ISelectedElements>) => void;
   setParsedSchema: (value: TypeArrayParsedField) => void;
   fetchSchema: () => Promise<void>;
 }
 
 type TyoeExplorerStore = StateCreator<IExplorerState>;
+
+interface ISelectedElements {
+  selectedQuery: string;
+  selectedTypeDetails: string;
+  selectedTypeArguments: string;
+}

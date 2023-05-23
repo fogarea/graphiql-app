@@ -12,8 +12,8 @@ export const useExplorer = () => {
     addDocsContainer,
     setDocsContainer,
     removeDocsContainer,
-    selectedElement,
-    setSelectedElement,
+    selectedElements,
+    setSelectedElements,
     fieldInfo,
     setFieldInfo,
   ] = useExplorerStore((state) => [
@@ -27,8 +27,8 @@ export const useExplorer = () => {
     state.addDocsContainer,
     state.setDocsContainer,
     state.removeDocsContainer,
-    state.selectedElement,
-    state.setSelectedElement,
+    state.selectedElements,
+    state.setSelectedElements,
     state.fieldInfo,
     state.setFieldInfo,
   ]);
@@ -55,8 +55,8 @@ export const useExplorer = () => {
     addDocsContainer,
     setDocsContainer,
     removeDocsContainer,
-    selectedElement,
-    setSelectedElement,
+    selectedElements,
+    setSelectedElements,
     fieldInfo,
     setFieldInfo,
   };

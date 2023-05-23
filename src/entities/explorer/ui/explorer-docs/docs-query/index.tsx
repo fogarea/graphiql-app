@@ -11,7 +11,7 @@ import {
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): JSX.Element => {
-  const { setDocsContainer, parsedSchema, selectedElement, setSelectedElement, setFieldInfo } =
+  const { setDocsContainer, parsedSchema, selectedElements, setSelectedElements, setFieldInfo } =
     useExplorer();
   const queryInfo = getQueryInfo(typeArguments);
   const queryString = showQueryValueByInfo(queryInfo);
@@ -28,7 +28,7 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
       };
 
       setDocsContainer(docsTypeInfo);
-      setSelectedElement(typeArguments.id);
+      setSelectedElements({ selectedQuery: typeArguments.id });
       setFieldInfo(null);
     }
   };
@@ -37,7 +37,7 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
     <div
       onClick={() => handleClickQuery(queryInfo)}
       className={`${styles.query} ${
-        selectedElement === typeArguments.id ? styles.activeQuery : ''
+        selectedElements.selectedQuery === typeArguments.id ? styles.activeQuery : ''
       }`}
     >
       <span className={styles.colorRed}>{typeArguments.name}</span>
