@@ -1,12 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Box } from '@mui/material';
 import styled from '@mui/material/styles/styled';
-import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
-import { useForm, Controller, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { LoadingButton } from '@/shared/ui';
+import { FormInput, LoadingButton } from '@/shared/ui';
 import { loginSchema, type TypeLoginSchema } from '../../lib';
 
 const StyledForm = styled(Box)(() => ({
@@ -39,39 +38,24 @@ export const AuthForm = ({ authUser, label, isLoading }: IAuthFormProps): JSX.El
         {label}
       </Typography>
       <form noValidate onSubmit={(e) => void handleSubmit(onSubmit)(e)}>
-        <Controller
+        <FormInput
           name="email"
           control={control}
           defaultValue=""
-          render={({ field }) => (
-            <TextField
-              {...field}
-              label={t('login.email')}
-              variant="outlined"
-              placeholder="example@dev.com"
-              error={!!errors.email}
-              helperText={errors.email ? errors.email?.message : ''}
-              fullWidth
-              margin="dense"
-            />
-          )}
+          type="email"
+          label={t('login.email')}
+          placeholder="example@dev.com"
+          error={!!errors.email}
+          helperText={errors.email ? errors.email?.message : ''}
         />
-        <Controller
+        <FormInput
           name="password"
           control={control}
           defaultValue=""
-          render={({ field }) => (
-            <TextField
-              {...field}
-              type="password"
-              label={t('login.password')}
-              variant="outlined"
-              error={!!errors.password}
-              helperText={errors.password ? errors.password?.message : ''}
-              fullWidth
-              margin="dense"
-            />
-          )}
+          type="password"
+          label={t('login.password')}
+          error={!!errors.password}
+          helperText={errors.password ? errors.password?.message : ''}
         />
         <LoadingButton
           type="submit"
