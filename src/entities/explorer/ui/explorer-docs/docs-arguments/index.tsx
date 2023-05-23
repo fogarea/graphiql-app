@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import {
   getTypeArguments,
   ITypeArguments,
+  useExplorer,
   IDocsTypeArguments as IExplorerDocsArgumentsProps,
 } from '@/entities/explorer';
 import styles from '../styles.module.scss';
@@ -11,7 +12,15 @@ import styles from '../styles.module.scss';
 export const ExplorerDocsArguments = ({
   typeArguments,
 }: IExplorerDocsArgumentsProps): JSX.Element => {
+  const { setFieldInfo } = useExplorer();
   const [docsArguments, setDocsArguments] = useState<ITypeArguments[]>([]);
+
+  const handleClickArgument = (name: string) => {
+    const agrInfo = typeArguments.args.find((value) => value.name === name);
+    if (agrInfo) {
+      setFieldInfo(agrInfo);
+    }
+  };
 
   useEffect(() => {
     const docs = getTypeArguments(typeArguments);
@@ -24,10 +33,10 @@ export const ExplorerDocsArguments = ({
   return (
     <Grid item>
       {docsArguments &&
-        docsArguments.map((el) => (
-          <pre key={el.name}>
-            <span className={styles.colorBlue}>{el.name}: </span>
-            <span className={styles.colorOrange}>{el.type}</span>
+        docsArguments.map((argument) => (
+          <pre key={argument.name} onClick={() => handleClickArgument(argument.name)}>
+            <span className={styles.colorBlue}>{argument.name}: </span>
+            <span className={styles.colorOrange}>{argument.type}</span>
           </pre>
         ))}
     </Grid>
