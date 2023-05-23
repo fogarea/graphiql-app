@@ -28,7 +28,7 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
       };
 
       setDocsContainer(docsTypeInfo);
-      setSelectedElements({ selectedQuery: typeArguments.id });
+      setSelectedElements({ selectedQuery: typeArguments.id, selectedTypeDetails: '' });
       setFieldInfo(null);
     }
   };

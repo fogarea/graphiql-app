@@ -1,4 +1,5 @@
 import Grid from '@mui/material/Grid';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useEffect, useState, useMemo } from 'react';
 
 import {
@@ -10,7 +11,7 @@ import {
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps): JSX.Element => {
-  const { setFieldInfo } = useExplorer();
+  const { selectedElements, setSelectedElements, setFieldInfo } = useExplorer();
   const [docsDetails, setDocsDetails] = useState<ITypeArguments[]>([]);
 
   const findFieldInfo = useMemo(() => {
@@ -22,6 +23,7 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
   const handleClickDetail = (name: string) => {
     const fieldInfo = findFieldInfo(name);
     if (fieldInfo) setFieldInfo(fieldInfo);
+    setSelectedElements({ selectedTypeDetails: name });
   };
 
   useEffect(() => {
@@ -35,15 +37,21 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
   return (
     <Grid item>
       <pre>
-        <span className={styles.colorBlue}>{'type'}</span>
-        <span> </span>
+        <span className={styles.colorBlue}>{'type '}</span>
         <span className={styles.colorRed}>{typeDetails.name}</span>
         <span>{` {`}</span>
         {docsDetails &&
           docsDetails.map((detail) => (
-            <pre key={detail.name} onClick={() => handleClickDetail(detail.name)}>
+            <pre
+              className={`${styles.query} ${
+                selectedElements.selectedTypeDetails === detail.name ? styles.activeQuery : ''
+              }`}
+              key={detail.name}
+              onClick={() => handleClickDetail(detail.name)}
+            >
               <span className={styles.colorBlue}>{`  ${detail.name}: `}</span>
               <span className={styles.colorOrange}>{`${detail.type}`}</span>
+              <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
             </pre>
           ))}
         <span>{`}`}</span>
