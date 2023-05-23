@@ -3,24 +3,21 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {
   TypeDocsTypeInfo,
   useExplorer,
-  getQueryValue,
+  getQueryInfo,
+  showQueryValueByInfo,
   IDocsTypeArguments as IExplorerDocsQueryProps,
+  IGetQueryValue,
 } from '@/entities/explorer';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): JSX.Element => {
   const { setDocsContainer, parsedSchema, selectedElement, setSelectedElement, setFieldInfo } =
     useExplorer();
-  const queryValue = getQueryValue(typeArguments);
+  const queryInfo = getQueryInfo(typeArguments);
+  const queryString = showQueryValueByInfo(queryInfo);
 
-  const handleClickQuery = (typeName: string, queryName: string) => {
-    let typeNameNoBrackets = typeName;
-    if (typeNameNoBrackets.startsWith('[') && typeNameNoBrackets.endsWith(']')) {
-      typeNameNoBrackets = typeNameNoBrackets.slice(1, -1);
-    }
-    const findTypeDetails = parsedSchema.find((schema) => schema.name === typeNameNoBrackets);
-    console.log('typeName', typeName);
-    console.log('queryName ', queryName);
+  const handleClickQuery = (queryInfo: IGetQueryValue) => {
+    const findTypeDetails = parsedSchema.find((schema) => schema.name === queryInfo.name);
     console.log('findTypeDetails', findTypeDetails);
     console.log('props', typeArguments);
 
@@ -38,14 +35,14 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
 
   return (
     <div
-      onClick={() => handleClickQuery(queryValue!, typeArguments.name)}
+      onClick={() => handleClickQuery(queryInfo)}
       className={`${styles.query} ${
         selectedElement === typeArguments.id ? styles.activeQuery : ''
       }`}
     >
       <span className={styles.colorRed}>{typeArguments.name}</span>
       <span>{'(...): '}</span>
-      <span className={styles.colorOrange}>{queryValue}</span>
+      <span className={styles.colorOrange}>{queryString}</span>
       <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
     </div>
   );

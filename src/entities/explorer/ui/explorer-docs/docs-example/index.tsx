@@ -2,13 +2,13 @@ import Grid from '@mui/material/Grid';
 
 import {
   ExplorerDocsArguments,
-  getQueryValue,
+  showQueryValue,
   IDocsTypeArguments as IExplorerDocsExampleProps,
 } from '@/entities/explorer/';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsExample = ({ typeArguments }: IExplorerDocsExampleProps) => {
-  const detailsName = getQueryValue(typeArguments);
+  const detailsName = showQueryValue(typeArguments);
   return (
     <Grid item sx={{ fontWeight: 600 }}>
       <pre>
