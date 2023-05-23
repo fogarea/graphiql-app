@@ -6,3 +6,4 @@ export * from './tooltip-alert';
 export * from './logo';
 export * from './section';
 export * from './popover';
+export * from './form-input';
