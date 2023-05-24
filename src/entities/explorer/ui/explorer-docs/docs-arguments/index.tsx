@@ -1,4 +1,5 @@
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import { useEffect, useState } from 'react';
 
 import {
@@ -46,6 +47,7 @@ export const ExplorerDocsArguments = ({
             >
               <span className={styles.colorBlue}>{argument.name}: </span>
               <span className={styles.colorOrange}>{argument.type}</span>
+              <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
             </pre>
           ))}
       </Grid>
