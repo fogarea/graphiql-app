@@ -1,10 +1,10 @@
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import styled from '@mui/material/styles/styled';
+import Typography from '@mui/material/Typography';
 import { NavLink } from 'react-router-dom';
 
 const StyledRedirect = styled('div')(({ theme }) => ({
-  color: theme.palette.info.dark,
+  color: theme.palette.primary.main,
   textDecoration: 'underline',
 }));
 

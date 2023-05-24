@@ -1,25 +1,21 @@
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
-import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
+import { LargeButton } from '@/shared/ui';
 
 export const EditorPageButton = (): JSX.Element => {
   const { t } = useTranslation();
   const { isAuth } = useAuth();
 
   return (
-    <Grid item>
-      <Button variant="contained">
-        <NavLink
-          to={isAuth ? TypeAppRoute.Editor : TypeAppRoute.Login}
-          style={{ textDecoration: 'none', color: 'inherit' }}
-        >
-          {t('editor.welcome-page')}
-        </NavLink>
-      </Button>
-    </Grid>
+    <LargeButton
+      variant="contained"
+      component={NavLink}
+      to={isAuth ? TypeAppRoute.Editor : TypeAppRoute.Login}
+    >
+      {t('editor.welcome-page')}
+    </LargeButton>
   );
 };

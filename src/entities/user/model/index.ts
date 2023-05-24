@@ -1,14 +1,14 @@
-import { create, StateCreator } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { create, StateCreator } from 'zustand';
+import { devtools, persist } from 'zustand/middleware';
 import { FirebaseError } from 'firebase/app';
 
 import { auth } from '@/shared/config';
-import { mapFirebaseAuthCodeToMessage } from '@/shared/lib';
+import { mapFirebaseAuthCodeToMessage } from '@/shared/lib/firebase';
 
 const initialUserState: TypeUser = { email: null, id: null };
 
@@ -95,7 +95,8 @@ export const useUserStore = create<IUserStore>()(
   devtools(
     persist(userStore, {
       name: '@user',
-    })
+    }),
+    { name: '@user-store' }
   )
 );
 

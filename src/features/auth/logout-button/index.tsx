@@ -1,22 +1,30 @@
-import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 
-import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/entities/user';
 import { TypeAppRoute } from '@/shared/config';
+import { DefaultButton } from '@/shared/ui';
 
-export const LogoutButton = (): JSX.Element => {
+export const LogoutButton = ({ onLogout }: ILogoutButtonProps): JSX.Element => {
   const { t } = useTranslation();
-
   const { logout } = useAuth();
-
   const navigate = useNavigate();
+
+  const handleLogout = () => {
+    if (onLogout) {
+      onLogout();
+    }
+
+    void logout(() => navigate(TypeAppRoute.Logout));
+  };
+
   return (
-    <Grid item>
-      <Button color="inherit" onClick={() => void logout(() => navigate(TypeAppRoute.Logout))}>
-        {t('editor.log-out')}
-      </Button>
-    </Grid>
+    <DefaultButton variant="contained" onClick={handleLogout} sx={{ width: '100%' }}>
+      {t('editor.log-out')}
+    </DefaultButton>
   );
 };
+
+interface ILogoutButtonProps {
+  onLogout?: () => void;
+}

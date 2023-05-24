@@ -1,5 +1,5 @@
 import './index.scss';
-import { Routing } from '@/pages';
 import { withProviders } from '@/app/providers';
+import { AppRouting } from './app-routing';
 
-export const App = withProviders((): JSX.Element => <Routing />);
+export const App = withProviders((): JSX.Element => <AppRouting />);

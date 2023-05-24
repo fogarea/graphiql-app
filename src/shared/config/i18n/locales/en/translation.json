@@ -6,9 +6,27 @@
     "clean-query": "Clean query",
     "documentation": "Documentation"
   },
+  "page-title": {
+    "welcome": "GraphiQL Editor - Online Code Editor & IDE for GraphQL Development",
+    "login": "Sign in to GraphiQL",
+    "register": "Sign up to GraphiQL",
+    "editor": "GraphiQL Editor",
+    "not-found": "Page Not Found"
+  },
   "welcome": {
-    "sign-in": "Sign in",
-    "sign-up": "Sign up",
+    "sign-in": "Sign In",
+    "sign-up": "Sign Up",
+    "description": "This is a web-based interface that simplifies the process of querying and testing GraphQL APIs for developers",
+    "our-team": "Our Team",
+    "Developer": "Developer",
+    "Team Lead / Developer": "Team Lead / Developer",
+    "Konstantin Sapronov": "Konstantin Sapronov",
+    "Konstantin Smirnov": "Konstantin Smirnov",
+    "Danil Podgorniy": "Danil Podgorniy",
+    "course-info1": "The application is made in ",
+    "course-info2": " of the "
+  },
+  "hero": {
     "description": "GraphiQL is a IDE for graphQL requests.",
     "our-team": "Our Team:",
     "Developer": "Developer",
@@ -36,7 +54,7 @@
     "register-action": "Sign Up"
   },
   "editor": {
-    "welcome-page": "Go to Main Page",
+    "welcome-page": "Get started",
     "log-out": "Log out",
     "placeholder": "Please enter GraphQL query.",
     "q-editor": "Editor",
@@ -49,7 +67,12 @@
   "explorer": {
     "documentation": "Documentation"
   },
-  "toast": {
+  "not-found": {
+    "title": "Sorry, page not found!",
+    "subtitle": "Sorry, we couldn’t find the page you’re looking for. Perhaps you’ve mistyped the URL?",
+    "welcome-page-button": "Go to Home"
+  },
+  "alert": {
     "successfully-login": "Welcome back! You have successfully logged in.",
     "successfully-register": "Congratulations! You have successfully registered.",
     "email-already-in-use": "Sorry, that email is already registered. Please use a different email.",

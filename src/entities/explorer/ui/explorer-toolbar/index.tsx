@@ -1,6 +1,6 @@
 import BookIcon from '@mui/icons-material/Book';
-import { TooltipButton } from '@/shared/ui';
 import { useTranslation } from 'react-i18next';
+import { TooltipButton } from '@/shared/ui';
 
 export const ExplorerToolbar = ({
   toggleDocumentation,

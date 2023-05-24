@@ -1,3 +1,4 @@
+export * from './auth-toolbar';
 export * from './login-container';
 export * from './register-container';
 export * from './register-button';

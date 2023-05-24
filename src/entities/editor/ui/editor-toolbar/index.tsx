@@ -1,8 +1,8 @@
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import StopIcon from '@mui/icons-material/Stop';
-import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import TextFormatIcon from '@mui/icons-material/TextFormat';
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import { useTranslation } from 'react-i18next';
 
 import { TooltipButton } from '@/shared/ui';
@@ -19,7 +19,7 @@ export const EditorToolbar = ({
   return (
     <>
       <TooltipButton title={t('button.execute-query')} onClick={execQuery}>
-        {isFetching ? <StopIcon color="error" /> : <PlayArrowIcon color="secondary" />}
+        {isFetching ? <StopIcon color="error" /> : <PlayArrowIcon color="primary" />}
       </TooltipButton>
       <TooltipButton title={t('button.prettify-query')} onClick={prettifyQuery}>
         <TextFormatIcon />

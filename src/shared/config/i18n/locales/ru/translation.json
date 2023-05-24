@@ -6,18 +6,25 @@
     "clean-query": "Очистить",
     "documentation": "Документация"
   },
+  "page-title": {
+    "welcome": "GraphiQL Редактор - Онлайн Редактор для GraphQL",
+    "login": "Войти в GraphiQL",
+    "register": "Зарегистрироваться в GraphiQL",
+    "editor": "GraphiQL Редактор",
+    "not-found": "Страница на найдена"
+  },
   "welcome": {
     "sign-in": "Вход",
     "sign-up": "Регистрация",
-    "description": "GraphiQL это IDE для graphQL запросов.",
-    "our-team": "Наша Команда:",
+    "description": "Веб-интерфейс, упрощающий процесс запроса и тестирования API GraphQL для разработчиков",
+    "our-team": "Наша Команда",
     "Developer": "Разработчик",
     "Team Lead / Developer": "Тимлид / Разработчик",
     "Konstantin Sapronov": "Константин Сапронов",
     "Konstantin Smirnov": "Константин Смирнов",
     "Danil Podgorniy": "Данил Подгорный",
-    "course-info1": "Приложение разработано в ходе прохождения",
-    "course-info2": "в"
+    "course-info1": "Приложение разработано в ходе прохождения ",
+    "course-info2": " в "
   },
   "login": {
     "sign-in": "Вход",
@@ -34,7 +41,7 @@
     "password": "Пароль"
   },
   "editor": {
-    "welcome-page": "На главную",
+    "welcome-page": "Начать",
     "log-out": "Выйти",
     "placeholder": "Введите запрос GraphQL.",
     "q-editor": "Редактор",
@@ -47,7 +54,12 @@
   "explorer": {
     "documentation": "Документация"
   },
-  "toast": {
+  "not-found": {
+    "title": "Такая страница не найдена!",
+    "subtitle": "Извините, такой страницы не существует. Попробуйте проверить введенный вами адрес.",
+    "welcome-page-button": "На главную"
+  },
+  "alert": {
     "successfully-login": "С возвращением! Вход в систему успешно выполнен.",
     "successfully-register": "Поздравляю! Вы успешно зарегистрировались.",
     "email-already-in-use": "К сожалению, такой адрес электронной почты уже зарегистрирован. Введите другой адрес.",
