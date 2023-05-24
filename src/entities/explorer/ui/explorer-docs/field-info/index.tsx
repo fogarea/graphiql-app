@@ -7,6 +7,7 @@ import {
   getTypeDetails,
   useExplorer,
 } from '@/entities/explorer';
+import styles from '../styles.module.scss';
 
 export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Element => {
   const { parsedSchema } = useExplorer();
@@ -30,19 +31,20 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
 
   return (
     <div style={{ width: 300 }}>
-      <pre>
-        <span>{typeDetails.name}: </span>
-        <span>{queryInfo.name}</span>
+      <pre className={styles.fontBold}>
+        <span className={styles.colorRed}>{typeDetails.name}: </span>
+        <span className={styles.colorOrange}>{queryInfo.name}</span>
       </pre>
-      <p>{typeDetails.description}</p>
+      <p className={styles.colorGray}>{typeDetails.description}</p>
       {!!docsDetails.length && (
         <div>
-          <span>{'type '}</span>
-          <span>{'{'}</span>
+          <span className={styles.colorBlue}>{'type '}</span>
+          <span className={styles.colorRed}>{queryInfo.name}</span>
+          <span>{' {'}</span>
           {docsDetails.map((el) => (
-            <pre key={el.name}>
-              <span>{el.name}: </span>
-              <span>{el.type}</span>
+            <pre style={{ paddingLeft: 6 }} key={el.name}>
+              <span className={styles.colorBlue}>{`  ${el.name}: `}</span>
+              <span className={styles.colorOrange}>{el.type}</span>
             </pre>
           ))}
           <span>{'}'}</span>
