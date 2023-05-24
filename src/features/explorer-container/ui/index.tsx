@@ -5,18 +5,27 @@ import {
   ExplorerDocsInfo,
   ExplorerFieldInfo,
 } from '@/entities/explorer';
+import { useEffect } from 'react';
 
 export const ExplorerContainer = (): JSX.Element => {
-  const { isOpen, handleToggleDocumentation, parsedSchema, docsContainers, fieldInfo } =
-    useExplorer();
+  const {
+    isOpen,
+    isLoaded,
+    handleToggleDocumentation,
+    parsedSchema,
+    docsContainers,
+    fieldInfo,
+    execSchema,
+  } = useExplorer();
+
+  useEffect(() => {
+    if (!isLoaded || !parsedSchema) {
+      execSchema();
+    }
+  });
 
   return (
     <ExplorerDrawer open={isOpen} toggleDrawer={handleToggleDocumentation}>
-      {/* {parsedSchema.length ? (
-        <ExplorerSchemaBlock schemaField={parsedSchema} />
-      ) : (
-        <p>No documentation</p>
-      )} */}
       {parsedSchema.length ? (
         <ExplorerDocsQueries parsedSchema={parsedSchema} />
       ) : (

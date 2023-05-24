@@ -37,11 +37,8 @@ export const useExplorer = () => {
     void fetchSchema();
   };
 
-  const handleToggleDocumentation = async () => {
+  const handleToggleDocumentation = () => {
     toggleExplorer();
-    await fetchSchema();
-
-    console.log('handleToggleDocumentation');
   };
 
   return {

@@ -6,21 +6,23 @@ export const TooltipButton = ({
   title,
   onClick,
   children,
+  isDisabled,
   ...rest
 }: IToolButtonProps): JSX.Element => {
-  // const theme = useTheme();
-
   return (
     <Tooltip title={title}>
-      <IconButton color="default" onClick={onClick} {...rest}>
-        {children}
-      </IconButton>
+      <span>
+        <IconButton disabled={false || isDisabled} color="default" onClick={onClick} {...rest}>
+          {children}
+        </IconButton>
+      </span>
     </Tooltip>
   );
 };
 
 interface IToolButtonProps {
   title: string;
+  isDisabled?: boolean;
   onClick?: () => void;
   children?: ReactNode;
 }
