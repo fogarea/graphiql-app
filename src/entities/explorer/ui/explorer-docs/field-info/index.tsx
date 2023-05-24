@@ -13,11 +13,9 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
   const { parsedSchema } = useExplorer();
   const [docsDetails, setDocsDetails] = useState<ITypeArguments[]>([]);
   const queryInfo = getQueryInfo(typeDetails);
-  console.log('queryInfo', queryInfo);
 
   useEffect(() => {
     const findQuery = parsedSchema.find((el) => el.name === queryInfo.name);
-    console.log('findQuery', findQuery);
     if (findQuery) {
       const details = getTypeDetails(findQuery);
       const isValidDetails = details?.every((el): el is ITypeArguments => {

@@ -18,8 +18,6 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
 
   const handleClickQuery = (queryInfo: IGetQueryValue) => {
     const findTypeDetails = parsedSchema.find((schema) => schema.name === queryInfo.name);
-    console.log('findTypeDetails', findTypeDetails);
-    console.log('props', typeArguments);
 
     if (findTypeDetails) {
       const docsTypeInfo: TypeDocsTypeInfo = {

@@ -9,7 +9,6 @@ export {
   showQueryValue,
   showQueryValueByInfo,
 } from './lib/utils';
-export { ExplorerSchemaBlock } from './ui/explorer-schema';
 export {
   ExplorerDocsQueries,
   ExplorerDocsQuery,
