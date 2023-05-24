@@ -1,9 +1,9 @@
 import { create, StateCreator } from 'zustand';
-import { expoloreSevice } from '../services';
+import { expolorerSevice } from '../services';
 import { devtools } from 'zustand/middleware';
 import { TypeDocsTypeInfo, TypeArrayParsedField, TypeParsedField } from './types';
 
-const explorerStore: TyoeExplorerStore = (set) => ({
+const explorerStore: TypeExplorerStore = (set) => ({
   isOpen: false,
   content: '',
   isLoaded: false,
@@ -33,9 +33,8 @@ const explorerStore: TyoeExplorerStore = (set) => ({
     set((state) => ({ docsContainers: [...state.docsContainers.slice(0, 1)] })),
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
   fetchSchema: async () => {
-    const schema = await expoloreSevice.loadDocumentation();
-    set({ parsedSchema: schema.nodes });
-    set({ isLoaded: true });
+    const schema = await expolorerSevice.loadDocumentation();
+    set({ parsedSchema: schema.nodes, isLoaded: true });
   },
 });
 
@@ -62,7 +61,7 @@ interface IExplorerState {
   fetchSchema: () => Promise<void>;
 }
 
-type TyoeExplorerStore = StateCreator<IExplorerState>;
+type TypeExplorerStore = StateCreator<IExplorerState>;
 
 interface ISelectedElements {
   selectedQuery: string;

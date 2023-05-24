@@ -9,7 +9,7 @@ import {
 
 import { graphiqlClient } from '@/shared/api';
 
-export const expoloreSevice = {
+export const expolorerSevice = {
   loadDocumentation: async () => {
     const iQueryString = getIntrospectionQuery();
     const results = await graphiqlClient.request(iQueryString);
