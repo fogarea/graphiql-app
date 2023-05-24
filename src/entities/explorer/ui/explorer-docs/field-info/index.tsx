@@ -38,9 +38,11 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
       <p className={styles.colorGray}>{typeDetails.description}</p>
       {!!docsDetails.length && (
         <div>
-          <span className={styles.colorBlue}>{'type '}</span>
-          <span className={styles.colorRed}>{queryInfo.name}</span>
-          <span>{' {'}</span>
+          <pre>
+            <span className={styles.colorBlue}>{'type '}</span>
+            <span className={styles.colorRed}>{queryInfo.name}</span>
+            <span>{' {'}</span>
+          </pre>
           {docsDetails.map((el) => (
             <pre style={{ paddingLeft: 6 }} key={el.name}>
               <span className={styles.colorBlue}>{`  ${el.name}: `}</span>
