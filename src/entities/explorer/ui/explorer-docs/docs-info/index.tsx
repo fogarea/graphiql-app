@@ -25,7 +25,7 @@ export const ExplorerDocsInfo = ({
       <Grid item>
         <h3 className={styles.colorGray}>ARGUMENTS</h3>
       </Grid>
-      {typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} />}
+      {typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} isExample={false} />}
     </div>
   );
 };

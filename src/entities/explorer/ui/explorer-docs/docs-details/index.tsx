@@ -22,8 +22,10 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
 
   const handleClickDetail = (name: string) => {
     const fieldInfo = findFieldInfo(name);
-    if (fieldInfo) setFieldInfo(fieldInfo);
-    setSelectedElements({ selectedTypeDetails: name });
+    if (fieldInfo) {
+      setFieldInfo(fieldInfo);
+      setSelectedElements({ selectedTypeDetails: name, selectedTypeArguments: '' });
+    }
   };
 
   useEffect(() => {

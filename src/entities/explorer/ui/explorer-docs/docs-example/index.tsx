@@ -16,7 +16,7 @@ export const ExplorerDocsExample = ({ typeArguments }: IExplorerDocsExampleProps
         <span>{'('}</span>
       </pre>
       <pre style={{ paddingLeft: 30 }}>
-        {typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} />}
+        {typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} isExample={true} />}
       </pre>
       <pre>
         <span>{'): '}</span>
