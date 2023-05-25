@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import {
   ExplorerDrawer,
   useExplorer,
@@ -5,7 +7,6 @@ import {
   ExplorerDocsInfo,
   ExplorerFieldInfo,
 } from '@/entities/explorer';
-import { useEffect } from 'react';
 
 export const ExplorerContainer = (): JSX.Element => {
   const {

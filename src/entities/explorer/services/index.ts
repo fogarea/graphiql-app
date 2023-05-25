@@ -1,4 +1,3 @@
-import { Parser } from 'graphql-js-tree';
 import {
   GraphQLSchema,
   getIntrospectionQuery,
@@ -6,6 +5,7 @@ import {
   IntrospectionQuery,
   printSchema,
 } from 'graphql';
+import { Parser } from 'graphql-js-tree';
 
 import { graphiqlClient } from '@/shared/api';
 

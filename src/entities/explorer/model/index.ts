@@ -1,6 +1,6 @@
 import { create, StateCreator } from 'zustand';
-import { expolorerSevice } from '../services';
 import { devtools } from 'zustand/middleware';
+import { expolorerSevice } from '../services';
 import { TypeDocsTypeInfo, TypeArrayParsedField, TypeParsedField } from './types';
 
 const explorerStore: TypeExplorerStore = (set) => ({
