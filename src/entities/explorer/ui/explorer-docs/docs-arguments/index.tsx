@@ -1,9 +1,8 @@
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Grid from '@mui/material/Grid';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-import { useExplorer } from '../../../hooks';
-import { getTypeArguments } from '../../../lib/';
+import { useExplorer, useExplorerProps, Options } from '../../../hooks';
 import { ITypeArguments, IDocsTypeArguments as IExplorerDocsArgumentsProps } from '../../../model';
 import styles from '../styles.module.scss';
 
@@ -22,13 +21,11 @@ export const ExplorerDocsArguments = ({
     }
   };
 
-  useEffect(() => {
-    const docs = getTypeArguments(typeArguments);
-    const isValidDocs = docs?.every((el): el is ITypeArguments => {
-      return el !== undefined && typeof el.name === 'string' && typeof el.type === 'string';
-    });
-    if (isValidDocs) setDocsArguments(docs);
-  }, [typeArguments]);
+  useExplorerProps({
+    parsedField: typeArguments,
+    setState: setDocsArguments,
+    option: Options.arguments,
+  });
 
   if (!isExample) {
     return (

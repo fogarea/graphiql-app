@@ -107,8 +107,12 @@ export const showQueryValueByInfo = (queryInfo: IGetQueryValue): string => {
   else return `${queryInfo.name}`;
 };
 
-export const checkArrayInterface = (array: TypeGetTypeArgumentsReturn): boolean | undefined => {
-  return array?.every((el): el is ITypeArguments => {
+export const checkArrayInterface = (
+  array: TypeGetTypeArgumentsReturn,
+  setState: React.Dispatch<React.SetStateAction<ITypeArguments[]>>
+): void => {
+  const isValid = array?.every((el): el is ITypeArguments => {
     return el !== undefined && typeof el.name === 'string' && typeof el.type === 'string';
   });
+  if (isValid) setState(array);
 };
