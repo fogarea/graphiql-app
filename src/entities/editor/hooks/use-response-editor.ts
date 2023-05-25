@@ -2,9 +2,11 @@ import { prettifiedJSONContent } from '../lib';
 import { useEditorStore } from '../model';
 
 export const useResponseEditor = () => {
-  const [isFetching, responseCode, _setResponseCode] = useEditorStore((state) => [
+  const [isFetching, responseCode, error, setError, _setResponseCode] = useEditorStore((state) => [
     state.isFetching,
     state.responseCode,
+    state.error,
+    state.setError,
     state.setResponseCode,
   ]);
 
@@ -12,5 +14,5 @@ export const useResponseEditor = () => {
     prettifiedJSONContent(code, (value: string) => _setResponseCode(value));
   };
 
-  return { isFetching, responseCode, setResponseCode };
+  return { isFetching, responseCode, error, setError, setResponseCode };
 };
