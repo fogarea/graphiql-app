@@ -1,10 +1,8 @@
 import Grid from '@mui/material/Grid';
 
-import {
-  ExplorerDocsArguments,
-  showQueryValue,
-  IDocsTypeArguments as IExplorerDocsExampleProps,
-} from '@/entities/explorer/';
+import { showQueryValue } from '../../../lib/';
+import { IDocsTypeArguments as IExplorerDocsExampleProps } from '../../../model';
+import { ExplorerDocsArguments } from '../docs-arguments';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsExample = ({ typeArguments }: IExplorerDocsExampleProps) => {

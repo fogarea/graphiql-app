@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import {
-  IDocsTypeDetails,
-  ITypeArguments,
-  getQueryInfo,
-  getTypeDetails,
-  useExplorer,
-} from '@/entities/explorer';
+import { useExplorer } from '../../../hooks';
+import { getQueryInfo, getTypeDetails } from '../../../lib';
+import { IDocsTypeDetails, ITypeArguments } from '../../../model';
 import styles from '../styles.module.scss';
 
 export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Element => {

@@ -1,6 +1,6 @@
 import { ParserField, Options } from 'graphql-js-tree';
 
-import { ITypeArguments, TypeGetTypeArgumentsReturn, IGetQueryValue } from '../model/types';
+import { ITypeArguments, TypeGetTypeArgumentsReturn, IGetQueryValue } from '../model/';
 
 export const getTypeDetails = (parsedField: ParserField): TypeGetTypeArgumentsReturn => {
   return parsedField.args.map((arg) => {

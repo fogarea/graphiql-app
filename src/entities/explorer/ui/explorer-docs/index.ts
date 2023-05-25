@@ -1,7 +1,7 @@
-export * from './docs-queries';
-export * from './docs-query';
-export * from './docs-info';
-export * from './docs-arguments';
-export * from './docs-details';
-export * from './docs-example';
-export * from './field-info';
+export { ExplorerDocsQueries } from './docs-queries';
+export { ExplorerDocsQuery } from './docs-query';
+export { ExplorerDocsInfo } from './docs-info';
+export { ExplorerDocsArguments } from './docs-arguments';
+export { ExplorerDocsDetails } from './docs-details';
+export { ExplorerDocsExample } from './docs-example';
+export { ExplorerFieldInfo } from './field-info';

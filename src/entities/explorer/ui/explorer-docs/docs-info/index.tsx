@@ -1,11 +1,9 @@
 import Grid from '@mui/material/Grid';
 
-import {
-  ExplorerDocsDetails,
-  ExplorerDocsArguments,
-  ExplorerDocsExample,
-  TypeDocsTypeInfo as IExplorerDocsInfoProps,
-} from '@/entities/explorer';
+import { TypeDocsTypeInfo as IExplorerDocsInfoProps } from '../../../model';
+import { ExplorerDocsArguments } from '../docs-arguments';
+import { ExplorerDocsDetails } from '../docs-details';
+import { ExplorerDocsExample } from '../docs-example';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsInfo = ({

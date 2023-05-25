@@ -1,10 +1,8 @@
 import { Divider } from '@mui/material';
 
-import {
-  ExplorerDocsQuery,
-  IArrayParsedShema as IExplorerDocsQueriesProps,
-} from '@/entities/explorer';
-import { DrawerHeader } from '../../explorer-drawer/drawer-header';
+import { IArrayParsedShema as IExplorerDocsQueriesProps } from '../../../model';
+import { DrawerHeader } from '../../explorer-drawer';
+import { ExplorerDocsQuery } from '../docs-query';
 
 export const ExplorerDocsQueries = ({ parsedSchema }: IExplorerDocsQueriesProps): JSX.Element => {
   const schemaQueries = parsedSchema.find((field) => field.name === docsQuery.Query);

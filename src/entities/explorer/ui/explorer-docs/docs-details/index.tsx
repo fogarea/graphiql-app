@@ -2,12 +2,9 @@ import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Grid from '@mui/material/Grid';
 import { useEffect, useState, useMemo } from 'react';
 
-import {
-  useExplorer,
-  getTypeDetails,
-  ITypeArguments,
-  IDocsTypeDetails as IExplorerDocsDetailsProps,
-} from '@/entities/explorer';
+import { useExplorer } from '../../../hooks';
+import { getTypeDetails } from '../../../lib/';
+import { ITypeArguments, IDocsTypeDetails as IExplorerDocsDetailsProps } from '../../../model';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps): JSX.Element => {

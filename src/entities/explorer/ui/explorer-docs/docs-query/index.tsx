@@ -1,13 +1,12 @@
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
+import { useExplorer } from '../../../hooks';
+import { getQueryInfo, showQueryValueByInfo } from '../../../lib';
 import {
   TypeDocsTypeInfo,
-  useExplorer,
-  getQueryInfo,
-  showQueryValueByInfo,
   IDocsTypeArguments as IExplorerDocsQueryProps,
   IGetQueryValue,
-} from '@/entities/explorer';
+} from '../../../model';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): JSX.Element => {
