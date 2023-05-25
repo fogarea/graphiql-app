@@ -78,7 +78,8 @@
     "email-already-in-use": "Sorry, that email is already registered. Please use a different email.",
     "user-not-found": "Sorry, we could not find a user with that email.",
     "wrong-password": "Oops! The password you entered is incorrect. Please try again.",
-    "something-went-wrong": "Oops! Something went wrong. Please try again."
+    "something-went-wrong": "Oops! Something went wrong. Please try again.",
+    "query-error": "Error from the api side:"
   },
   "validation": {
     "email-format": "Email should have correct format",
