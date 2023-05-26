@@ -3,23 +3,14 @@ import { Divider } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import { MouseEvent, useState } from 'react';
 
-import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
+import { LogoutButton } from '@/features/auth';
 import { useAuth, UserCard } from '@/entities/user';
 import { PopoverContent, PopoverIcon } from '@/shared/ui';
 
-export const AuthToolbar = (): JSX.Element => {
+export const AuthorizedToolbar = (): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const isOpen = Boolean(anchorEl);
-  const { isAuth, user } = useAuth();
-
-  if (!isAuth) {
-    return (
-      <>
-        <LoginButton />
-        <RegisterButton />
-      </>
-    );
-  }
+  const { user } = useAuth();
 
   const handleOpen = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
