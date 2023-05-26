@@ -8,21 +8,23 @@ export const useExplorerProps = ({ parsedField, option }: IUseExplorerProps) => 
 
   useEffect(() => {
     let getParsedArray: TypeGetTypeArgumentsReturn;
-    if (option === Options.arguments) {
-      getParsedArray = getTypeArguments(parsedField);
-    }
-    if (option === Options.details) {
-      getParsedArray = getTypeDetails(parsedField);
-    }
-    if (getParsedArray) {
-      checkArrayInterface(getParsedArray, setDocs);
-    }
+    if (parsedField) {
+      if (option === Options.arguments) {
+        getParsedArray = getTypeArguments(parsedField);
+      }
+      if (option === Options.details) {
+        getParsedArray = getTypeDetails(parsedField);
+      }
+      if (getParsedArray) {
+        checkArrayInterface(getParsedArray, setDocs);
+      }
+    } else setDocs([]);
   }, [parsedField, option]);
   return docs;
 };
 
 interface IUseExplorerProps {
-  parsedField: TypeParsedField;
+  parsedField: TypeParsedField | undefined;
   option: Options;
 }
 
