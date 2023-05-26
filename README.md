@@ -16,18 +16,18 @@ GraphiQL is a powerful in-browser GraphQL IDE (Integrated Development Environmen
 - **Request Variables**: You can parameterize your queries, making them more dynamic and reusable. Instead of hardcoding values directly into the query, you can define variables and pass their values at runtime.
 - **Request Headers**: You can specify custom headers to be included in each request, making it convenient for authentication and authorization purposes.
 
-## Technology stack
+## Stack
 
 GraphiQl is built using the following technologies and tools:
 
-<div align="center" style="display: flex; align-items: center; justify-content: center; gap: 5px">
+<div align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/react/react-original.svg" title="React" alt="React" width="60" height="60"/>&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="60" height="60"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/firebase/firebase-plain.svg" title="Firebase" alt="Firebase" width="60" height="60"/>&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/materialui/materialui-original.svg" title="Material UI" alt="Material UI" width="60" height="60"/>&nbsp;
-  <img src="https://repository-images.githubusercontent.com/180328715/fca49300-e7f1-11ea-9f51-cfd949b31560" title="Zustand" alt="Zustand" width="102" height="60"/>&nbsp; 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/firebase/firebase-plain.svg" title="Firebase" alt="Firebase" width="60" height="60"/>&nbsp;
+  <img src="https://github.com/fogarea/graphiql-app/assets/68968769/5c2347bd-5f89-4136-ba50-fd007db940fa" title="Zustand" alt="Zustand" width="60" height="60"/>&nbsp; 
   <img src="https://vitejs.dev/logo.svg" alt="Vite logo" width="60" height="60">&nbsp;
-  <img src="https://feature-sliced.design/img/brand/logo-primary.png" title="FSD" alt="FSD" width="90" height="32"/>&nbsp;
+  <img src="https://github.com/fogarea/graphiql-app/assets/68968769/165ba4b0-808c-42a4-b209-63ca6ce8651c" title="FSD" alt="FSD" width="100" height="60"/>&nbsp;
 </div>
 
 - **Architecture**: `FSD`
