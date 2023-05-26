@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import {
@@ -10,23 +9,10 @@ import {
 } from '@/entities/explorer';
 
 export const ExplorerContainer = (): JSX.Element => {
-  const {
-    isOpen,
-    isLoaded,
-    handleToggleDocumentation,
-    parsedSchema,
-    docsContainers,
-    fieldInfo,
-    execSchema,
-  } = useExplorer();
+  const { isOpen, handleToggleDocumentation, parsedSchema, docsContainers, fieldInfo } =
+    useExplorer();
 
   const { t } = useTranslation();
-
-  useEffect(() => {
-    if (!isLoaded || !parsedSchema) {
-      execSchema();
-    }
-  });
 
   return (
     <ExplorerDrawer open={isOpen} toggleDrawer={handleToggleDocumentation}>
