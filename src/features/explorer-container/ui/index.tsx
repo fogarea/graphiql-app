@@ -22,11 +22,11 @@ export const ExplorerContainer = (): JSX.Element => {
         <p>{t(`explorer.no-data`)}</p>
       )}
       {docsContainers &&
-        docsContainers.map((typeInfo) => (
+        docsContainers.map(({ typeDetails, typeArguments }) => (
           <ExplorerDocsInfo
-            key={typeInfo.typeDetails.id}
-            typeDetails={typeInfo.typeDetails}
-            typeArguments={typeInfo.typeArguments}
+            key={typeDetails.id}
+            typeDetails={typeDetails}
+            typeArguments={typeArguments}
           />
         ))}
       {fieldInfo && <ExplorerFieldInfo typeDetails={fieldInfo} />}
