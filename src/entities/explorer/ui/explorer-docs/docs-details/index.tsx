@@ -1,14 +1,14 @@
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Grid from '@mui/material/Grid';
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 
 import { useExplorer, useExplorerProps, Options } from '../../../hooks';
-import { ITypeArguments, IDocsTypeDetails as IExplorerDocsDetailsProps } from '../../../model';
+import { IDocsTypeDetails as IExplorerDocsDetailsProps } from '../../../model';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps): JSX.Element => {
   const { selectedElements, setSelectedElements, setFieldInfo } = useExplorer();
-  const [docsDetails, setDocsDetails] = useState<ITypeArguments[]>([]);
+  const docsDetails = useExplorerProps({ parsedField: typeDetails, option: Options.details });
 
   const findFieldInfo = useMemo(() => {
     return (name: string) => {
@@ -23,8 +23,6 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
       setSelectedElements({ selectedTypeDetails: name, selectedTypeArguments: '' });
     }
   };
-
-  useExplorerProps({ parsedField: typeDetails, setState: setDocsDetails, option: Options.details });
 
   return (
     <Grid item>

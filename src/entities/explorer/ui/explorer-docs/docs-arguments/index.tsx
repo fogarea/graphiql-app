@@ -1,9 +1,8 @@
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Grid from '@mui/material/Grid';
-import { useState } from 'react';
 
 import { useExplorer, useExplorerProps, Options } from '../../../hooks';
-import { ITypeArguments, IDocsTypeArguments as IExplorerDocsArgumentsProps } from '../../../model';
+import { IDocsTypeArguments as IExplorerDocsArgumentsProps } from '../../../model';
 import styles from '../styles.module.scss';
 
 export const ExplorerDocsArguments = ({
@@ -11,7 +10,7 @@ export const ExplorerDocsArguments = ({
   isExample,
 }: TypeExplorerDocsArgumentsProps): JSX.Element => {
   const { selectedElements, setSelectedElements, setFieldInfo } = useExplorer();
-  const [docsArguments, setDocsArguments] = useState<ITypeArguments[]>([]);
+  const docsArguments = useExplorerProps({ parsedField: typeArguments, option: Options.arguments });
 
   const handleClickArgument = (name: string) => {
     const argInfo = typeArguments.args.find((value) => value.name === name);
@@ -20,12 +19,6 @@ export const ExplorerDocsArguments = ({
       setSelectedElements({ selectedTypeArguments: name, selectedTypeDetails: '' });
     }
   };
-
-  useExplorerProps({
-    parsedField: typeArguments,
-    setState: setDocsArguments,
-    option: Options.arguments,
-  });
 
   if (!isExample) {
     return (
