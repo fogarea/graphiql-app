@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import {
   ExplorerDrawer,
@@ -19,6 +20,8 @@ export const ExplorerContainer = (): JSX.Element => {
     execSchema,
   } = useExplorer();
 
+  const { t } = useTranslation();
+
   useEffect(() => {
     if (!isLoaded || !parsedSchema) {
       execSchema();
@@ -30,7 +33,7 @@ export const ExplorerContainer = (): JSX.Element => {
       {parsedSchema.length ? (
         <ExplorerDocsQueries parsedSchema={parsedSchema} />
       ) : (
-        <p>No documentation</p>
+        <p>{t(`explorer.no-data`)}</p>
       )}
       {docsContainers &&
         docsContainers.map((typeInfo) => (

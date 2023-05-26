@@ -65,7 +65,8 @@
     "loading": "Loading..."
   },
   "explorer": {
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "no-data": "Getting the documentation..."
   },
   "not-found": {
     "title": "Sorry, page not found!",
