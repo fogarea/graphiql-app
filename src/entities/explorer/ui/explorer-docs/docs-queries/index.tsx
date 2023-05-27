@@ -10,7 +10,7 @@ export const ExplorerDocsQueries = ({ parsedSchema }: IExplorerDocsQueriesProps)
   const schemaQueries = parsedSchema.find((field) => field.name === docsQuery.Query);
 
   return (
-    <div style={{ width: 270, paddingTop: 6, display: 'flex', flexDirection: 'column' }}>
+    <div style={{ width: 275, paddingTop: 6, display: 'flex', flexDirection: 'column' }}>
       <DrawerHeader>
         <h2>{t('explorer.documentation')}</h2>
         <h2>QUERIES</h2>

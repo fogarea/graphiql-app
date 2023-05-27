@@ -1,3 +1,5 @@
+import Divider from '@mui/material/Divider';
+
 import { useExplorer, useExplorerProps, Options } from '../../../hooks';
 import { getQueryInfo } from '../../../lib';
 import { IDocsTypeDetails } from '../../../model';
@@ -10,28 +12,31 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
   const docsDetails = useExplorerProps({ parsedField: findQuery, option: Options.details });
 
   return (
-    <div style={{ width: 300 }}>
-      <pre className={styles.fontBold}>
-        <span className={styles.colorRed}>{typeDetails.name}: </span>
-        <span className={styles.colorOrange}>{queryInfo.name}</span>
-      </pre>
-      <p className={styles.colorGray}>{typeDetails.description}</p>
-      {!!docsDetails.length && (
-        <div>
-          <pre>
-            <span className={styles.colorBlue}>{'type '}</span>
-            <span className={styles.colorRed}>{queryInfo.name}</span>
-            <span>{' {'}</span>
-          </pre>
-          {docsDetails.map((el) => (
-            <pre style={{ paddingLeft: 6 }} key={el.name}>
-              <span className={styles.colorBlue}>{`  ${el.name}: `}</span>
-              <span className={styles.colorOrange}>{el.type}</span>
+    <>
+      <Divider />
+      <div style={{ paddingLeft: 16, width: 265 }}>
+        <pre className={styles.fontBold}>
+          <span className={styles.colorRed}>{typeDetails.name}: </span>
+          <span className={styles.colorOrange}>{queryInfo.name}</span>
+        </pre>
+        <p className={styles.colorGray}>{typeDetails.description}</p>
+        {!!docsDetails.length && (
+          <div>
+            <pre>
+              <span className={styles.colorBlue}>{'type '}</span>
+              <span className={styles.colorRed}>{queryInfo.name}</span>
+              <span>{' {'}</span>
             </pre>
-          ))}
-          <span>{'}'}</span>
-        </div>
-      )}
-    </div>
+            {docsDetails.map((el) => (
+              <pre style={{ paddingLeft: 6 }} key={el.name}>
+                <span className={styles.colorBlue}>{`  ${el.name}: `}</span>
+                <span className={styles.colorOrange}>{el.type}</span>
+              </pre>
+            ))}
+            <span>{'}'}</span>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
