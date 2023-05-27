@@ -6,13 +6,13 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 
 import { LoginButton, LogoutButton, RegisterButton } from '@/features/auth';
-import { useAuth } from '@/entities/user';
+import { useAuth, UserCard } from '@/entities/user';
 import { Logo } from '@/shared/ui';
 import { useBurgerMenu } from '../hooks';
 
 export const BurgerMenu = (): JSX.Element => {
   const { isMenuOpen, toggleMenu } = useBurgerMenu();
-  const { isAuth } = useAuth();
+  const { isAuth, user } = useAuth();
 
   return (
     <>
@@ -50,8 +50,11 @@ export const BurgerMenu = (): JSX.Element => {
           >
             <Logo withTitle isMobile />
             <Divider />
-            {isAuth ? (
-              <LogoutButton />
+            {isAuth && user.email ? (
+              <>
+                <UserCard email={user.email} />
+                <LogoutButton />
+              </>
             ) : (
               <>
                 <LoginButton />

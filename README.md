@@ -23,11 +23,22 @@ GraphiQl is built using the following technologies and tools:
 <div align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/react/react-original.svg" title="React" alt="React" width="60" height="60"/>&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="60" height="60"/>&nbsp;
-  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/firebase/firebase-plain.svg" title="Firebase" alt="Firebase" width="60" height="60"/>&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/materialui/materialui-original.svg" title="Material UI" alt="Material UI" width="60" height="60"/>&nbsp;
-  <img src="https://repository-images.githubusercontent.com/180328715/fca49300-e7f1-11ea-9f51-cfd949b31560" title="Zustand" alt="Zustand" width="102" height="60"/>&nbsp; 
+  <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/firebase/firebase-plain.svg" title="Firebase" alt="Firebase" width="60" height="60"/>&nbsp;
+  <img src="https://github.com/fogarea/graphiql-app/assets/68968769/5c2347bd-5f89-4136-ba50-fd007db940fa" title="Zustand" alt="Zustand" width="60" height="60"/>&nbsp; 
   <img src="https://vitejs.dev/logo.svg" alt="Vite logo" width="60" height="60">&nbsp;
+  <img src="https://github.com/fogarea/graphiql-app/assets/68968769/165ba4b0-808c-42a4-b209-63ca6ce8651c" title="FSD" alt="FSD" width="100" height="60"/>&nbsp;
 </div>
+
+- **Architecture**: `FSD`
+- **UI**: `react`, `mui`
+- **Lang**: `typescript`
+- **Store**: `zustand`
+- **Fetching**: `graphql`, `graphql-request`
+- **Routing**: `react-router`
+- **Tests**: `eslint`, `prettier`, `husky`
+- **Auth**: `firebase`
+- **Internalization**: `i18n`
 
 ## Running the app
 
