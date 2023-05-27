@@ -10,7 +10,7 @@ export const ExplorerToolbar = ({
 
   return (
     <TooltipButton
-      isDisabled={false || isDisabled}
+      isDisabled={isDisabled}
       title={t('button.documentation')}
       onClick={toggleDocumentation}
     >
