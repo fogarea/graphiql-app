@@ -17,5 +17,5 @@ export const useScrollTrigger = (target: HTMLDivElement, threshold = 100) => {
     return target.removeEventListener('scroll', () => handleChangeScroll());
   }, [threshold, target]);
 
-  return { trigger, target: target };
+  return { trigger, target };
 };
