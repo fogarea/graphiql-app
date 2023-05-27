@@ -9,8 +9,6 @@ export const useExplorer = () => {
 
   const handleToggleDocumentation = () => {
     toggleExplorer();
-
-    console.log('handleToggleDocumentation');
   };
 
   return { isOpen, content, handleToggleDocumentation };
