@@ -1,17 +1,20 @@
 import { KeyboardArrowUp } from '@mui/icons-material';
-import { Box, Fab, Zoom } from '@mui/material';
+import { Box, Fab, Zoom, useScrollTrigger } from '@mui/material';
 import { useCallback } from 'react';
-
-import { useScrollTrigger } from '@/shared/lib/hooks';
 
 export const ScrollToTopButton = ({
   title = 'Scroll back to top',
 }: IScrollToTopButtonProps): JSX.Element => {
-  const { trigger, target } = useScrollTrigger(document.getElementById('root') as HTMLDivElement);
+  const rootElement = document.getElementById('root') as HTMLDivElement;
+  const trigger = useScrollTrigger({
+    target: rootElement,
+    disableHysteresis: true,
+    threshold: 100,
+  });
 
   const scrollToTop = useCallback(() => {
-    target.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [target]);
+    rootElement.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [rootElement]);
 
   return (
     <Zoom in={trigger}>
