@@ -10,7 +10,7 @@ export const prettifiedJSONContent = (content: string, setValue: (value: string)
       setValue(prettifiedContent);
     }
   } catch {
-    /* Parsing JSON failed, skip prettification */
+    return;
   }
 };
 
@@ -25,15 +25,15 @@ export const prettifiedQueryContent = (
       setValue(prettifiedContent);
     }
   } catch {
-    /* Parsing Query failed, skip prettification */
+    return;
   }
 };
 
 export const parseJSONStringToObject = (value: string): Record<string, string> => {
   try {
-    const headers = JSON.parse(value) as Record<string, string>;
+    const resultObject = JSON.parse(value) as Record<string, string>;
 
-    return headers;
+    return resultObject;
   } catch {
     return {};
   }
@@ -43,14 +43,14 @@ export const parseErrorMessage = (results: string): string => {
   const DEFAULT_MESSAGE = 'Something went wrong while executing your query';
 
   try {
-    const resultsObj = JSON.parse(results) as TypeQueryErrorObject;
+    const resultObject = JSON.parse(results) as TypeQueryErrorObject;
 
-    if (typeof resultsObj.response === 'undefined' && typeof resultsObj === 'object') {
+    if (typeof resultObject.response === 'undefined' && typeof resultObject === 'object') {
       return '';
     }
 
-    if (resultsObj.response?.errors && resultsObj.response.errors[0]) {
-      const message = resultsObj.response.errors[0].message || DEFAULT_MESSAGE;
+    if (resultObject.response?.errors && resultObject.response.errors[0]) {
+      const message = resultObject.response.errors[0].message || DEFAULT_MESSAGE;
 
       return message;
     }
