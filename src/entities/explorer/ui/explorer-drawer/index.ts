@@ -1,2 +1,2 @@
 export * from './drawer-header';
-export { ExplorerDrawer } from './index.tsx';
+export { ExplorerDrawer } from './ui.tsx';
