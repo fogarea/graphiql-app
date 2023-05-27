@@ -1,0 +1,51 @@
+$color-red: rgb(242, 92, 84);
+$color-orange: rgb(245, 160, 0);
+$color-blue: rgb(31, 97, 160);
+$color-gray: rgba(0, 0, 0, 0.5);
+$hover-background: rgb(42, 126, 211);
+
+.colorRed {
+  color: $color-red;
+}
+
+.colorOrange {
+  color: $color-orange;
+}
+
+.colorBlue {
+  color: $color-blue;
+}
+
+.colorGray {
+  color: $color-gray;
+}
+
+.fontBold {
+  font-weight: 600;
+}
+
+.activeQuery {
+  background-color: $hover-background;
+  span, svg {
+    color: white;
+  }
+}
+
+.query {
+  transition: linear 0.1s;
+  position: relative;
+  margin-bottom: 6px;
+  padding: 2px 0;
+  padding-left: 6px;
+  display: flex;
+  flex-wrap: nowrap;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $hover-background;
+    color: white;
+    > span, svg {
+      color: white;
+    }
+  }
+}

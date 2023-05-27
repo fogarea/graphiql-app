@@ -1,15 +1,2 @@
-import { useExplorerStore } from '../model';
-
-export const useExplorer = () => {
-  const [isOpen, content, toggleExplorer] = useExplorerStore((state) => [
-    state.isOpen,
-    state.content,
-    state.toggleExplorer,
-  ]);
-
-  const handleToggleDocumentation = () => {
-    toggleExplorer();
-  };
-
-  return { isOpen, content, handleToggleDocumentation };
-};
+export { useExplorer } from './use-explorer';
+export { useExplorerProps, Options } from './use-props';

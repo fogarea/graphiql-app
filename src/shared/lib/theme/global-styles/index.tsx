@@ -48,6 +48,10 @@ export const GlobalStyles = () => {
           margin: 0,
           padding: 0,
         },
+        pre: {
+          margin: 0,
+          padding: '2px 0',
+        },
       }}
     />
   );
