@@ -1,7 +1,7 @@
 import { create, StateCreator } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-import { expolorerSevice } from '../services';
+import { expolorerService } from '../services';
 import { TypeDocsTypeInfo, TypeArrayParsedField, TypeParsedField } from './types';
 
 const explorerStore: TypeExplorerStore = (set) => ({
@@ -29,7 +29,7 @@ const explorerStore: TypeExplorerStore = (set) => ({
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
   fetchSchema: async () => {
-    const schema = await expolorerSevice.loadDocumentation();
+    const schema = await expolorerService.loadDocumentation();
     set({ parsedSchema: schema.nodes, isLoaded: true });
   },
 });

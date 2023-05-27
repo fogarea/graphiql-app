@@ -9,7 +9,7 @@ import { Parser } from 'graphql-js-tree';
 
 import { graphiqlClient } from '@/shared/api';
 
-export const expolorerSevice = {
+export const expolorerService = {
   loadDocumentation: async () => {
     const iQueryString = getIntrospectionQuery();
     const results = await graphiqlClient.request(iQueryString);
