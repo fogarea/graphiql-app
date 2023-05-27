@@ -1,5 +1,7 @@
 import Container from '@mui/material/Container/Container';
 import Drawer from '@mui/material/Drawer/Drawer';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { ReactNode } from 'react';
 
@@ -14,6 +16,9 @@ export const ExplorerDrawer = ({
   console.log(matches);
   return (
     <Drawer anchor="right" open={open} onClose={toggleDrawer} hideBackdrop={false}>
+      <IconButton sx={{ position: 'absolute' }} onClick={toggleDrawer}>
+        <CloseIcon />
+      </IconButton>
       <Container
         sx={{
           paddingTop: 2,
