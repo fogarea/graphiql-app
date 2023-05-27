@@ -4,7 +4,8 @@
     "prettify-query": "Prettify query",
     "copy-query": "Copy query",
     "clean-query": "Clean query",
-    "documentation": "Documentation"
+    "documentation": "Documentation",
+    "scroll-to-top": "Scroll back to top"
   },
   "page-title": {
     "welcome": "GraphiQL Editor - Online Code Editor & IDE for GraphQL Development",

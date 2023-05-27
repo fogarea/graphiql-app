@@ -4,12 +4,16 @@ import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { developerService } from '@/entities/developer';
+import { ScrollToTopButton } from '@/shared/ui';
 
 const developers = developerService.getAll();
 
 export const FooterLayout = memo((): JSX.Element => {
+  const { t } = useTranslation();
+
   const developerList = developers.map(({ id, githubLink }) => {
     return (
       <Link
@@ -31,43 +35,46 @@ export const FooterLayout = memo((): JSX.Element => {
   });
 
   return (
-    <Container
-      component="footer"
-      maxWidth="xl"
-      sx={{
-        py: 3,
-        px: 2,
-        mt: 'auto',
-      }}
-    >
-      <Grid container justifyContent="space-around" alignItems="center" spacing={2}>
-        <Grid item xs>
-          <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
+    <>
+      <Container
+        component="footer"
+        maxWidth="xl"
+        sx={{
+          py: 3,
+          px: 2,
+          mt: 'auto',
+        }}
+      >
+        <Grid container justifyContent="space-around" alignItems="center" spacing={2}>
+          <Grid item xs>
+            <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
+          </Grid>
+          <Grid item xs>
+            <Typography variant="body1" textAlign="center">
+              © 2023
+            </Typography>
+          </Grid>
+          <Grid item xs>
+            <Link
+              href="https://rs.school/react/"
+              target="_blank"
+              display="flex"
+              flexDirection="row-reverse"
+            >
+              <img
+                src={'./assets/svg/rs/logo_rs.svg'}
+                alt="RS School React Course"
+                style={{
+                  height: '24px',
+                  width: '64px',
+                  display: 'inline-block',
+                }}
+              />
+            </Link>
+          </Grid>
         </Grid>
-        <Grid item xs>
-          <Typography variant="body1" textAlign="center">
-            © 2023
-          </Typography>
-        </Grid>
-        <Grid item xs>
-          <Link
-            href="https://rs.school/react/"
-            target="_blank"
-            display="flex"
-            flexDirection="row-reverse"
-          >
-            <img
-              src={'./assets/svg/rs/logo_rs.svg'}
-              alt="RS School React Course"
-              style={{
-                height: '24px',
-                width: '64px',
-                display: 'inline-block',
-              }}
-            />
-          </Link>
-        </Grid>
-      </Grid>
-    </Container>
+      </Container>
+      <ScrollToTopButton title={t('button.scroll-to-top')} />
+    </>
   );
 });

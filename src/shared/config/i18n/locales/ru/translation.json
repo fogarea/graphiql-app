@@ -4,7 +4,8 @@
     "prettify-query": "Форматировать",
     "copy-query": "Копировать запрос",
     "clean-query": "Очистить",
-    "documentation": "Документация"
+    "documentation": "Документация",
+    "scroll-to-top": "Вернуться к началу страницы"
   },
   "page-title": {
     "welcome": "GraphiQL Редактор - Онлайн Редактор для GraphQL",
