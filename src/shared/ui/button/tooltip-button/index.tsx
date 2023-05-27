@@ -6,11 +6,12 @@ export const TooltipButton = ({
   title,
   onClick,
   children,
+  color = 'default',
   ...rest
 }: IToolButtonProps): JSX.Element => {
   return (
     <Tooltip title={title}>
-      <IconButton color="default" onClick={onClick} {...rest}>
+      <IconButton color={color} onClick={onClick} {...rest}>
         {children}
       </IconButton>
     </Tooltip>
@@ -21,4 +22,13 @@ interface IToolButtonProps {
   title: string;
   onClick?: () => void;
   children?: ReactNode;
+  color?:
+    | 'inherit'
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'info'
+    | 'success'
+    | 'warning';
 }
