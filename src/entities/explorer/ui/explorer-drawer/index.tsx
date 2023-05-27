@@ -13,6 +13,7 @@ export const ExplorerDrawer = ({
   const matches = useMediaQuery('(min-width:890px)');
   const flexDirection = matches ? 'row' : 'column';
   const gapSize = matches ? 0 : 1;
+  const fontSize = matches ? 16 : 14;
   console.log(matches);
   return (
     <Drawer anchor="right" open={open} onClose={toggleDrawer} hideBackdrop={false}>
@@ -26,6 +27,7 @@ export const ExplorerDrawer = ({
           display: 'flex',
           flexDirection: flexDirection,
           gap: gapSize,
+          fontSize: fontSize,
         }}
       >
         {children}
