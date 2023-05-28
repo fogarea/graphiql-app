@@ -47,7 +47,9 @@
     "placeholder": "Введите запрос GraphQL.",
     "q-editor": "Редактор",
     "label-variable": "Переменные",
-    "label-header": "Заголовки"
+    "label-header": "Заголовки",
+    "prettified-json-error": "Ошибка формата JSON",
+    "prettified-graphql-error": "Ошибка формата GraphQL"
   },
   "response": {
     "loading": "Загрузка..."

@@ -1,15 +1,22 @@
 import { parse, print } from 'graphql';
+import { t } from 'i18next';
 
+import { alert } from '@/shared/lib/browser';
 import { TypeQueryErrorObject } from '../model';
 
 export const prettifiedJSONContent = (content: string, setValue: (value: string) => void): void => {
   try {
+    if (content.trim() === '') {
+      return;
+    }
+
     const prettifiedContent = JSON.stringify(JSON.parse(content), null, 2);
 
     if (prettifiedContent !== content) {
       setValue(prettifiedContent);
     }
-  } catch {
+  } catch (error) {
+    alert.error(`${t('editor.prettified-json-error')}: ${(error as Error).message}`);
     return;
   }
 };
@@ -19,12 +26,18 @@ export const prettifiedQueryContent = (
   setValue: (value: string) => void
 ): void => {
   try {
+    if (content.trim() === '') {
+      return;
+    }
+
     const prettifiedContent = print(parse(content));
 
     if (prettifiedContent !== content) {
       setValue(prettifiedContent);
     }
-  } catch {
+  } catch (error) {
+    alert.error(`${t('editor.prettified-graphql-error')}: ${(error as Error).message}`);
+
     return;
   }
 };

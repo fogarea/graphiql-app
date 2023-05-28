@@ -60,7 +60,9 @@
     "placeholder": "Please enter GraphQL query.",
     "q-editor": "Editor",
     "label-variable": "Variable",
-    "label-header": "Header"
+    "label-header": "Header",
+    "prettified-json-error": "JSON format error",
+    "prettified-graphql-error": "GraphQL format error"
   },
   "response": {
     "loading": "Loading..."
