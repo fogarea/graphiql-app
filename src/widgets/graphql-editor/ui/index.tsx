@@ -57,7 +57,7 @@ export const GraphQLEditor = (): JSX.Element => {
       </Grid>
       {isOpen && (
         <ExplorerDrawer open={isOpen} toggleDrawer={() => toggleDrawer()}>
-          <Suspense fallback={<CircularProgress sx={{ margin: 5 }} />}>
+          <Suspense fallback={<CircularProgress sx={{ margin: '2rem auto' }} />}>
             <ExplorerContainer />
           </Suspense>
         </ExplorerDrawer>

@@ -12,10 +12,12 @@ const Wrapper = styled(Container)(({ theme }) => ({
   flexDirection: 'row',
   gap: 0,
   fontSize: 16,
+  minWidth: 323,
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
     gap: 1,
     fontSize: 14,
+    minWidth: 307,
   },
 }));
 
