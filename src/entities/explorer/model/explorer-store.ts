@@ -22,7 +22,8 @@ const explorerStore: TypeExplorerStore = (set) => ({
       },
     })),
   setParsedSchema: (parsedSchema: TypeArrayParsedField) => set({ parsedSchema: parsedSchema }),
-  resetParsedSchema: () => set({ parsedSchema: [] }),
+  resetParsedSchema: () =>
+    set({ parsedSchema: [], docsContainers: [], fieldInfo: null, isLoaded: false, error: null }),
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
 });
