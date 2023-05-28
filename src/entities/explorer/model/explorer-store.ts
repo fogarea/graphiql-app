@@ -4,7 +4,6 @@ import { devtools } from 'zustand/middleware';
 import { TypeDocsTypeInfo, TypeArrayParsedField, TypeParsedField } from './types';
 
 const explorerStore: TypeExplorerStore = (set) => ({
-  isOpen: false,
   isLoaded: false,
   error: null,
   parsedSchema: [],
@@ -22,7 +21,6 @@ const explorerStore: TypeExplorerStore = (set) => ({
         ...updatedElements,
       },
     })),
-  toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
   setParsedSchema: (parsedSchema: TypeArrayParsedField) => set({ parsedSchema: parsedSchema }),
   resetParsedSchema: () => set({ parsedSchema: [] }),
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
@@ -34,7 +32,6 @@ export const useExplorerStore = create<IExplorerState>()(
 );
 
 interface IExplorerState {
-  isOpen: boolean;
   isLoaded: boolean;
   error: string | null;
   parsedSchema: TypeArrayParsedField | [];
@@ -43,7 +40,6 @@ interface IExplorerState {
   selectedElements: ISelectedElements;
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   setFieldInfo: (fieldInfo: TypeParsedField | null) => void;
-  toggleExplorer: () => void;
   setSelectedElements: (selectedElements: Partial<ISelectedElements>) => void;
   setParsedSchema: (parsedSchema: TypeArrayParsedField) => void;
   resetParsedSchema: () => void;

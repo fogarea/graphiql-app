@@ -2,9 +2,7 @@ import { useExplorerStore } from '../model/';
 
 export const useExplorer = () => {
   const [
-    isOpen,
     isLoaded,
-    toggleExplorer,
     parsedSchema,
     docsContainers,
     setDocsContainer,
@@ -14,9 +12,7 @@ export const useExplorer = () => {
     setFieldInfo,
     setParsedSchema,
   ] = useExplorerStore((state) => [
-    state.isOpen,
     state.isLoaded,
-    state.toggleExplorer,
     state.parsedSchema,
     state.docsContainers,
     state.setDocsContainer,
@@ -27,13 +23,7 @@ export const useExplorer = () => {
     state.setParsedSchema,
   ]);
 
-  const handleToggleDocumentation = () => {
-    toggleExplorer();
-  };
-
   return {
-    isOpen,
-    handleToggleDocumentation,
     parsedSchema,
     isLoaded,
     docsContainers,
