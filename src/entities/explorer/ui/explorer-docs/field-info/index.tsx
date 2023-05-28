@@ -1,13 +1,15 @@
 import Divider from '@mui/material/Divider';
 
 import { useExplorer, useExplorerProps, Options } from '../../../hooks';
-import { getQueryInfo } from '../../../lib';
+import { getQueryInfo, showQueryValueByInfo } from '../../../lib';
 import { IDocsTypeDetails } from '../../../model';
 import styles from '../styles.module.scss';
 
 export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Element => {
   const { parsedSchema } = useExplorer();
+
   const queryInfo = getQueryInfo(typeDetails);
+  const queryInfoName = showQueryValueByInfo(queryInfo);
   const findQuery = parsedSchema.find((el) => el.name === queryInfo.name);
   const docsDetails = useExplorerProps({ parsedField: findQuery, option: Options.details });
 
@@ -17,7 +19,7 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
       <div style={{ paddingLeft: 16, width: 265, marginTop: 20 }}>
         <pre className={styles.fontBold}>
           <span className={styles.colorRed}>{typeDetails.name}: </span>
-          <span className={styles.colorOrange}>{queryInfo.name}</span>
+          <span className={styles.colorOrange}>{queryInfoName}</span>
         </pre>
         <p className={styles.colorGray}>{typeDetails.description}</p>
         {!!docsDetails.length && (

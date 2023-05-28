@@ -94,6 +94,18 @@ export const getQueryInfo = (parsedField: ParserField): IGetQueryValue => {
     result.name = fieldType.nest.nest.name;
 
     (result.nest.isArray = true), (result.nest.isRequired = true);
+  } else if (fieldType.type === Options.required && 'name' in fieldType.nest) {
+    result.name = fieldType.nest.name;
+    result.nest.isRequired = true;
+  } else if (
+    fieldType.type === Options.required &&
+    fieldType.nest.type === Options.array &&
+    'nest' in fieldType.nest.nest &&
+    'name' in fieldType.nest.nest.nest
+  ) {
+    result.name = fieldType.nest.nest.nest.name;
+    result.nest.isRequired = true;
+    result.nest.isArray = true;
   }
 
   return result;
@@ -107,8 +119,9 @@ export const showQueryValue = (parsedField: ParserField): string => {
 };
 
 export const showQueryValueByInfo = (queryInfo: IGetQueryValue): string => {
-  if (queryInfo.nest.isArray) return `[${queryInfo.name}]`;
-  else if (queryInfo.nest.isRequired) return `${queryInfo.name}]`;
+  if (queryInfo.nest.isArray && queryInfo.nest.isRequired) return `[${queryInfo.name}]!`;
+  else if (queryInfo.nest.isRequired) return `${queryInfo.name}!`;
+  else if (queryInfo.nest.isArray) return `[${queryInfo.name}]`;
   else return `${queryInfo.name}`;
 };
 
