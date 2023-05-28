@@ -1,4 +1,5 @@
 import Card from '@mui/material/Card';
+import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Suspense, lazy } from 'react';
@@ -56,7 +57,7 @@ export const GraphQLEditor = (): JSX.Element => {
       </Grid>
       {isOpen && (
         <ExplorerDrawer open={isOpen} toggleDrawer={() => toggleDrawer()}>
-          <Suspense fallback={<p>Loading</p>}>
+          <Suspense fallback={<CircularProgress sx={{ margin: 5 }} />}>
             <ExplorerContainer />
           </Suspense>
         </ExplorerDrawer>
