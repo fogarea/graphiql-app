@@ -21,11 +21,7 @@ const Wrapper = styled(Container)(({ theme }) => ({
   },
 }));
 
-export const ExplorerDrawer = ({
-  open,
-  children,
-  toggleDrawer,
-}: IExplorerDrawerProps): JSX.Element => {
+export const DrawerBox = ({ open, children, toggleDrawer }: IDrawerBoxProps): JSX.Element => {
   return (
     <Drawer anchor="right" open={open} onClose={toggleDrawer} hideBackdrop={false}>
       <IconButton sx={{ position: 'absolute', left: 5 }} onClick={toggleDrawer}>
@@ -36,7 +32,7 @@ export const ExplorerDrawer = ({
   );
 };
 
-interface IExplorerDrawerProps {
+interface IDrawerBoxProps {
   open: boolean;
   children?: ReactNode;
   toggleDrawer: () => void;
