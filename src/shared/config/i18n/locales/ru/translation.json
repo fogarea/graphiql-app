@@ -14,6 +14,12 @@
     "editor": "GraphiQL Редактор",
     "not-found": "Страница на найдена"
   },
+  "header": {
+    "to-welcome-page": "На страницу  приветствия"
+  },
+  "footer": {
+    "created-at": "Создано в"
+  },
   "welcome": {
     "sign-in": "Вход",
     "sign-up": "Регистрация",

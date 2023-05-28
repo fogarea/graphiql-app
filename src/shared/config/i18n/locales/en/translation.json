@@ -14,6 +14,12 @@
     "editor": "GraphiQL Editor",
     "not-found": "Page Not Found"
   },
+  "header": {
+    "to-welcome-page": "Go to the Welcome page"
+  },
+  "footer": {
+    "created-at": "Created at"
+  },
   "welcome": {
     "sign-in": "Sign In",
     "sign-up": "Sign Up",
