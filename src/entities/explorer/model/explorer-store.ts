@@ -1,12 +1,9 @@
 import { create, StateCreator } from 'zustand';
 import { devtools } from 'zustand/middleware';
 
-import { expolorerService } from '../services';
 import { TypeDocsTypeInfo, TypeArrayParsedField, TypeParsedField } from './types';
 
 const explorerStore: TypeExplorerStore = (set) => ({
-  isOpen: false,
-  content: '',
   isLoaded: false,
   error: null,
   parsedSchema: [],
@@ -24,14 +21,10 @@ const explorerStore: TypeExplorerStore = (set) => ({
         ...updatedElements,
       },
     })),
-  toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
-  setParsedSchema: (value: TypeArrayParsedField) => set({ parsedSchema: value }),
+  setParsedSchema: (parsedSchema: TypeArrayParsedField) => set({ parsedSchema: parsedSchema }),
+  resetParsedSchema: () => set({ parsedSchema: [] }),
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
-  fetchSchema: async () => {
-    const schema = await expolorerService.loadDocumentation();
-    set({ parsedSchema: schema.nodes, isLoaded: true });
-  },
 });
 
 export const useExplorerStore = create<IExplorerState>()(
@@ -39,8 +32,6 @@ export const useExplorerStore = create<IExplorerState>()(
 );
 
 interface IExplorerState {
-  isOpen: boolean;
-  content: string;
   isLoaded: boolean;
   error: string | null;
   parsedSchema: TypeArrayParsedField | [];
@@ -49,10 +40,9 @@ interface IExplorerState {
   selectedElements: ISelectedElements;
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => void;
   setFieldInfo: (fieldInfo: TypeParsedField | null) => void;
-  toggleExplorer: () => void;
   setSelectedElements: (selectedElements: Partial<ISelectedElements>) => void;
-  setParsedSchema: (value: TypeArrayParsedField) => void;
-  fetchSchema: () => Promise<void>;
+  setParsedSchema: (parsedSchema: TypeArrayParsedField) => void;
+  resetParsedSchema: () => void;
 }
 
 type TypeExplorerStore = StateCreator<IExplorerState>;

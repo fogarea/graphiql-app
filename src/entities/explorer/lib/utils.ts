@@ -77,9 +77,12 @@ export const getQueryInfo = (parsedField: ParserField): IGetQueryValue => {
       isArray: false,
     },
   };
+
   const fieldType = parsedField.type.fieldType;
+
   if ('nest' in fieldType && 'name' in fieldType.nest && fieldType.type === Options.array) {
     result.name = fieldType.nest.name;
+
     result.nest.isArray = true;
   } else if (fieldType.type === Options.name) {
     result.name = fieldType.name;
@@ -89,8 +92,10 @@ export const getQueryInfo = (parsedField: ParserField): IGetQueryValue => {
     'name' in fieldType.nest.nest
   ) {
     result.name = fieldType.nest.nest.name;
+
     (result.nest.isArray = true), (result.nest.isRequired = true);
   }
+
   return result;
 };
 

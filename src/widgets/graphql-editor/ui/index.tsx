@@ -1,15 +1,23 @@
 import Card from '@mui/material/Card';
+import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { EditorContainer, ResponseContainer, ToolbarContainer } from '@/features/editor';
-import { ExplorerContainer } from '@/features/explorer-container';
+import { useDrawer } from '@/entities/drawer';
+import { ExplorerDrawer } from '@/entities/explorer';
 import { a11yColumnHeight, a11yHeaderTextAlign } from '@/shared/lib/theme';
 import { ColumnXsNoneMd40, StackRowVertical, Section } from '@/shared/ui';
 
 export const GraphQLEditor = (): JSX.Element => {
   const { t } = useTranslation();
+  const { isOpen, toggleDrawer } = useDrawer();
+
+  const ExplorerContainer = lazy(async () => ({
+    default: (await import('@/features/explorer-container')).ExplorerContainer,
+  }));
 
   return (
     <Section>
@@ -47,7 +55,13 @@ export const GraphQLEditor = (): JSX.Element => {
           </Grid>
         </Grid>
       </Grid>
-      <ExplorerContainer />
+      {isOpen && (
+        <ExplorerDrawer open={isOpen} toggleDrawer={() => toggleDrawer()}>
+          <Suspense fallback={<CircularProgress sx={{ margin: '2rem auto' }} />}>
+            <ExplorerContainer />
+          </Suspense>
+        </ExplorerDrawer>
+      )}
     </Section>
   );
 };
