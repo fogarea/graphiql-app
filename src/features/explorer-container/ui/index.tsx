@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
 import {
-  ExplorerDrawer,
   useExplorer,
   ExplorerDocsQueries,
   ExplorerDocsInfo,
@@ -9,13 +8,12 @@ import {
 } from '@/entities/explorer';
 
 export const ExplorerContainer = (): JSX.Element => {
-  const { isOpen, handleToggleDocumentation, parsedSchema, docsContainers, fieldInfo } =
-    useExplorer();
+  const { parsedSchema, docsContainers, fieldInfo } = useExplorer();
 
   const { t } = useTranslation();
 
   return (
-    <ExplorerDrawer open={isOpen} toggleDrawer={handleToggleDocumentation}>
+    <>
       {parsedSchema.length ? (
         <ExplorerDocsQueries parsedSchema={parsedSchema} />
       ) : (
@@ -30,6 +28,6 @@ export const ExplorerContainer = (): JSX.Element => {
           />
         ))}
       {fieldInfo && <ExplorerFieldInfo typeDetails={fieldInfo} />}
-    </ExplorerDrawer>
+    </>
   );
 };

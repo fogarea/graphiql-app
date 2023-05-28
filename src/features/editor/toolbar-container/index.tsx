@@ -3,7 +3,7 @@ import { ExplorerToolbar, useExplorer } from '@/entities/explorer';
 
 export const ToolbarContainer = ({ variant }: IToolbarContainerProps): JSX.Element => {
   const { isFetching, execQuery, prettifyQuery, copyQuery, cleanQuery } = useQueryEditor();
-  const { handleToggleDocumentation, isLoaded } = useExplorer();
+  const { handleToggleDocumentation } = useExplorer();
 
   return (
     <>
@@ -17,7 +17,7 @@ export const ToolbarContainer = ({ variant }: IToolbarContainerProps): JSX.Eleme
         />
       )}
       {(variant === 'explorer' || variant === 'all') && (
-        <ExplorerToolbar isDisabled={!isLoaded} toggleDocumentation={handleToggleDocumentation} />
+        <ExplorerToolbar toggleDocumentation={handleToggleDocumentation} />
       )}
     </>
   );
