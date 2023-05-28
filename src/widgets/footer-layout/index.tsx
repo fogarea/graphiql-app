@@ -52,12 +52,10 @@ export const FooterLayout = memo((): JSX.Element => {
             <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
           </Grid>
           <Grid item xs>
-            <Typography variant="body1" textAlign="center">
-              <Typography variant="body1" display={{ xs: 'none', sm: 'inline-block' }}>
-                {t('footer.created-at')}
-              </Typography>
+            <Box textAlign="center">
+              <Box display={{ xs: 'none', sm: 'inline-block' }}>{t('footer.created-at')}</Box>
               &nbsp;2023
-            </Typography>
+            </Box>
           </Grid>
           <Grid item xs>
             <Link
