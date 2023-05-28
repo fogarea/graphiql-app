@@ -1,6 +1,7 @@
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 
+import Typography from '@mui/material/Typography';
 import { TypeDocsTypeInfo as IExplorerDocsInfoProps } from '../../../model';
 import { ExplorerDocsArguments } from '../docs-arguments';
 import { ExplorerDocsDetails } from '../docs-details';
@@ -14,17 +15,21 @@ export const ExplorerDocsInfo = ({
   return (
     <>
       <Divider />
-      <div style={{ paddingLeft: 16, width: 265 }}>
+      <div style={{ paddingLeft: 16, width: 265, marginTop: 20 }}>
         <ExplorerDocsExample typeArguments={typeArguments} />
         <Grid item>
           <p className={styles.colorGray}>{typeArguments?.description}</p>
         </Grid>
         <Grid item>
-          <h3 className={styles.colorGray}>TYPE DETAILS</h3>
+          <Typography variant="h4" component="h3" sx={{ color: 'text.secondary', marginTop: 5 }}>
+            Type Details
+          </Typography>
         </Grid>
         <ExplorerDocsDetails typeDetails={typeDetails} />
         <Grid item>
-          <h3 className={styles.colorGray}>ARGUMENTS</h3>
+          <Typography variant="h4" component="h3" sx={{ color: 'text.secondary', marginTop: 5 }}>
+            Arguments
+          </Typography>
         </Grid>
         {typeArguments && <ExplorerDocsArguments typeArguments={typeArguments} isExample={false} />}
       </div>

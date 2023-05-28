@@ -6,7 +6,6 @@ export * from './types';
 import { graphiqlClient } from '@/shared/api';
 import { prettifiedJSONContent, parseJSONStringToObject, parseErrorMessage } from '../lib';
 
-// Define the initial state
 const initialState = {
   queryCode: '',
   headerCode: '',

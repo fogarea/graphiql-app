@@ -20,7 +20,7 @@ export const responsiveFontSizes = ({ sm, md, lg }: { sm: number; md: number; lg
   };
 };
 
-const FONT_PRIMARY = 'Poppins, sans-serif'; // Google Font
+const FONT_PRIMARY = 'Poppins, sans-serif';
 
 export const typography = {
   fontFamily: FONT_PRIMARY,
