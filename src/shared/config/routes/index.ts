@@ -4,4 +4,5 @@ export const enum TypeAppRoute {
   Editor = '/editor',
   Login = '/login',
   Register = '/register',
+  NotFound = '/*',
 }

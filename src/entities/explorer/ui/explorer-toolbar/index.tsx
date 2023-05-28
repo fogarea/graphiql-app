@@ -13,7 +13,7 @@ export const ExplorerToolbar = ({
       isDisabled={isDisabled}
       title={t('button.documentation')}
       onClick={toggleDocumentation}
-      color="secondary"
+      color="primary"
     >
       <BookIcon />
     </TooltipButton>

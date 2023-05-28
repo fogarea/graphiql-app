@@ -39,7 +39,7 @@ export const AppRouting = (): JSX.Element => (
           </PrivateRoute>
         }
       />
-      <Route path="/*" element={<NotFoundPage />} />
+      <Route path={TypeAppRoute.NotFound} element={<NotFoundPage />} />
     </Route>
   </Routes>
 );

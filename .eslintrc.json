@@ -28,7 +28,6 @@
       "./tsconfig.json"
     ]
   },
-  // Configuring third-party plugins
   "plugins": [
     "react",
     "prettier",
@@ -36,7 +35,6 @@
     "@typescript-eslint",
     "react-refresh"
   ],
-  // Resolve imports
   "settings": {
     "import/resolver": {
       "typescript": {

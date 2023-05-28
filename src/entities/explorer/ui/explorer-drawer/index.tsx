@@ -26,7 +26,7 @@ export const ExplorerDrawer = ({
 }: IExplorerDrawerProps): JSX.Element => {
   return (
     <Drawer anchor="right" open={open} onClose={toggleDrawer} hideBackdrop={false}>
-      <IconButton sx={{ position: 'absolute' }} onClick={toggleDrawer}>
+      <IconButton sx={{ position: 'absolute', left: 5 }} onClick={toggleDrawer}>
         <CloseIcon />
       </IconButton>
       <Wrapper>{children}</Wrapper>

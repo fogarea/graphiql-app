@@ -14,14 +14,14 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
   return (
     <>
       <Divider />
-      <div style={{ paddingLeft: 16, width: 265 }}>
+      <div style={{ paddingLeft: 16, width: 265, marginTop: 20 }}>
         <pre className={styles.fontBold}>
           <span className={styles.colorRed}>{typeDetails.name}: </span>
           <span className={styles.colorOrange}>{queryInfo.name}</span>
         </pre>
         <p className={styles.colorGray}>{typeDetails.description}</p>
         {!!docsDetails.length && (
-          <div>
+          <div style={{ marginBottom: 10 }}>
             <pre>
               <span className={styles.colorBlue}>{'type '}</span>
               <span className={styles.colorRed}>{queryInfo.name}</span>
