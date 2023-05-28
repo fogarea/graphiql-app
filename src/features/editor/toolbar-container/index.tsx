@@ -1,9 +1,10 @@
+import { useDrawer } from '@/entities/drawer';
 import { EditorToolbar, useQueryEditor } from '@/entities/editor';
-import { ExplorerToolbar, useExplorer } from '@/entities/explorer';
+import { ExplorerToolbar } from '@/entities/explorer';
 
 export const ToolbarContainer = ({ variant }: IToolbarContainerProps): JSX.Element => {
   const { isFetching, execQuery, prettifyQuery, copyQuery, cleanQuery } = useQueryEditor();
-  const { handleToggleDocumentation } = useExplorer();
+  const { toggleDrawer } = useDrawer();
 
   return (
     <>
@@ -17,7 +18,7 @@ export const ToolbarContainer = ({ variant }: IToolbarContainerProps): JSX.Eleme
         />
       )}
       {(variant === 'explorer' || variant === 'all') && (
-        <ExplorerToolbar toggleDocumentation={handleToggleDocumentation} />
+        <ExplorerToolbar toggleDocumentation={() => toggleDrawer()} />
       )}
     </>
   );
