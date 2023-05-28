@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -52,12 +51,10 @@ export const FooterLayout = memo((): JSX.Element => {
             <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
           </Grid>
           <Grid item xs>
-            <Typography variant="body1" textAlign="center">
-              <Typography variant="body1" display={{ xs: 'none', sm: 'inline-block' }}>
-                {t('footer.created-at')}
-              </Typography>
+            <Box textAlign="center">
+              <Box display={{ xs: 'none', sm: 'inline-block' }}>{t('footer.created-at')}</Box>
               &nbsp;2023
-            </Typography>
+            </Box>
           </Grid>
           <Grid item xs>
             <Link
