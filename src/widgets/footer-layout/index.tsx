@@ -2,7 +2,6 @@ import { Box } from '@mui/material';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
-import Typography from '@mui/material/Typography';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
