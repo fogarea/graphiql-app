@@ -6,8 +6,7 @@ import { Suspense, lazy } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { EditorContainer, ResponseContainer, ToolbarContainer } from '@/features/editor';
-import { useDrawer } from '@/entities/drawer';
-import { ExplorerDrawer } from '@/entities/explorer';
+import { DrawerBox, useDrawer } from '@/entities/drawer';
 import { a11yColumnHeight, a11yHeaderTextAlign } from '@/shared/lib/theme';
 import { ColumnXsNoneMd40, StackRowVertical, Section } from '@/shared/ui';
 
@@ -56,11 +55,11 @@ export const GraphQLEditor = (): JSX.Element => {
         </Grid>
       </Grid>
       {isOpen && (
-        <ExplorerDrawer open={isOpen} toggleDrawer={() => toggleDrawer()}>
+        <DrawerBox open={isOpen} toggleDrawer={() => toggleDrawer()}>
           <Suspense fallback={<CircularProgress sx={{ margin: '2rem auto' }} />}>
             <ExplorerContainer />
           </Suspense>
-        </ExplorerDrawer>
+        </DrawerBox>
       )}
     </Section>
   );
