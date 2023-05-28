@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import { developerService } from '@/entities/developer';
 import { ScrollToTopButton } from '@/shared/ui';
+import styles from './styles.module.scss';
 
 const developers = developerService.getAll();
 
@@ -24,6 +25,7 @@ export const FooterLayout = memo((): JSX.Element => {
         display="flex"
         alignItems="center"
         gap={0.3}
+        className={styles.link}
       >
         <img
           src={'./assets/svg/github/github.svg'}
@@ -51,7 +53,10 @@ export const FooterLayout = memo((): JSX.Element => {
           </Grid>
           <Grid item xs>
             <Typography variant="body1" textAlign="center">
-              © 2023
+              <Typography variant="body1" display={{ xs: 'none', sm: 'inline-block' }}>
+                {t('footer.created-at')}
+              </Typography>
+              &nbsp;2023
             </Typography>
           </Grid>
           <Grid item xs>
@@ -60,6 +65,7 @@ export const FooterLayout = memo((): JSX.Element => {
               target="_blank"
               display="flex"
               flexDirection="row-reverse"
+              className={styles.link}
             >
               <img
                 src={'./assets/svg/rs/logo_rs.svg'}
