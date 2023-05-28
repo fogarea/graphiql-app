@@ -24,6 +24,7 @@ const explorerStore: TypeExplorerStore = (set) => ({
     })),
   toggleExplorer: () => set((state) => ({ isOpen: !state.isOpen })),
   setParsedSchema: (parsedSchema: TypeArrayParsedField) => set({ parsedSchema: parsedSchema }),
+  resetParsedSchema: () => set({ parsedSchema: [] }),
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
 });
@@ -45,6 +46,7 @@ interface IExplorerState {
   toggleExplorer: () => void;
   setSelectedElements: (selectedElements: Partial<ISelectedElements>) => void;
   setParsedSchema: (parsedSchema: TypeArrayParsedField) => void;
+  resetParsedSchema: () => void;
 }
 
 type TypeExplorerStore = StateCreator<IExplorerState>;
