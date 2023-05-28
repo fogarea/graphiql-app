@@ -3,6 +3,19 @@ import { devtools } from 'zustand/middleware';
 
 import { TypeDocsTypeInfo, TypeArrayParsedField, TypeParsedField } from './types';
 
+const initialState = {
+  isLoaded: false,
+  error: null,
+  parsedSchema: [],
+  docsContainers: [],
+  fieldInfo: null,
+  selectedElements: {
+    selectedQuery: '',
+    selectedTypeArguments: '',
+    selectedTypeDetails: '',
+  },
+};
+
 const explorerStore: TypeExplorerStore = (set) => ({
   isLoaded: false,
   error: null,
@@ -23,7 +36,7 @@ const explorerStore: TypeExplorerStore = (set) => ({
     })),
   setParsedSchema: (parsedSchema: TypeArrayParsedField) => set({ parsedSchema: parsedSchema }),
   resetParsedSchema: () =>
-    set({ parsedSchema: [], docsContainers: [], fieldInfo: null, isLoaded: false, error: null }),
+    set({ ...initialState, selectedElements: { ...initialState.selectedElements } }),
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
 });
