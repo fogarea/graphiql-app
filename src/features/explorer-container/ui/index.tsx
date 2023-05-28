@@ -1,22 +1,29 @@
+import { getIntrospectionQuery } from 'graphql';
+import { useEffect } from 'react';
+
 import {
   useExplorer,
   ExplorerDocsQueries,
   ExplorerDocsInfo,
   ExplorerFieldInfo,
   parseResultsSchema,
-  fetchData,
 } from '@/entities/explorer';
-
-const resource = fetchData();
+import { graphiqlClient } from '@/shared/api';
 
 export const ExplorerContainer = (): JSX.Element => {
   const { parsedSchema, docsContainers, fieldInfo, setParsedSchema } = useExplorer();
 
-  const schema = resource.read();
-  const getParsedSchema = parseResultsSchema(schema as string);
-  if (parsedSchema.length === 0) {
-    setParsedSchema(getParsedSchema.nodes);
-  }
+  useEffect(() => {
+    if (parsedSchema.length === 0) {
+      const iQueryString = getIntrospectionQuery();
+
+      graphiqlClient
+        .request(iQueryString)
+        .then((data) => parseResultsSchema(data))
+        .then((schema) => setParsedSchema(schema.nodes))
+        .catch(() => Promise.reject());
+    }
+  }, [parsedSchema.length, setParsedSchema]);
 
   return (
     <>
