@@ -25,7 +25,7 @@ GraphiQL is built using the following technologies and tools:
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/typescript/typescript-original.svg" title="TypeScript" alt="TypeScript" width="60" height="60"/>&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/materialui/materialui-original.svg" title="Material UI" alt="Material UI" width="60" height="60"/>&nbsp;
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/firebase/firebase-plain.svg" title="Firebase" alt="Firebase" width="60" height="60"/>&nbsp;
-  <img src="https://github.com/fogarea/graphiql-app/assets/68968769/47ac2e5e-1f51-4b68-aeb0-12886c800b3e" title="Zustand" alt="Zustand" width="60" height="60"/>&nbsp; 
+  <img src="https://github.com/fogarea/graphiql-app/assets/68968769/47ac2e5e-1f51-4b68-aeb0-12886c800b3e" title="Zustand" alt="Zustand" width="80" height="60"/>&nbsp; 
   <img src="https://vitejs.dev/logo.svg" alt="Vite logo" width="60" height="60">&nbsp;
   <img src="https://github.com/fogarea/graphiql-app/assets/68968769/11e2300e-fa01-4515-a83b-a6af21bd7658" title="FSD" alt="FSD" width="100" height="60"/>&nbsp;
 </div>
