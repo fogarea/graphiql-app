@@ -18,7 +18,7 @@ GraphiQL is a powerful in-browser GraphQL IDE (Integrated Development Environmen
 
 ## Stack
 
-GraphiQl is built using the following technologies and tools:
+GraphiQL is built using the following technologies and tools:
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/devicons/devicon/1119b9f84c0290e0f0b38982099a2bd027a48bf1/icons/react/react-original.svg" title="React" alt="React" width="60" height="60"/>&nbsp;
@@ -30,15 +30,15 @@ GraphiQl is built using the following technologies and tools:
   <img src="https://github.com/fogarea/graphiql-app/assets/68968769/165ba4b0-808c-42a4-b209-63ca6ce8651c" title="FSD" alt="FSD" width="100" height="60"/>&nbsp;
 </div>
 
-- **Architecture**: `FSD`
-- **UI**: `react`, `mui`
+- **Architecture**: `feature-sliced design (FSD)`
+- **UI**: `react`, `material ui`
 - **Lang**: `typescript`
-- **Store**: `zustand`
+- **State-management**: `zustand`
 - **Fetching**: `graphql`, `graphql-request`
 - **Routing**: `react-router`
-- **Tests**: `eslint`, `prettier`, `husky`
-- **Auth**: `firebase`
-- **Internalization**: `i18n`
+- **Code quality**: `eslint`, `prettier`, `husky`
+- **Authentication**: `firebase`
+- **Internalization**: `i18next`
 
 ## Running the app
 
