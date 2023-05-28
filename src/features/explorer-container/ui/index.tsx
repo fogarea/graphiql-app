@@ -1,24 +1,26 @@
-import { useTranslation } from 'react-i18next';
-
 import {
   useExplorer,
   ExplorerDocsQueries,
   ExplorerDocsInfo,
   ExplorerFieldInfo,
+  parseResultsSchema,
+  fetchData,
 } from '@/entities/explorer';
 
-export const ExplorerContainer = (): JSX.Element => {
-  const { parsedSchema, docsContainers, fieldInfo } = useExplorer();
+const resource = fetchData();
 
-  const { t } = useTranslation();
+export const ExplorerContainer = (): JSX.Element => {
+  const { parsedSchema, docsContainers, fieldInfo, setParsedSchema } = useExplorer();
+
+  const schema = resource.read();
+  const getParsedSchema = parseResultsSchema(schema as string);
+  if (parsedSchema.length === 0) {
+    setParsedSchema(getParsedSchema.nodes);
+  }
 
   return (
     <>
-      {parsedSchema.length ? (
-        <ExplorerDocsQueries parsedSchema={parsedSchema} />
-      ) : (
-        <p>{t(`explorer.no-data`)}</p>
-      )}
+      {parsedSchema && <ExplorerDocsQueries parsedSchema={parsedSchema} />}
       {docsContainers &&
         docsContainers.map(({ typeDetails, typeArguments }) => (
           <ExplorerDocsInfo

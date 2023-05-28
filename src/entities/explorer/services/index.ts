@@ -1,22 +1,10 @@
-import {
-  GraphQLSchema,
-  getIntrospectionQuery,
-  buildClientSchema,
-  IntrospectionQuery,
-  printSchema,
-} from 'graphql';
-import { Parser } from 'graphql-js-tree';
+import { getIntrospectionQuery } from 'graphql';
 
 import { graphiqlClient } from '@/shared/api';
+import { wrapPromise } from '../../../shared/lib/wrap-promise';
 
-export const expolorerService = {
-  loadDocumentation: async () => {
-    const iQueryString = getIntrospectionQuery();
-    const results = await graphiqlClient.request(iQueryString);
-    const data = JSON.parse(results) as IntrospectionQuery;
-    const schema: GraphQLSchema = buildClientSchema(data);
-    const printedSchema = printSchema(schema);
-    const parsedSchema = Parser.parse(printedSchema);
-    return parsedSchema;
-  },
-};
+export function fetchData() {
+  const iQueryString = getIntrospectionQuery();
+  const promise = graphiqlClient.request(iQueryString).then((data) => data);
+  return wrapPromise(promise);
+}
