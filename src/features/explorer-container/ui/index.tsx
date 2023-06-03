@@ -20,7 +20,11 @@ export const ExplorerContainer = (): JSX.Element => {
       graphiqlClient
         .request(iQueryString)
         .then((data) => parseResultsSchema(data))
-        .then((schema) => setParsedSchema(schema.nodes))
+        .then((schema) => {
+          if (schema) {
+            setParsedSchema(schema.nodes);
+          }
+        })
         .catch(() => Promise.reject());
     }
   }, [parsedSchema.length, setParsedSchema]);
