@@ -12,9 +12,6 @@ const StyledLogo = styled(Box)(({ theme }) => ({
     textDecoration: 'none',
     color: theme.palette.text.primary,
     display: 'flex',
-    '&:hover': {
-      transform: 'scale(1.05)',
-    },
   },
 }));
 
