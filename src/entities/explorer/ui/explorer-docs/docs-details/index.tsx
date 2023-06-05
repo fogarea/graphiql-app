@@ -1,7 +1,8 @@
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Grid from '@mui/material/Grid';
-import { useMemo } from 'react';
+import { useCallback } from 'react';
 
+import { ArrowRightIcon, ClosingCurlyBracket, OpeningCurlyBracket } from '@/shared/ui';
+import { TypeTypography } from '@/shared/ui/explorer';
 import { useExplorer, useExplorerProps, Options } from '../../../hooks';
 import { IDocsTypeDetails as IExplorerDocsDetailsProps } from '../../../model';
 import styles from '../styles.module.scss';
@@ -10,11 +11,10 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
   const { selectedElements, setSelectedElements, setFieldInfo } = useExplorer();
   const docsDetails = useExplorerProps({ parsedField: typeDetails, option: Options.details });
 
-  const findFieldInfo = useMemo(() => {
-    return (name: string) => {
-      return typeDetails.args.find((value) => value.name === name);
-    };
-  }, [typeDetails]);
+  const findFieldInfo = useCallback(
+    (name: string) => typeDetails.args.find((value) => value.name === name),
+    [typeDetails]
+  );
 
   const handleClickDetail = (name: string) => {
     const fieldInfo = findFieldInfo(name);
@@ -27,9 +27,9 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
   return (
     <Grid item>
       <pre>
-        <span className={styles.colorBlue}>{'type '}</span>
+        <TypeTypography className={styles.colorBlue} />
         <span className={styles.colorRed}>{typeDetails.name}</span>
-        <span>{` {`}</span>
+        <OpeningCurlyBracket />
         {docsDetails &&
           docsDetails.map((detail) => (
             <pre
@@ -41,10 +41,10 @@ export const ExplorerDocsDetails = ({ typeDetails }: IExplorerDocsDetailsProps):
             >
               <span className={styles.colorBlue}>{`  ${detail.name}: `}</span>
               <span className={styles.colorOrange}>{`${detail.type}`}</span>
-              <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
+              <ArrowRightIcon />
             </pre>
           ))}
-        <span>{`}`}</span>
+        <ClosingCurlyBracket />
       </pre>
     </Grid>
   );

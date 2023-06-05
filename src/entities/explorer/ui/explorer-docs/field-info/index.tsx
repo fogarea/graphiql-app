@@ -1,5 +1,6 @@
 import Divider from '@mui/material/Divider';
 
+import { ClosingCurlyBracket, OpeningCurlyBracket, TypeTypography } from '@/shared/ui';
 import { useExplorer, useExplorerProps, Options } from '../../../hooks';
 import { getQueryInfo, showQueryValueByInfo } from '../../../lib';
 import { IDocsTypeDetails } from '../../../model';
@@ -25,9 +26,9 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
         {!!docsDetails.length && (
           <div style={{ marginBottom: 10 }}>
             <pre>
-              <span className={styles.colorBlue}>{'type '}</span>
+              <TypeTypography className={styles.colorBlue} />
               <span className={styles.colorRed}>{queryInfo.name}</span>
-              <span>{' {'}</span>
+              <OpeningCurlyBracket />
             </pre>
             {docsDetails.map((el) => (
               <pre style={{ paddingLeft: 6 }} key={el.name}>
@@ -35,7 +36,7 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
                 <span className={styles.colorOrange}>{el.type}</span>
               </pre>
             ))}
-            <span>{'}'}</span>
+            <ClosingCurlyBracket />
           </div>
         )}
       </div>

@@ -1,6 +1,6 @@
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import Grid from '@mui/material/Grid';
 
+import { ArrowRightIcon } from '@/shared/ui';
 import { useExplorer, useExplorerProps, Options } from '../../../hooks';
 import { IDocsTypeArguments as IExplorerDocsArgumentsProps } from '../../../model';
 import styles from '../styles.module.scss';
@@ -39,7 +39,7 @@ export const ExplorerDocsArguments = ({
             >
               <span className={styles.colorBlue}>{name}: </span>
               <span className={styles.colorOrange}>{type}</span>
-              <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
+              <ArrowRightIcon />
             </pre>
           )
         )}
