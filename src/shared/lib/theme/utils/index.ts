@@ -10,6 +10,10 @@ export const a11yHeader2TextAlign = () => ({
   marginBottom: { lg: '40px', md: '40px', sm: '20px', xs: '12px' },
 });
 
+export const a11yAboutUsWrapper = () => ({
+  marginBottom: { lg: '80px', md: '80px', sm: '40px', xs: '20px' },
+});
+
 export const a11yCodeEditorStyles = (attributes?: { [key: string]: string }) => ({
   style: {
     fontSize: 14,

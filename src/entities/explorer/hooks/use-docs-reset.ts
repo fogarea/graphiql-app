@@ -3,8 +3,9 @@ import { useExplorerStore } from '../model';
 export const useDocsReset = () => {
   const [resetParsedSchema] = useExplorerStore((state) => [state.resetParsedSchema]);
 
-  const resetDecs = (): void => {
+  const resetDocs = (): void => {
     resetParsedSchema();
   };
-  return [resetDecs];
+
+  return [resetDocs];
 };

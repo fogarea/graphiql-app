@@ -9,6 +9,9 @@ export const EditorExpandMore = styled(({ expand, ...other }: IEditorExpandMoreP
   transition: theme.transitions.create('transform', {
     duration: theme.transitions.duration.shortest,
   }),
+  '&:hover': {
+    backgroundColor: 'transparent',
+  },
 }));
 
 interface IEditorExpandMoreProps extends IconButtonProps {
