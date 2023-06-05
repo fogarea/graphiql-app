@@ -1,6 +1,7 @@
 import PersonIcon from '@mui/icons-material/Person';
 import { Divider } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
+import styled from '@mui/material/styles/styled';
 import { MouseEvent, useState } from 'react';
 
 import { LogoutButton } from '@/features/auth';
@@ -24,9 +25,9 @@ export const AuthorizedToolbar = (): JSX.Element => {
     <>
       <PopoverIcon onOpen={handleOpen}>
         {user.email && (
-          <Avatar sx={{ width: 28, height: 28, opacity: '0.8' }}>
+          <UserAvatar>
             <PersonIcon />
-          </Avatar>
+          </UserAvatar>
         )}
       </PopoverIcon>
 
@@ -38,3 +39,9 @@ export const AuthorizedToolbar = (): JSX.Element => {
     </>
   );
 };
+
+const UserAvatar = styled(Avatar)(() => ({
+  width: 28,
+  height: 28,
+  opacity: '0.8',
+}));

@@ -5,6 +5,23 @@ import IconButton from '@mui/material/IconButton';
 import styled from '@mui/material/styles/styled';
 import { ReactNode } from 'react';
 
+export const DrawerBox = ({ open, children, toggleDrawer }: IDrawerBoxProps): JSX.Element => {
+  return (
+    <Drawer anchor="right" open={open} onClose={toggleDrawer} hideBackdrop={false}>
+      <CloseIconButton onClick={toggleDrawer}>
+        <CloseIcon />
+      </CloseIconButton>
+      <Wrapper>{children}</Wrapper>
+    </Drawer>
+  );
+};
+
+interface IDrawerBoxProps {
+  open: boolean;
+  children?: ReactNode;
+  toggleDrawer: () => void;
+}
+
 const Wrapper = styled(Container)(({ theme }) => ({
   paddingTop: 2,
   paddingBottom: 2,
@@ -21,19 +38,7 @@ const Wrapper = styled(Container)(({ theme }) => ({
   },
 }));
 
-export const DrawerBox = ({ open, children, toggleDrawer }: IDrawerBoxProps): JSX.Element => {
-  return (
-    <Drawer anchor="right" open={open} onClose={toggleDrawer} hideBackdrop={false}>
-      <IconButton sx={{ position: 'absolute', left: 5 }} onClick={toggleDrawer}>
-        <CloseIcon />
-      </IconButton>
-      <Wrapper>{children}</Wrapper>
-    </Drawer>
-  );
-};
-
-interface IDrawerBoxProps {
-  open: boolean;
-  children?: ReactNode;
-  toggleDrawer: () => void;
-}
+const CloseIconButton = styled(IconButton)(() => ({
+  position: 'absolute',
+  left: 5,
+}));

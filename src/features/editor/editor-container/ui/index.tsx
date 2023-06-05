@@ -2,6 +2,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Collapse from '@mui/material/Collapse';
 import grey from '@mui/material/colors/grey';
 import Grid from '@mui/material/Grid';
+import styled from '@mui/material/styles/styled';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import { SyntheticEvent, useState } from 'react';
@@ -46,30 +47,11 @@ export const EditorContainer = (): JSX.Element => {
 
   return (
     <>
-      <Grid
-        container
-        spacing={0}
-        sx={{
-          display: 'grid',
-          gridTemplateRows: '1fr auto auto',
-          gridTemplateColumns: '1fr',
-          height: '100%',
-          width: '100%',
-          gap: 0,
-        }}
-      >
+      <GridContainer container spacing={0}>
         <Grid item xs sx={{ overflow: 'auto' }}>
           <QueryEditor code={queryCode} setCode={handleSetCode} />
         </Grid>
-        <Grid
-          item
-          xs
-          sx={{
-            borderTop: `1px solid ${grey[200]}`,
-            display: 'flex',
-            justifyContent: 'space-between',
-          }}
-        >
+        <TabsContainer item xs>
           <Tabs
             value={activeTab}
             onChange={handleChangeTab}
@@ -96,7 +78,7 @@ export const EditorContainer = (): JSX.Element => {
           >
             <ExpandMoreIcon />
           </EditorExpandMore>
-        </Grid>
+        </TabsContainer>
         <Grid item xs>
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <EditorTabPanel value={activeTab} index={0}>
@@ -110,7 +92,22 @@ export const EditorContainer = (): JSX.Element => {
             </EditorTabPanel>
           </Collapse>
         </Grid>
-      </Grid>
+      </GridContainer>
     </>
   );
 };
+
+const GridContainer = styled(Grid)(() => ({
+  display: 'grid',
+  gridTemplateRows: '1fr auto auto',
+  gridTemplateColumns: '1fr',
+  height: '100%',
+  width: '100%',
+  gap: 0,
+}));
+
+const TabsContainer = styled(Grid)(() => ({
+  borderTop: `1px solid ${grey[200]}`,
+  display: 'flex',
+  justifyContent: 'space-between',
+}));
