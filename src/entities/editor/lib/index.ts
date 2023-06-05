@@ -44,9 +44,7 @@ export const prettifiedQueryContent = (
 
 export const parseJSONStringToObject = (value: string): Record<string, string> => {
   try {
-    const resultObject = JSON.parse(value) as Record<string, string>;
-
-    return resultObject;
+    return JSON.parse(value) as Record<string, string>;
   } catch {
     return {};
   }
@@ -63,9 +61,7 @@ export const parseErrorMessage = (results: string): string => {
     }
 
     if (resultObject.response?.errors && resultObject.response.errors[0]) {
-      const message = resultObject.response.errors[0].message || DEFAULT_MESSAGE;
-
-      return message;
+      return resultObject.response.errors[0].message || DEFAULT_MESSAGE;
     }
 
     return '';
