@@ -7,3 +7,5 @@ export * from './logo';
 export * from './section';
 export * from './popover';
 export * from './form-input';
+export * from './arrow-right-icon';
+export * from './explorer';

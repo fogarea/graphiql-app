@@ -94,7 +94,7 @@
   "validation": {
     "email-format": "Email should have correct format",
     "email-required": "Email is a required field",
-    "password-format": "Password must be at least 8 characters long and include at least one letter, one digit and one special character",
+    "password-format": "Password must be at least 8 characters long and include at least one uppercase and lowercase letter, one digit and one special character",
     "password-required": "Password is a required field"
   },
   "language": {

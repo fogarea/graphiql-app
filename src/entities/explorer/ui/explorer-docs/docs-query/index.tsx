@@ -1,5 +1,4 @@
-import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
+import { ArrowRightIcon, HiddenArguments } from '@/shared/ui';
 import { useExplorer } from '../../../hooks';
 import { getQueryInfo, showQueryValueByInfo } from '../../../lib';
 import {
@@ -42,9 +41,9 @@ export const ExplorerDocsQuery = ({ typeArguments }: IExplorerDocsQueryProps): J
       }`}
     >
       <span className={styles.colorRed}>{typeArguments.name}</span>
-      <span>{'(...): '}</span>
+      <HiddenArguments />
       <span className={styles.colorOrange}>{queryString}</span>
-      <ArrowRightIcon sx={{ position: 'absolute', right: 0 }} />
+      <ArrowRightIcon />
     </div>
   );
 };
