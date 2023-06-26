@@ -7,12 +7,12 @@ import { FeatureImage } from '../feature-image';
 
 export const FeatureCard = ({ title, image, description }: TypeFeature): JSX.Element => {
   return (
-    <StyledGrid item gap={2} xs>
+    <StyledGrid item gap={2} xs={6} md={6} lg={6}>
       <FeatureImage src={image} alt={title} />
       <Typography variant="h3" component="h3" textAlign="center" sx={{ mt: 3 }}>
         {title}
       </Typography>
-      <Typography variant="body1" component="p" textAlign="center" sx={{ mt: 3 }}>
+      <Typography variant="subtitle2" component="p" textAlign="center" sx={{ mt: 1 }}>
         {description}
       </Typography>
     </StyledGrid>

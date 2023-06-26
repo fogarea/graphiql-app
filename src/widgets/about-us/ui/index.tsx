@@ -18,7 +18,7 @@ export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
         {t('welcome.our-team')}
       </Typography>
 
-      <Grid container gap={2} justifyContent="center" sx={{ ...a11yAboutUsWrapper() }}>
+      <Grid container gap={6} justifyContent="center" sx={{ ...a11yAboutUsWrapper() }}>
         {features.map((feature) => (
           <FeatureCard key={feature.id} {...feature} />
         ))}

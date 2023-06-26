@@ -7,7 +7,7 @@ export const a11yHeaderTextAlign = () => ({
 export const a11yHeader2TextAlign = () => ({
   textAlign: { lg: 'center', md: 'center', sm: 'center', xs: 'center' },
   marginTop: { lg: '40px', md: '40px', sm: '20px', xs: '12px' },
-  marginBottom: { lg: '40px', md: '40px', sm: '20px', xs: '12px' },
+  marginBottom: { lg: '60px', md: '60px', sm: '20px', xs: '12px' },
 });
 
 export const a11yAboutUsWrapper = () => ({
