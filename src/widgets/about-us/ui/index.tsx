@@ -3,11 +3,11 @@ import Typography from '@mui/material/Typography';
 import { RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { DeveloperCard, developerService } from '@/entities/developer';
+import { FeatureCard, featuresService } from '@/entities/features';
 import { a11yAboutUsWrapper, a11yHeader2TextAlign } from '@/shared/lib/theme';
 import { Section } from '@/shared/ui';
 
-const developers = developerService.getAll();
+const features = featuresService.getAll();
 
 export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
   const { t } = useTranslation();
@@ -19,8 +19,8 @@ export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
       </Typography>
 
       <Grid container gap={2} justifyContent="center" sx={{ ...a11yAboutUsWrapper() }}>
-        {developers.map((developer) => (
-          <DeveloperCard key={developer.githubName} {...developer} />
+        {features.map((feature) => (
+          <FeatureCard key={feature.id} {...feature} />
         ))}
       </Grid>
     </Section>

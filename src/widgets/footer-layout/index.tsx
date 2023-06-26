@@ -5,16 +5,13 @@ import Link from '@mui/material/Link';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { developerService } from '@/entities/developer';
 import { ScrollToTopButton } from '@/shared/ui';
 import styles from './styles.module.scss';
-
-const developers = developerService.getAll();
 
 export const FooterLayout = memo((): JSX.Element => {
   const { t } = useTranslation();
 
-  const developerList = developers.map(({ id, githubLink }) => {
+  /*const developerList = developers.map(({ id, githubLink }) => {
     return (
       <Link
         key={id}
@@ -33,7 +30,7 @@ export const FooterLayout = memo((): JSX.Element => {
         />
       </Link>
     );
-  });
+  });*/
 
   return (
     <>
@@ -48,7 +45,7 @@ export const FooterLayout = memo((): JSX.Element => {
       >
         <Grid container justifyContent="space-around" alignItems="center" spacing={2}>
           <Grid item xs>
-            <Box sx={{ display: 'flex', gap: 1 }}>{developerList}</Box>
+            <Box sx={{ display: 'flex', gap: 1 }}></Box>
           </Grid>
           <Grid item xs>
             <Box textAlign="center">
