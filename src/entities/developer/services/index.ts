@@ -1,7 +1,7 @@
-import developers, { TypeDeveloper } from '../model';
+import features, { TypeFeature } from '../model';
 
 export const developerService = {
-  getAll: (): TypeDeveloper[] => {
-    return developers.results;
+  getAll: (): TypeFeature[] => {
+    return features.results;
   },
 };
