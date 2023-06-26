@@ -1,23 +1,20 @@
 [
   {
     "id": 1,
-    "name": "Konstantin Sapronov",
-    "avatarSrc": "./assets/images/shopot.png",
-    "githubName": "shopot",
-    "githubLink": "https://github.com/shopot"
+    "name": "Intuitive User Interface",
+    "image": "./assets/svg/features/user-interface",
+    "description": "GraphiQL offers a clean and intuitive interface, making it easy to explore and experiment with GraphQL APIs"
   },
   {
     "id": 2,
-    "name": "Konstantin Smirnov",
-    "avatarSrc": "./assets/images/fogarea.png",
-    "githubName": "fogarea",
-    "githubLink": "https://github.com/fogarea"
+    "name": "Request Variables and Headers",
+    "image": "./assets/svg/features/request-variables",
+    "description": "You can parameterize your queries, making them more dynamic and reusable"
   },
   {
     "id": 3,
-    "name": "Danil Podgorniy",
-    "avatarSrc": "./assets/images/kostili.jpg",
-    "githubName": "kostili-tec",
-    "githubLink": "https://github.com/kostili-tec"
+    "name": "Finding Bugs",
+    "image": "./assets/svg/features/finding-bugs",
+    "description": "You can easily find errors and bugs in your GraphQL API"
   }
 ]
