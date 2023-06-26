@@ -1,7 +1,6 @@
-export type TypeDeveloper = {
+export type TypeFeature = {
   id: number;
   name: string;
-  avatarSrc: string;
-  githubName: string;
-  githubLink: string;
+  image: string;
+  description: string;
 };
