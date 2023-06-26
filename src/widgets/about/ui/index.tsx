@@ -3,19 +3,19 @@ import Typography from '@mui/material/Typography';
 import { RefObject } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { FeatureCard, featuresService } from '@/entities/features';
+import { FeatureCard, featuresService } from '@/entities/feature-list';
 import { a11yAboutUsWrapper, a11yHeader2TextAlign } from '@/shared/lib/theme';
 import { Section } from '@/shared/ui';
 
 const features = featuresService.getAll();
 
-export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
+export const About = ({ aboutRef }: IAboutUsProps) => {
   const { t } = useTranslation();
 
   return (
-    <Section ref={aboutUsRef}>
+    <Section ref={aboutRef}>
       <Typography variant="h2" component="h2" sx={{ ...a11yHeader2TextAlign() }}>
-        {t('features.title')}
+        {t('feature-list.title')}
       </Typography>
 
       <Grid container gap={6} justifyContent="center" sx={{ ...a11yAboutUsWrapper() }}>
@@ -28,5 +28,5 @@ export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
 };
 
 interface IAboutUsProps {
-  aboutUsRef?: RefObject<HTMLDivElement>;
+  aboutRef?: RefObject<HTMLDivElement>;
 }
