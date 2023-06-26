@@ -15,7 +15,7 @@ export const AboutUs = ({ aboutUsRef }: IAboutUsProps) => {
   return (
     <Section ref={aboutUsRef}>
       <Typography variant="h2" component="h2" sx={{ ...a11yHeader2TextAlign() }}>
-        {t('welcome.our-team')}
+        {t('features.title')}
       </Typography>
 
       <Grid container gap={6} justifyContent="center" sx={{ ...a11yAboutUsWrapper() }}>
