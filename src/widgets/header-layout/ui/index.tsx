@@ -9,18 +9,6 @@ import { ChangeLanguage } from '@/features/change-language';
 import { Logo } from '@/shared/ui';
 import { useHeader } from '../hooks';
 
-const Header = styled(AppBar)(({ theme }) => ({
-  backgroundColor: theme.palette.common.white,
-  transition: 'all 0.5s ease-in',
-}));
-
-const Toolbar = styled(MuiToolbar)(({ theme }) => ({
-  [theme.breakpoints.down('sm')]: {
-    display: 'flex',
-    justifyContent: 'space-between',
-  },
-}));
-
 export const HeaderLayout = ({ burgerMenuSlot }: IHeaderLayoutProps): JSX.Element => {
   const { isScrolled, elevationValue, headerRef } = useHeader();
 
@@ -51,3 +39,15 @@ export const HeaderLayout = ({ burgerMenuSlot }: IHeaderLayoutProps): JSX.Elemen
 interface IHeaderLayoutProps {
   burgerMenuSlot: ReactNode;
 }
+
+const Header = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.common.white,
+  transition: 'all 0.5s ease-in',
+}));
+
+const Toolbar = styled(MuiToolbar)(({ theme }) => ({
+  [theme.breakpoints.down('sm')]: {
+    display: 'flex',
+    justifyContent: 'space-between',
+  },
+}));

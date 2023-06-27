@@ -23,11 +23,15 @@
   "welcome": {
     "sign-in": "Sign In",
     "sign-up": "Sign Up",
-    "description": "This is a web-based interface that simplifies the process of querying and testing GraphQL APIs for developers",
-    "our-team": "Our Team",
-    "Konstantin Sapronov": "Konstantin Sapronov",
-    "Konstantin Smirnov": "Konstantin Smirnov",
-    "Danil Podgorniy": "Danil Podgorniy"
+    "description": "This is a web-based interface that simplifies the process of querying and testing GraphQL APIs for developers"
+  },
+  "features": {
+    "title1": "Light weight",
+    "description1": "This is a lightweight and interactive in-browser GraphQL IDE that offers a clean and intuitive interface, making it easy to explore and experiment with GraphQL APIs.",
+    "title2": "Interactive Documentation",
+    "description2": "Discover the schema documentation, including types, fields, and arguments providing helpful information as you compose your queries.",
+    "title3": "Request Variables and Headers",
+    "description3": "You can parameterize your queries, making them more dynamic and reusable. Instead of hardcoding values directly into the query, you can define variables and pass their values at runtime."
   },
   "login": {
     "sign-in": "Sign In",

@@ -9,3 +9,4 @@ export * from './popover';
 export * from './form-input';
 export * from './arrow-right-icon';
 export * from './explorer';
+export * from './external-link-icon';

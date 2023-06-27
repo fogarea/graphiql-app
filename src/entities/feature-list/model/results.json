@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "title": "Light weight",
+    "image": "./assets/svg/features/lightweight.gif",
+    "description": "This is a lightweight and interactive in-browser GraphQL IDE that offers a clean and intuitive interface, making it easy to explore and experiment with GraphQL APIs"
+  },
+  {
+    "id": 2,
+    "title": "Interactive Documentation",
+    "image": "./assets/svg/features/interactive-documentation.gif",
+    "description": "Discover the schema documentation, including types, fields, and arguments providing helpful information as you compose your queries"
+  },
+  {
+    "id": 3,
+    "title": "Request Variables and Headers",
+    "image": "./assets/svg/features/variables.gif",
+    "description": "You can parameterize your queries, making them more dynamic and reusable. Instead of hardcoding values directly into the query, you can define variables and pass their values at runtime"
+  }
+]
