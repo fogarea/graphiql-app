@@ -26,7 +26,6 @@
     "description": "This is a web-based interface that simplifies the process of querying and testing GraphQL APIs for developers"
   },
   "features": {
-    "title": "Features",
     "title1": "Light weight",
     "description1": "This is a lightweight and interactive in-browser GraphQL IDE that offers a clean and intuitive interface, making it easy to explore and experiment with GraphQL APIs.",
     "title2": "Interactive Documentation",

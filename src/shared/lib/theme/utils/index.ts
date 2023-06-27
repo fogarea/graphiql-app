@@ -11,6 +11,7 @@ export const a11yHeader2TextAlign = () => ({
 });
 
 export const a11yAboutUsWrapper = () => ({
+  paddingTop: { lg: '60px', md: '60px', sm: '40px', xs: '40px' },
   marginBottom: { lg: '80px', md: '80px', sm: '40px', xs: '20px' },
   gap: { lg: 6, md: 4, sm: 2 },
 });
