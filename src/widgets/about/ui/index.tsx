@@ -15,10 +15,10 @@ export const About = ({ aboutRef }: IAboutUsProps) => {
   return (
     <Section ref={aboutRef}>
       <Typography variant="h2" component="h2" sx={{ ...a11yHeader2TextAlign() }}>
-        {t('feature-list.title')}
+        {t('features.title')}
       </Typography>
 
-      <Grid container gap={6} justifyContent="center" sx={{ ...a11yAboutUsWrapper() }}>
+      <Grid container justifyContent="center" sx={{ ...a11yAboutUsWrapper() }}>
         {features.map((feature) => (
           <FeatureCard key={feature.id} {...feature} />
         ))}
