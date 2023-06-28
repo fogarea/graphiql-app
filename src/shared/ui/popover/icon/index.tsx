@@ -9,7 +9,7 @@ export const PopoverIcon = ({ onOpen, children }: IPopoverIconProps) => {
         padding: 0,
         width: 28,
         height: 20,
-        margin: { xs: '0', sm: '0 10px' },
+        marginLeft: { xs: '0', sm: '20px' },
       }}
     >
       {children}
