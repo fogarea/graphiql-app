@@ -91,7 +91,7 @@ export const palette = {
     active: GREY[600],
     hover: alpha(PRIMARY.main, 0.08),
     selected: alpha(GREY[500], 0.16),
-    disabled: alpha(GREY[500], 0.8),
+    disabled: alpha(GREY[400], 0.6),
     disabledBackground: alpha(GREY[500], 0.24),
     focus: alpha(GREY[500], 0.24),
     hoverOpacity: 0.08,

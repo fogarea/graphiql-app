@@ -1,17 +1,15 @@
 import Card from '@mui/material/Card';
 import CircularProgress from '@mui/material/CircularProgress';
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import { Suspense, lazy } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { EditorContainer, ResponseContainer, ToolbarContainer } from '@/features/editor';
 import { DrawerBox, useDrawer } from '@/entities/drawer';
-import { a11yColumnHeight, a11yHeaderTextAlign } from '@/shared/lib/theme';
+import { EditorEndpoint } from '@/entities/editor';
+import { a11yColumnHeight } from '@/shared/lib/theme';
 import { ColumnXsNoneMd40, StackRowVertical, Section } from '@/shared/ui';
 
 export const GraphQLEditor = (): JSX.Element => {
-  const { t } = useTranslation();
   const { isOpen, toggleDrawer } = useDrawer();
 
   const ExplorerContainer = lazy(async () => ({
@@ -20,9 +18,7 @@ export const GraphQLEditor = (): JSX.Element => {
 
   return (
     <Section>
-      <Typography variant="h1" sx={{ ...a11yHeaderTextAlign() }}>
-        Graph<i>i</i>QL {t('editor.q-editor')}
-      </Typography>
+      <EditorEndpoint />
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <Grid container spacing={1}>

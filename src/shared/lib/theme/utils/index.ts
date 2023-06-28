@@ -1,13 +1,7 @@
-export const a11yHeaderTextAlign = () => ({
-  textAlign: { lg: 'left', md: 'left', sm: 'center', xs: 'center' },
-  marginTop: { lg: '16px', md: '16px', sm: '12px', xs: '8px' },
-  marginBottom: { lg: '16px', md: '16px', sm: '12px', xs: '8px' },
-});
-
-export const a11yHeader2TextAlign = () => ({
-  textAlign: { lg: 'center', md: 'center', sm: 'center', xs: 'center' },
-  marginTop: { lg: '40px', md: '40px', sm: '20px', xs: '12px' },
-  marginBottom: { lg: '60px', md: '60px', sm: '40px', xs: '20px' },
+export const a11yEditorEndpointFormControl = () => ({
+  maxWidth: { lg: '100%', xs: 288 },
+  minWidth: 80,
+  my: 2,
 });
 
 export const a11yAboutUsWrapper = () => ({
