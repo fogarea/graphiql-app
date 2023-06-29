@@ -27,9 +27,9 @@ export const HeaderLayout = ({ burgerMenuSlot }: IHeaderLayoutProps): JSX.Elemen
           {burgerMenuSlot}
           <Logo withTitle />
           <ChangeLanguage />
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
+          <AuthToolbarContainer>
             <AuthToolbar />
-          </Box>
+          </AuthToolbarContainer>
         </Toolbar>
       </Header>
     </>
@@ -49,5 +49,14 @@ const Toolbar = styled(MuiToolbar)(({ theme }) => ({
   [theme.breakpoints.down('sm')]: {
     display: 'flex',
     justifyContent: 'space-between',
+  },
+}));
+
+const AuthToolbarContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: theme.spacing(1),
+  marginLeft: theme.spacing(1),
+  [theme.breakpoints.down('sm')]: {
+    display: 'none',
   },
 }));

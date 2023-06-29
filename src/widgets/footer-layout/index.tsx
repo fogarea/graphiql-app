@@ -26,8 +26,8 @@ export const FooterLayout = memo((): JSX.Element => {
         <Grid container justifyContent="space-between" alignItems="center" spacing={2}>
           <Grid item xs>
             <Box justifyContent="flex-start">
-              <Box display={{ xs: 'none', sm: 'inline-block' }}>{t('footer.created-at')}</Box>
-              &nbsp;2023
+              <Box display={{ xs: 'none', sm: 'inline-block' }}>{t('footer.created-at')}&nbsp;</Box>
+              2023
             </Box>
           </Grid>
           <Grid item xs>
