@@ -1,5 +1,6 @@
 import { KeyboardArrowUp } from '@mui/icons-material';
-import { Box, Fab, Zoom, useScrollTrigger } from '@mui/material';
+import { Box, Fab as MUIFab, Zoom, useScrollTrigger } from '@mui/material';
+import styled from '@mui/material/styles/styled';
 import { useCallback } from 'react';
 
 export const ScrollToTopButton = ({
@@ -18,26 +19,17 @@ export const ScrollToTopButton = ({
 
   return (
     <Zoom in={trigger}>
-      <Box
-        role="presentation"
-        sx={{
-          position: 'fixed',
-          bottom: 70,
-          right: 32,
-          zIndex: 1,
-        }}
-      >
+      <Wrapper role="presentation">
         <Fab
           onClick={scrollToTop}
           color="primary"
           size="small"
           aria-label="Scroll back to top"
           title={title}
-          sx={{ opacity: 0.7 }}
         >
           <KeyboardArrowUp fontSize="medium" />
         </Fab>
-      </Box>
+      </Wrapper>
     </Zoom>
   );
 };
@@ -45,3 +37,14 @@ export const ScrollToTopButton = ({
 interface IScrollToTopButtonProps {
   title?: string;
 }
+
+const Wrapper = styled(Box)(() => ({
+  position: 'fixed',
+  bottom: 70,
+  right: 32,
+  zIndex: 1,
+}));
+
+const Fab = styled(MUIFab)(() => ({
+  opacity: 0.7,
+}));
