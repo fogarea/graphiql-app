@@ -17,16 +17,8 @@ const initialState = {
 };
 
 const explorerStore: TypeExplorerStore = (set) => ({
-  isLoaded: false,
-  error: null,
-  parsedSchema: [],
-  docsContainers: [],
-  fieldInfo: null,
-  selectedElements: {
-    selectedQuery: '',
-    selectedTypeArguments: '',
-    selectedTypeDetails: '',
-  },
+  ...initialState,
+
   setSelectedElements: (updatedElements) =>
     set((state) => ({
       selectedElements: {
@@ -34,10 +26,14 @@ const explorerStore: TypeExplorerStore = (set) => ({
         ...updatedElements,
       },
     })),
+
   setParsedSchema: (parsedSchema: TypeArrayParsedField) => set({ parsedSchema: parsedSchema }),
+
   resetParsedSchema: () =>
     set({ ...initialState, selectedElements: { ...initialState.selectedElements } }),
+
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
+
   setFieldInfo: (fieldInfo: TypeParsedField | null) => set({ fieldInfo: fieldInfo }),
 });
 

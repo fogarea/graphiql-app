@@ -1,2 +1,2 @@
-export { useExplorerStore } from './explorer-store';
+export { useExplorerStore } from './store';
 export * from './types';
