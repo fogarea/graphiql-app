@@ -10,9 +10,10 @@ export const graphiqlClient = {
   ): Promise<string> => {
     try {
       const graphQLClient = new GraphQLClient(GRAPHQL_API_ENDPOINT, {
-        credentials: 'include',
-        mode: 'cors',
-        headers: { ...headers },
+        method: 'POST',
+        headers: {
+          ...headers,
+        },
       });
 
       const query = gql`
