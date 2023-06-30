@@ -2,7 +2,7 @@ import { parse, print } from 'graphql';
 import { t } from 'i18next';
 
 import { alert } from '@/shared/lib/browser';
-import { TypeQueryErrorObject } from '../model/store.ts';
+import { TypeQueryErrorObject } from '../model';
 
 export const prettifiedJSONContent = (content: string, setValue: (value: string) => void): void => {
   try {

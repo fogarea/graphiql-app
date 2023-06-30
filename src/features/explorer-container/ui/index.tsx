@@ -1,7 +1,7 @@
 import { getIntrospectionQuery } from 'graphql';
 import { useEffect } from 'react';
 
-import { useEditorStore } from '@/entities/editor';
+import { useEndpoint } from '@/entities/editor';
 import {
   useExplorer,
   ExplorerDocsQueries,
@@ -13,7 +13,7 @@ import { graphiqlClient } from '@/shared/api';
 
 export const ExplorerContainer = (): JSX.Element => {
   const { parsedSchema, docsContainers, fieldInfo, setParsedSchema } = useExplorer();
-  const endpoint = useEditorStore((state) => state.endpoint);
+  const { endpoint } = useEndpoint();
 
   useEffect(() => {
     if (parsedSchema.length === 0) {
