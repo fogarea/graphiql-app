@@ -1,12 +1,11 @@
 import { SelectChangeEvent, MenuItem } from '@mui/material';
 import { useEffect } from 'react';
-import { useEditorStore } from '@/entities/editor';
-import { EndpointsList, endpointsService } from '@/entities/endpoints';
+import { EditorEndpointsList, endpointsService, useEndpoint } from '@/entities/editor';
 
 const endpoints = endpointsService.getAll();
 
 export const SelectEndpoint = () => {
-  const [endpoint, setEndpoint] = useEditorStore((state) => [state.endpoint, state.setEndpoint]);
+  const { endpoint, setEndpoint } = useEndpoint();
 
   const handleChange = (event: SelectChangeEvent) => {
     setEndpoint(event.target.value);
@@ -19,12 +18,12 @@ export const SelectEndpoint = () => {
   }, []);
 
   return (
-    <EndpointsList value={endpoint} handleChange={handleChange}>
+    <EditorEndpointsList value={endpoint} handleChange={handleChange}>
       {endpoints.map(({ id, url }) => (
         <MenuItem key={id} value={url}>
           {url}
         </MenuItem>
       ))}
-    </EndpointsList>
+    </EditorEndpointsList>
   );
 };

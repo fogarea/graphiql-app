@@ -5,7 +5,11 @@ import { ReactNode } from 'react';
 
 import { a11yEditorEndpointFormControl } from '@/shared/lib/theme';
 
-export const EndpointsList = ({ value, handleChange, children }: IEditorEndpointsListProps) => {
+export const EditorEndpointsList = ({
+  value,
+  handleChange,
+  children,
+}: IEditorEndpointsListProps) => {
   return (
     <FormControl size="small" sx={{ ...a11yEditorEndpointFormControl() }}>
       <Select value={value} onChange={handleChange} autoWidth displayEmpty>

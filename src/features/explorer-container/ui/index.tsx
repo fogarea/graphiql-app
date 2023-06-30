@@ -1,6 +1,7 @@
 import { getIntrospectionQuery } from 'graphql';
 import { useEffect } from 'react';
 
+import { useEditorStore } from '@/entities/editor';
 import {
   useExplorer,
   ExplorerDocsQueries,
@@ -12,13 +13,14 @@ import { graphiqlClient } from '@/shared/api';
 
 export const ExplorerContainer = (): JSX.Element => {
   const { parsedSchema, docsContainers, fieldInfo, setParsedSchema } = useExplorer();
+  const endpoint = useEditorStore((state) => state.endpoint);
 
   useEffect(() => {
     if (parsedSchema.length === 0) {
       const iQueryString = getIntrospectionQuery();
 
       graphiqlClient
-        .request(iQueryString)
+        .request(endpoint, iQueryString)
         .then((data) => parseResultsSchema(data))
         .then((schema) => {
           if (schema) {
@@ -27,7 +29,7 @@ export const ExplorerContainer = (): JSX.Element => {
         })
         .catch(() => Promise.reject());
     }
-  }, [parsedSchema.length, setParsedSchema]);
+  }, [endpoint, parsedSchema.length, setParsedSchema]);
 
   return (
     <>

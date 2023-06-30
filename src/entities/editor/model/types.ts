@@ -5,3 +5,8 @@ export type TypeQueryErrorObject = {
     }>;
   };
 };
+
+export type TypeEndpoint = {
+  id: number;
+  url: string;
+};
