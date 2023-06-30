@@ -1,15 +1,14 @@
 import { GraphQLClient, gql } from 'graphql-request';
 
-import { GRAPHQL_API_ENDPOINT } from '../config';
-
 export const graphiqlClient = {
   request: async (
+    endpoint: string,
     queryString: string,
     headers: Record<string, string> = {},
     variables: Record<string, string> = {}
   ): Promise<string> => {
     try {
-      const graphQLClient = new GraphQLClient(GRAPHQL_API_ENDPOINT, {
+      const graphQLClient = new GraphQLClient(endpoint, {
         method: 'POST',
         headers: {
           ...headers,

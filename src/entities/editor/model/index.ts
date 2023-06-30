@@ -32,9 +32,10 @@ const editorStore: TypeEditorStore = (set, get) => ({
   fetchData: async () => {
     set({ isFetching: true });
 
-    const { queryCode, headerCode, variableCode } = get();
+    const { endpoint, queryCode, headerCode, variableCode } = get();
 
     const results = await graphiqlClient.request(
+      endpoint,
       queryCode,
       parseJSONStringToObject(headerCode),
       parseJSONStringToObject(variableCode)

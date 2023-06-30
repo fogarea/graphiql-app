@@ -4,8 +4,8 @@ import Grid from '@mui/material/Grid';
 import { Suspense, lazy } from 'react';
 
 import { EditorContainer, ResponseContainer, ToolbarContainer } from '@/features/editor';
+import { SelectEndpoint } from '@/features/select-endpoint';
 import { DrawerBox, useDrawer } from '@/entities/drawer';
-import { EditorEndpoint } from '@/entities/editor';
 import { a11yColumnHeight } from '@/shared/lib/theme';
 import { ColumnXsNoneMd40, StackRowVertical, Section } from '@/shared/ui';
 
@@ -18,7 +18,7 @@ export const GraphQLEditor = (): JSX.Element => {
 
   return (
     <Section>
-      <EditorEndpoint />
+      <SelectEndpoint />
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
           <Grid container spacing={1}>
