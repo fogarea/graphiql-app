@@ -7,6 +7,7 @@ import { graphiqlClient } from '@/shared/api';
 import { prettifiedJSONContent, parseJSONStringToObject, parseErrorMessage } from '../lib';
 
 const initialState = {
+  endpoint: '',
   queryCode: '',
   headerCode: '',
   variableCode: '',
@@ -17,6 +18,8 @@ const initialState = {
 
 const editorStore: TypeEditorStore = (set, get) => ({
   ...initialState,
+
+  setEndpoint: (endpoint: string) => set({ endpoint }),
 
   setQueryCode: (value: string) => set({ queryCode: value }),
 
@@ -56,12 +59,14 @@ export const useEditorStore = create<IEditorState>()(
 );
 
 interface IEditorState {
+  endpoint: string;
   queryCode: string;
   headerCode: string;
   variableCode: string;
   responseCode: string;
   isFetching: boolean;
   error: string;
+  setEndpoint: (endpoint: string) => void;
   setQueryCode: (value: string) => void;
   setHeaderCode: (value: string) => void;
   setVariableCode: (value: string) => void;

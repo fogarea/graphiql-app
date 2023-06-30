@@ -13,6 +13,8 @@ export const useQueryEditor = () => {
     setHeaderCode,
     setResponseCode,
     fetchData,
+    endpoint,
+    setEndpoint,
   ] = useEditorStore((state) => [
     state.isFetching,
     state.queryCode,
@@ -23,6 +25,8 @@ export const useQueryEditor = () => {
     state.setHeaderCode,
     state.setResponseCode,
     state.fetchData,
+    state.endpoint,
+    state.setEndpoint,
   ]);
 
   const execQuery = (): void => {
@@ -60,5 +64,7 @@ export const useQueryEditor = () => {
     setQueryCode,
     setVariableCode,
     setHeaderCode,
+    endpoint,
+    setEndpoint,
   };
 };
