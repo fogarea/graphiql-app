@@ -8,7 +8,7 @@ export const ExplorerDocsQueries = ({ parsedSchema }: IExplorerDocsQueriesProps)
   const schemaQueries = parsedSchema.find((field) => field.name === docsQuery.Query);
 
   return (
-    <div style={{ width: 275, paddingTop: 6, display: 'flex', flexDirection: 'column' }}>
+    <div style={{ paddingTop: 6, display: 'flex', flexBasis: '33.3%', flexDirection: 'column' }}>
       <Typography variant="h4" component="h3" sx={{ color: 'text.secondary', marginTop: 5 }}>
         Queries
       </Typography>

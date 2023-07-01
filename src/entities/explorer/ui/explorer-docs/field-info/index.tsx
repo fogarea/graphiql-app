@@ -17,7 +17,7 @@ export const ExplorerFieldInfo = ({ typeDetails }: IDocsTypeDetails): JSX.Elemen
   return (
     <>
       <Divider />
-      <div style={{ paddingLeft: 16, width: 265, marginTop: 20 }}>
+      <div style={{ paddingLeft: 16, flexBasis: '33.3%', marginTop: 20 }}>
         <pre className={styles.fontBold}>
           <span className={styles.colorRed}>{typeDetails.name}: </span>
           <span className={styles.colorOrange}>{queryInfoName}</span>

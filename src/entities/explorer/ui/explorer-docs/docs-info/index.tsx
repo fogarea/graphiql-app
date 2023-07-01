@@ -15,7 +15,7 @@ export const ExplorerDocsInfo = ({
   return (
     <>
       <Divider />
-      <div style={{ paddingLeft: 16, width: 265, marginTop: 20 }}>
+      <div style={{ paddingLeft: 16, flexBasis: '33.3%', marginTop: 20 }}>
         <ExplorerDocsExample typeArguments={typeArguments} />
         <Grid item>
           <p className={styles.colorGray}>{typeArguments?.description}</p>
