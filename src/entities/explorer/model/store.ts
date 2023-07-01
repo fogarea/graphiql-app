@@ -27,10 +27,15 @@ const explorerStore: TypeExplorerStore = (set) => ({
       },
     })),
 
-  setParsedSchema: (parsedSchema: TypeArrayParsedField) => set({ parsedSchema: parsedSchema }),
+  setParsedSchema: (parsedSchema: TypeArrayParsedField) => {
+    set({ parsedSchema: parsedSchema });
+    set({ isLoaded: true });
+  },
 
-  resetParsedSchema: () =>
-    set({ ...initialState, selectedElements: { ...initialState.selectedElements } }),
+  resetParsedSchema: () => {
+    set({ ...initialState, selectedElements: { ...initialState.selectedElements } });
+    set({ isLoaded: false });
+  },
 
   setDocsContainer: (queryInfo: TypeDocsTypeInfo) => set({ docsContainers: [queryInfo] }),
 

@@ -9,11 +9,7 @@ export const Loader = (): JSX.Element => {
         backgroundColor: (theme) => theme.palette.background.paper,
       }}
     >
-      <CircularProgress
-        sx={{
-          color: (theme) => theme.palette.primary.dark,
-        }}
-      />
+      <CircularProgress />
     </Backdrop>
   );
 };
